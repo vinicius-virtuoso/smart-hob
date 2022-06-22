@@ -1,4 +1,5 @@
 import React from "react";
+import DisplayTitleRegister from "./components/DisplayTitleRegister";
 import FormRegister from "./components/FormRegister";
 
 // import Rotas from "./routes";
@@ -15,7 +16,7 @@ function App() {
   return (
     <>
       <h1>Hello</h1>
-      <FormRegister />
+      <FormRegister />      
     </>
   );
 }
