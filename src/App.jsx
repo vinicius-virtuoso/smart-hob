@@ -1,7 +1,6 @@
 import React from "react";
-import FormRegister from "./components/FormRegister";
 
-// import Rotas from "./routes";
+import Rotas from "./routes";
 
 function App() {
   // exemplo de como utilizar inputs:
@@ -14,8 +13,7 @@ function App() {
 
   return (
     <>
-      <h1>Hello</h1>
-      <FormRegister />
+      <Rotas />
     </>
   );
 }
