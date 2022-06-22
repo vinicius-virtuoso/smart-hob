@@ -1,54 +1,63 @@
-import React, { useState } from "react";
+import { forwardRef, useState } from "react";
 import { Box, Error, FormControl, Icon, Input, LabelName } from "./styles";
 import { MdVisibilityOff, MdVisibility } from "react-icons/md";
 
-const InputForm = ({ name, type, errors, ...props }) => {
+const InputForm = ({ name, label, type, errors, register, ...props }, ref) => {
   const [visibility, setVisibility] = useState(false);
   const id = name.toLowerCase();
 
   return (
     <>
-      {props.text && (
-        <FormControl errors={errors[id]}>
+      {type !== "password" && (
+        <FormControl errors={errors}>
           <LabelName
             htmlFor={id}
-            theme={props.secondary ? "secondary" : "primary"}
-            errors={errors[id]}
+            theme={props.theme || "primary"}
+            errors={errors}
           >
-            {name}
+            {label}
           </LabelName>
-          <Input type="text" id={id} errors={errors[id]} {...props} />
-          {errors[id]?.message && <Error>{errors[id].message}</Error>}
+          <Input
+            type={type}
+            id={id}
+            theme={props.theme || "primary"}
+            errors={errors}
+            {...register(name)}
+            {...props}
+          />
+          {errors?.message && <Error>{errors.message}</Error>}
         </FormControl>
       )}
-      {props.password && (
-        <FormControl errors={errors[id]}>
+      {type === "password" && (
+        <FormControl errors={errors}>
           <LabelName
             htmlFor={id}
-            theme={props.secondary ? "secondary" : "primary"}
-            errors={errors[id]}
+            theme={props.theme || "primary"}
+            errors={errors}
           >
-            {name}
+            {label}
           </LabelName>
           <Box>
             <Input
               type={visibility ? "text" : "password"}
               id={id}
-              errors={errors[id]}
+              theme={props.theme || "primary"}
+              errors={errors}
+              {...register(name)}
               {...props}
             />
             <Icon
-              theme={props.secondary ? "secondary" : "primary"}
+              theme={props.theme || "primary"}
               onClick={() => setVisibility(!visibility)}
             >
               {!visibility ? <MdVisibilityOff /> : <MdVisibility />}
             </Icon>
           </Box>
-          {errors[id]?.message && <Error>{errors[id].message}</Error>}
+          {errors?.message && <Error>{errors.message}</Error>}
         </FormControl>
       )}
     </>
   );
 };
 
-export default InputForm;
+export default forwardRef(InputForm);
