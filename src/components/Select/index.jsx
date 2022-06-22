@@ -1,11 +1,11 @@
 import { ContainerSelector } from "./styles";
 
-const SelectForm = ({ datas, label }) => {
-  datas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const SelectForm = ({ datas, label, registerName, register, ...rest }) => {
   return (
     <ContainerSelector>
       <label>{label}</label>
-      <select>
+      <select {...register(registerName)} {...rest}>
+        <option value="">Selecione</option>
         {datas.map((optionArray, index) => (
           <option value={optionArray} key={index}>
             {optionArray}

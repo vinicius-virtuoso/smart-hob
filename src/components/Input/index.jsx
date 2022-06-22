@@ -1,9 +1,9 @@
 import React from "react";
 
-export const InputForm = () => {
+export const InputForm = ({ type, name, ...rest }) => {
   return (
     <div>
-      <input type="text" name="" id="" {...register()} />
+      <input type={type} name={name} id="" {...rest} />
     </div>
   );
 };
