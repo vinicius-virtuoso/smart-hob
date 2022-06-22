@@ -36,14 +36,22 @@ const LoginForm = ({}) => {
 
   return (
 
-    <FormContainer>
-      <h3>Login</h3>
-      <InputForm type="text" {...register('email')}/>
-      {errors.email?.message}
-      <InputForm type="password" {...register('password')} />
-      {errors.password?.message}
-      <ButtonForm type="submit">Entrar</ButtonForm>
-    </FormContainer>
+    <Container>
+      <FormContainer>
+        <h3>Login</h3>
+        <InputForm type="text" {...register('email')}/>
+        {errors.email?.message}
+        <InputForm type="password" {...register('password')} />
+        {errors.password?.message}
+        <ButtonForm type="submit">Entrar</ButtonForm>
+        <p>Ainda não tem cadastro?</p>
+        <div>
+          <p>Então</p>
+          <ButtonForm>Cadastre-se</ButtonForm>
+        </div>
+      </FormContainer>
+    </Container>
+
 
   )
 
