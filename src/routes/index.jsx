@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "../auth";
-import LoginForm from "../components/LoginForm";
 import Context from "../Context";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -39,16 +40,15 @@ export default function Rotas() {
             path="/login"
             element={
               <PublicRoute redirectTo="/dashboard">
-                <h1>Login</h1>
-                <LoginForm></LoginForm>
+                <Login />
               </PublicRoute>
             }
           />
           <Route
-            path="/Cadastro"
+            path="/register"
             element={
               <PublicRoute redirectTo="/dashboard">
-                <h1>Cadastro</h1>
+                <Register />
               </PublicRoute>
             }
           />

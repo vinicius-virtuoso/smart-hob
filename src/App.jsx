@@ -1,4 +1,4 @@
-import React from "react";
+
 import InputForm from "./components/InputForm";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -7,6 +7,11 @@ import axios from "axios";
 
 import Rotas from "./routes";
 import SelectForm from "./components/SelectForm";
+
+
+import Rotas from "./routes";
+
+
 function App() {
   const formSchema = yup.object().shape({
     username: yup
@@ -51,19 +56,19 @@ function App() {
   return (
     <>
       <Rotas />
-      <InputForm
-        name="Username"
-        text
-        primary
-        errors={errors}
-        {...register("username")}
-      />
+//       <InputForm
+//         name="Username"
+//         text
+//         primary
+//         errors={errors}
+//         {...register("username")}
+//       />
 
-      <SelectForm
-        label="Teste"
-        {...register("category")}
-        datasArray={["meditação", "pintura", "teatro", "esporte"]}
-      />
+//       <SelectForm
+//         label="Teste"
+//         {...register("category")}
+//         datasArray={["meditação", "pintura", "teatro", "esporte"]}
+//       />
     </>
   );
 }
