@@ -15,17 +15,20 @@ export const LabelName = styled.label`
   top: -10px;
   background: transparent;
   padding: 0 1rem;
+  z-index: 999;
 
   ${(props) =>
-    props.theme === "login"
-      ? ` 
+    props.theme === "primary" &&
+    ` 
     background: var(--color-purple);
     color:var(--color-light);
-    `
-      : ` 
-    border-color: var(--color-dark);
-    color:var(--color-dark);
-   `}
+    `}
+  ${(props) =>
+    props.theme === "secondary" &&
+    ` 
+    background:var(--color-yellow);
+    color: var(--color-dark);
+    `}
   ${(props) =>
     props.errors &&
     ` 
@@ -50,13 +53,26 @@ export const Input = styled.input`
     ` 
     border-color: var(--color-light);
     color:var(--color-light);
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--color-purple) inset;
+  }
     `}
   ${(props) =>
     props.secondary &&
     ` 
     border-color: var(--color-dark);
     color:var(--color-dark);
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--color-yellow) inset;
    `}
+   
    ${(props) =>
     props.errors &&
     ` 
@@ -68,4 +84,38 @@ export const Input = styled.input`
 export const Error = styled.span`
   color: var(--color-negative);
   margin: 0.2rem 0;
+`;
+
+export const Box = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+`;
+
+export const Icon = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100px;
+    height: 50%;
+  }
+
+  ${(props) =>
+    props.theme === "primary" &&
+    ` 
+    color:var(--color-light);
+  }
+    `}
+  ${(props) =>
+    props.theme === "secondary" &&
+    ` 
+    color:var(--color-dark);
+   `}
 `;
