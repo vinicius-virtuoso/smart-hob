@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const ButtonForm = styled.button`
-  width: 200px;
-  height: 70px;
+  width: 100%;
+  max-width: 150px;
+  height: 50px;
   border-radius: 10px;
   font-size: 15px;
   font-family: "Poppins";
