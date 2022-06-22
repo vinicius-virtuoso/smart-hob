@@ -1,5 +1,8 @@
 import React from "react";
-import Rotas from "./routes";
+import FormRegister from "./components/FormRegister";
+
+// import Rotas from "./routes";
+
 function App() {
   // exemplo de como utilizar inputs:
   // tema primário
@@ -11,7 +14,8 @@ function App() {
 
   return (
     <>
-      <Rotas />
+      <h1>Hello</h1>
+      <FormRegister />
     </>
   );
 }
