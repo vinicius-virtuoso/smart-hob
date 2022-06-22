@@ -28,6 +28,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     body{
         font-family: sans-serif;
-       
+        background:var(--color-purple);
     }
 `;

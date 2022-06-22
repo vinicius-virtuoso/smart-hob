@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "../auth";
+import LoginForm from "../components/LoginForm";
 import Context from "../Context";
 
 const PrivateRoute = ({ children, redirectTo }) => {
@@ -39,6 +40,7 @@ export default function Rotas() {
             element={
               <PublicRoute redirectTo="/dashboard">
                 <h1>Login</h1>
+                <LoginForm></LoginForm>
               </PublicRoute>
             }
           />
