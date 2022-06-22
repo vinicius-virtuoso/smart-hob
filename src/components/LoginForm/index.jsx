@@ -22,7 +22,7 @@ const LoginForm = () => {
     },
   ];
   const schema = yup.object().shape({
-    email: yup.string().required("Campo obrigatório!"),
+    username: yup.string().required("Campo obrigatório!"),
     password: yup
       .string()
       .min(8, "Mínimo 8 dígitos")
