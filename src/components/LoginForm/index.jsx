@@ -4,15 +4,16 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputForm from '../../components/InputForm'
 import ButtonForm from '../../components/InputForm'
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 
 const LoginForm = ({}) => {
 
-  // const onSubmitFunction = (data) => {
-  //   .then((res) => {
-  //   }).catch((err) => toast.error('Email ou senha inválido') )
-  // }
+  const onSubmitFunction = (data) => {
+    
+    .then((res) => {
+    }).catch((err) => toast.error('Email ou senha inválido') )
+  }
 
   const schema = yup.object().shape({
     email: yup
