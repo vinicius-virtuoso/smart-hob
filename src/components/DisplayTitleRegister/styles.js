@@ -7,8 +7,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: flex-start;
+background: var(--bg-gradient);
 
-background: linear-gradient(103deg, rgba(73,68,168,1) 0%, rgba(135,152,220,1) 75%, rgba(172,202,251,1) 87%);
 `
 export const Header = styled.header`
 height: 150px;
