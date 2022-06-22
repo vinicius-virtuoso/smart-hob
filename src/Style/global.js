@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
+        
         --color-dark:#06283D;
         --color-purple: #4944A8;
         --color-yellow: #F9CE69;
@@ -27,6 +28,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     body{
         font-family: sans-serif;
-       
+        background:var(--color-purple);
     }
 `;
