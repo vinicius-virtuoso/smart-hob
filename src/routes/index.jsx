@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "../auth";
+import FormRegisterNew from "../components/FormRegisterNew";
+
 import LoginForm from "../components/LoginForm";
 import Context from "../Context";
 
@@ -48,7 +50,7 @@ export default function Rotas() {
             path="/Cadastro"
             element={
               <PublicRoute redirectTo="/dashboard">
-                <h1>Cadastro</h1>
+                <FormRegisterNew/>
               </PublicRoute>
             }
           />

@@ -35,7 +35,7 @@ const LoginForm = ({}) => {
 
   return (
 
-    <FormContainer onSubmit={handleSubmit(onSubmitFunction)}>
+    <FormContainer onSubmit={handleSubmit}>
       <h3>Login</h3>
       <InputForm type="text" {...register('email')}/>
       {errors.email?.message}

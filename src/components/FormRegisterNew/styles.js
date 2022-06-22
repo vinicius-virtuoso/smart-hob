@@ -7,7 +7,7 @@ background: var(--color-yellow);
 display: flex;
 flex-direction:column;
 align-items: center;
-justify-content: space-around;
+justify-content: center;
 
 `
 export const BoxOne = styled.div`
@@ -54,4 +54,13 @@ p{
 `
 
 
+export const Form = styled.form`
+height: 350px;
+width: 95%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-evenly;
 
+
+`
