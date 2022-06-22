@@ -1,16 +1,11 @@
-
-import InputForm from "./components/InputForm";
+// import InputForm from "./components/InputForm";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
+// import axios from "axios";
 
 import Rotas from "./routes";
 import SelectForm from "./components/SelectForm";
-
-
-import Rotas from "./routes";
-
 
 function App() {
   const formSchema = yup.object().shape({
@@ -46,29 +41,15 @@ function App() {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-  // exemplo de como utilizar inputs:
-  // tema primário
-  // <InputForm name="Senha" password primary errors={errors} {...register("password")}/>
-  // tema secundário
-  // <InputForm name="Username" text secondary errors={errors} {...register("username")} />
-  // <InputForm name="Senha" password secondary errors={errors} {...register("password")}/>
 
   return (
     <>
       <Rotas />
-//       <InputForm
-//         name="Username"
-//         text
-//         primary
-//         errors={errors}
-//         {...register("username")}
-//       />
-
-//       <SelectForm
-//         label="Teste"
-//         {...register("category")}
-//         datasArray={["meditação", "pintura", "teatro", "esporte"]}
-//       />
+      <SelectForm
+        label="Teste"
+        {...register("category")}
+        datasArray={["meditação", "pintura", "teatro", "esporte"]}
+      />
     </>
   );
 }
