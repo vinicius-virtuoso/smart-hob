@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import {
   AreaSelect,
   ContainerSelect,
@@ -5,12 +6,12 @@ import {
   OptionSelect,
 } from "./style";
 
-const SelectForm = ({ datasArray, label, error, ...rest }) => {
+const SelectForm = ({ datasArray, label, error, ...rest }, ref) => {
   return (
     <ContainerSelect>
-      <LabelSelect htmlFor="">{label}</LabelSelect>
+      <LabelSelect htmlFor="selectForm">{label}</LabelSelect>
       <AreaSelect name="selectForm" id="selectForm" {...rest}>
-        <OptionSelect value="">Selecione</OptionSelect>
+        <OptionSelect disabled>Selecione</OptionSelect>
         {datasArray.map((data, index) => (
           <OptionSelect key={index} value={data}>
             {data}
@@ -21,4 +22,4 @@ const SelectForm = ({ datasArray, label, error, ...rest }) => {
   );
 };
 
-export default SelectForm;
+export default forwardRef(SelectForm);
