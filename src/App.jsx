@@ -1,6 +1,5 @@
 import React from "react";
-import FormRegisterNew from "./components/FormRegisterNew";
-
+import FormNewGroup from "./components/FormNewGroup";
 
 import Rotas from "./routes";
 function App() {
@@ -15,7 +14,7 @@ function App() {
   return (
     <>
       <Rotas />
-      <FormRegisterNew />
+      <FormNewGroup />
     </>
   );
 }
