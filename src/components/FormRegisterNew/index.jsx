@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.min.css'
 import { toast } from 'react-toastify';
 import InputForm from '../InputForm';
 import { useNavigate } from 'react-router-dom';
+import { ButtonForm } from '../ButtonForm';
 
 
 const FormRegisterNew = () => {
@@ -15,9 +16,9 @@ const FormRegisterNew = () => {
     const navigate = useNavigate()
 
     const formSchema = yup.object().shape({
-        username: yup.string().required('Nome obrigatório').min(6, "Mínimo 6 caracteres."),
-        email: yup.string().email('E-mail invalido').required("E-mail obrigatório").min(10),
-        password: yup.string().required("").matches("^(?=.*[A-Z])", "Necessária 1 letra maiúscula.").matches("^(?=.*[a-z])", "Necessária 1 letra minúscula.")
+        username: yup.string().required('Nome de usuário necessária').min(6, "Mínimo 6 caracteres."),
+        email: yup.string().email('E-mail invalido').required("E-mail necessária").min(10),
+        password: yup.string().required("Senha necessária").matches("^(?=.*[A-Z])", "Necessária 1 letra maiúscula.").matches("^(?=.*[a-z])", "Necessária 1 letra minúscula.")
             .matches("^(?=.*[0-9])", "Necessária ter 1 numero").matches("^(?=.*[!#@$%&])", "Necessária 1 caractere especial").min(8, "Necessária no mínimo 8 caracteres."),
         confirmPassword: yup.string().required('Confirmação de senha necessária').oneOf([yup.ref('password')],
             'As senhas devem corresponder')
@@ -47,16 +48,17 @@ const FormRegisterNew = () => {
 
         <Container>
             <BoxOne>
-                <h3>Cadastra-se</h3>
+                <h3>Cadastre-se</h3>
             </BoxOne>
             <Form onSubmit={handleSubmit(formSubmit)}>
-                <InputForm name="Nome" text secondary errors={errors} {...register("username")} />
-                <InputForm name="email" text secondary errors={errors} {...register("email")} />
-                <InputForm name="password" password secondary errors={errors} {...register("password")} />
-                <InputForm name="confirmPassword" password secondary errors={errors} {...register("confirmPassword")} />
-                <button>
-                    <p>Cadastrar</p>
-                </button>
+                <InputForm name="username" type={"text"} theme={"secondary"} errors={errors["username"]} register={register} label="Nome de usuário" />
+                <InputForm name="email" type={"text"} theme={"secondary"} errors={errors["email"]} register={register} label="E-mail" />
+                <InputForm name="password" type={"password"} theme={"secondary"} errors={errors["password"]} register={register}  label="Senha"/>
+                <InputForm name="confirmPassword" type={"password"} theme={"secondary"} errors={errors["confirmPassword"]} register={register}  label="Confirma a Senha"/>
+                
+                <ButtonForm primary>
+                    {<p>Cadastrar</p>}
+                </ButtonForm>
             </Form>
             <BoxRegister>
                 <p>Já tem um cadastro?

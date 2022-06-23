@@ -1,7 +1,7 @@
 import React from "react";
 import DisplayTitleRegister from "../../components/DisplayTitleRegister";
 import FormRegisterNew from "../../components/FormRegisterNew";
-import { Box, PageRegister } from "./styles";
+import { Box,Box2, PageRegister } from "./styles";
 
 export default function Register() {
   return (
@@ -9,9 +9,9 @@ export default function Register() {
       <Box>
         <DisplayTitleRegister />
       </Box>
-      <Box>
+      <Box2>
         <FormRegisterNew/>
-      </Box>
+      </Box2>
     </PageRegister>
 
   );
