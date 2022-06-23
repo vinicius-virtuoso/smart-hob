@@ -64,7 +64,11 @@ const FormRegister = () => {
 
   console.log(errors);
   return (
-    <Form title="Cadastre-se" onSubmit={handleSubmit(formSubmit)}>
+    <Form
+      title="Cadastre-se"
+      theme="primary"
+      onSubmit={handleSubmit(formSubmit)}
+    >
       {listInputs.map((input) => (
         <InputForm
           key={input.name}

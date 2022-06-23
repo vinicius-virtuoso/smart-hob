@@ -1,18 +1,31 @@
-import { FormContainer } from "../LoginForm/styles";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import InputForm from "../../components/InputForm";
-import { Box } from "./styles";
+import Form from "../Form";
 // import ButtonForm from "../../components/InputForm";
 // import { toast } from "react-toastify";
 
 const LoginForm = () => {
+  const listInputs = [
+    {
+      name: "username",
+      label: "Username",
+      type: "text",
+      theme: "secondary",
+    },
+    {
+      name: "password",
+      label: "Senha",
+      type: "password",
+      theme: "secondary",
+    },
+  ];
   const schema = yup.object().shape({
-    email: yup.string().required("Campo obrigatório!"),
+    username: yup.string().required("Campo obrigatório!"),
     password: yup
       .string()
-      .min(8, "Minimo 8 digitos")
+      .min(8, "Mínimo 8 dígitos")
       .required("Campo obrigatório!"),
   });
 
@@ -29,26 +42,23 @@ const LoginForm = () => {
   };
 
   return (
-    <FormContainer onSubmit={handleSubmit(onSubmitFunction)}>
-      <h3>Login</h3>
-      <Box>
+    <Form
+      title="Login"
+      theme="secondary"
+      onSubmit={handleSubmit(onSubmitFunction)}
+    >
+      {listInputs.map((input) => (
         <InputForm
-          name="Username"
-          password
-          secondary
-          errors={errors}
-          {...register("username")}
+          key={input.name}
+          label={input.label}
+          name={input.name}
+          type={input.type}
+          theme={input.theme}
+          errors={errors[input.name]}
+          register={register}
         />
-        <InputForm
-          name="Senha"
-          password
-          secondary
-          errors={errors}
-          {...register("password")}
-        />
-      </Box>
-      <button type="submit">Entrar</button>
-    </FormContainer>
+      ))}
+    </Form>
   );
 };
 
