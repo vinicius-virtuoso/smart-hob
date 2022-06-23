@@ -50,8 +50,7 @@ const LoginForm = () => {
     <Form title="Login" theme="primary" onSubmit={handleSubmit(onSubmitFunction)}>
 
       {listInputs.map((input) => (
-
-        <InputForm
+      <InputForm
           key={input.name}
           label={input.label}
           name={input.name}
@@ -60,14 +59,10 @@ const LoginForm = () => {
           errors={errors[input.name]}
           register={register}
         />
-
-
       ))}
-
     </Form>
 
   )
 
 }
 export default LoginForm;
-
