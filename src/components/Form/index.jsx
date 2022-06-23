@@ -31,7 +31,10 @@ const Form = ({ title, theme, children, onSubmit }) => {
         ) : (
           <BoxLink primary>
             Ainda não tem o Cadastro?
-            <Link to={"/register"}>Então Cadastre-se.</Link>
+            <div>
+              <p>Então</p>
+              <Link to={"/register"}>Cadastre-se.</Link>
+            </div>
           </BoxLink>
         )}
       </ContainerForm>
