@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+import styled from "styled-components"
+
+=======
 import styled from "styled-components";
+>>>>>>> Developed
 
 export const FormContainer = styled.form`
   display: flex;
