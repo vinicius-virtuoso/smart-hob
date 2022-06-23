@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
-export const FormComponent = styled.form``;
+export const FormComponent = styled.form`
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px 0.25rem rgba(0, 0, 0, 0.2);
+`;
 
 export const Container = styled.div`
   width: 100%;
@@ -16,17 +23,25 @@ export const ContainerInputs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 `;
 export const TitleForm = styled.h3`
   font-family: var(--fml-Barlow-Condensed);
   color: var(--color-dark);
   font-size: clamp(1.5rem, 8vw, 2.5rem);
+  letter-spacing: 1px;
+
+  ${(props) =>
+    props.theme === "primary"
+      ? "color: var(--color-yellow);"
+      : "color: var(--color-dark);"}
 `;
 
 export const ContainerForm = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 `;
 
 export const Box = styled.div`
@@ -45,4 +60,36 @@ export const BoxRegister = styled.div`
   font-family: var(--fml-Poppins);
 `;
 
-export const BoxLink = styled.div``;
+export const BoxLink = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-light);
+  font-family: 'Poppins';
+ 
+
+  div {
+    display: flex;
+    p{
+      font-family: 'Poppins';
+    }
+    
+  }
+
+  a {
+    font-size: 1rem;
+    font-weight: 700;
+    padding-left: 3px;
+    font-family: 'Poppins';
+    ${(props) =>
+      props.primary
+        ? "color: var(--color-yellow);"
+        : "color: var(--color-yellow);"}
+  }
+
+
+`;
