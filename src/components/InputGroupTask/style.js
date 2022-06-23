@@ -20,6 +20,7 @@ export const LabelInput = styled.label`
   top: -15px;
   padding: 0 20px;
   background-color: var(--color-light);
+  color: var(--color-gray);
   font-family: "Barlow Condensed", sans-serif;
 `;
 
