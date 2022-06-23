@@ -62,21 +62,4 @@ const LoginForm = () => {
   );
 };
 
-<<<<<<< HEAD
-    <FormContainer onSubmit={handleSubmit}>
-      <h3>Login</h3>
-      <InputForm type="text" {...register('email')}/>
-      {errors.email?.message}
-      <InputForm type="password" {...register('password')} />
-      {errors.password?.message}
-      <ButtonForm type="submit">Entrar</ButtonForm>
-    </FormContainer>
-
-  )
-
-}
-
-export default LoginForm
-=======
 export default LoginForm;
->>>>>>> Developed
