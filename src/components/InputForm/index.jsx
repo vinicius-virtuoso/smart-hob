@@ -2,7 +2,7 @@ import { forwardRef, useState } from "react";
 import { Box, Error, FormControl, Icon, Input, LabelName } from "./styles";
 import { MdVisibilityOff, MdVisibility } from "react-icons/md";
 
-const InputForm = ({ name, label, type, errors, register, ...props }, ref) => {
+const InputForm = ({ name, label, type, errors, register, ...rest }, ref) => {
   const [visibility, setVisibility] = useState(false);
   const id = name.toLowerCase();
 
@@ -12,7 +12,7 @@ const InputForm = ({ name, label, type, errors, register, ...props }, ref) => {
         <FormControl errors={errors}>
           <LabelName
             htmlFor={id}
-            theme={props.theme || "primary"}
+            theme={rest.theme || "primary"}
             errors={errors}
           >
             {label}
@@ -20,10 +20,10 @@ const InputForm = ({ name, label, type, errors, register, ...props }, ref) => {
           <Input
             type={type}
             id={id}
-            theme={props.theme || "primary"}
+            theme={rest.theme || "primary"}
             errors={errors}
             {...register(name)}
-            {...props}
+            {...rest}
           />
           {errors?.message && <Error>{errors.message}</Error>}
         </FormControl>
@@ -32,7 +32,7 @@ const InputForm = ({ name, label, type, errors, register, ...props }, ref) => {
         <FormControl errors={errors}>
           <LabelName
             htmlFor={id}
-            theme={props.theme || "primary"}
+            theme={rest.theme || "primary"}
             errors={errors}
           >
             {label}
@@ -41,13 +41,13 @@ const InputForm = ({ name, label, type, errors, register, ...props }, ref) => {
             <Input
               type={visibility ? "text" : "password"}
               id={id}
-              theme={props.theme || "primary"}
+              theme={rest.theme || "primary"}
               errors={errors}
               {...register(name)}
-              {...props}
+              {...rest}
             />
             <Icon
-              theme={props.theme || "primary"}
+              theme={rest.theme || "primary"}
               onClick={() => setVisibility(!visibility)}
             >
               {!visibility ? <MdVisibilityOff /> : <MdVisibility />}

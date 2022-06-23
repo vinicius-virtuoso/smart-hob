@@ -1,6 +1,12 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "../auth";
+<<<<<<< HEAD
+import FormRegisterNew from "../components/FormRegisterNew";
+
+import LoginForm from "../components/LoginForm";
+=======
+>>>>>>> Developed
 import Context from "../Context";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -48,7 +54,11 @@ export default function Rotas() {
             path="/register"
             element={
               <PublicRoute redirectTo="/dashboard">
+<<<<<<< HEAD
+                <FormRegisterNew/>
+=======
                 <Register />
+>>>>>>> Developed
               </PublicRoute>
             }
           />

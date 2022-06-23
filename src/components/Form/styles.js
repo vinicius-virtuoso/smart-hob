@@ -42,6 +42,7 @@ export const ContainerForm = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  align-items: center;
 `;
 
 export const Box = styled.div`

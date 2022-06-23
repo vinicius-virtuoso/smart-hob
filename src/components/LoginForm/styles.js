@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+import styled from "styled-components"
+
+=======
 import styled from "styled-components";
+>>>>>>> Developed
 
 export const FormContainer = styled.form`
   display: flex;
@@ -9,8 +14,10 @@ export const FormContainer = styled.form`
   }
 `;
 
+
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 `;
+
