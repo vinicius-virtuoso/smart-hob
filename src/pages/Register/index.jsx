@@ -1,12 +1,18 @@
 import React from "react";
-import FormRegister from "../../components/FormRegister";
+import DisplayTitleRegister from "../../components/DisplayTitleRegister";
+import FormRegisterNew from "../../components/FormRegisterNew";
 import { Box, PageRegister } from "./styles";
 
 export default function Register() {
   return (
     <PageRegister>
-      <Box>{/* ...img */}</Box>
-      <FormRegister />
+      <Box>
+        <DisplayTitleRegister />
+      </Box>
+      <Box>
+        <FormRegisterNew/>
+      </Box>
     </PageRegister>
+
   );
 }

@@ -51,17 +51,16 @@ const FormRegisterNew = () => {
             </BoxOne>
             <Form onSubmit={handleSubmit(formSubmit)}>
                 <InputForm name="Nome" text secondary errors={errors} {...register("username")} />
-                <InputForm name="email" text secondary errors={errors} {...register("email")}/>
+                <InputForm name="email" text secondary errors={errors} {...register("email")} />
                 <InputForm name="password" password secondary errors={errors} {...register("password")} />
                 <InputForm name="confirmPassword" password secondary errors={errors} {...register("confirmPassword")} />
-                
                 <button>
                     <p>Cadastrar</p>
                 </button>
             </Form>
             <BoxRegister>
                 <p>Já tem um cadastro?
-                    <button onClick={()=> navigate("/login")}>
+                    <button onClick={() => navigate("/login")}>
                         Faça seu
                         <span> Login</span>
                     </button>
