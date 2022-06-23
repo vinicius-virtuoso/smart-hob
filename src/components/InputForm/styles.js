@@ -7,6 +7,28 @@ export const FormControl = styled.div`
   border-radius: 1rem;
   max-width: 400px;
   position: relative;
+
+  @keyframes shake {
+    25% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  ${(props) =>
+    props.errors
+      ? `
+    animation: shake 0.2s ease forwards;
+   `
+      : `animation:none;`}
 `;
 
 export const LabelName = styled.label`
@@ -32,6 +54,7 @@ export const LabelName = styled.label`
   ${(props) =>
     props.errors &&
     ` 
+    border-color:var(--color-negative);
     color:var(--color-negative);
    `}
 `;
@@ -41,49 +64,63 @@ export const Input = styled.input`
   display: flex;
   height: 3rem;
   border-radius: 1rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 50px 0.5rem 1.5rem;
   font-size: 1rem;
   border-width: 2px;
   border-style: solid;
   background: transparent;
   outline: none;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  z-index: 998;
 
   ${(props) =>
-    props.primary &&
+    props.theme === "secondary" &&
     ` 
-    border-color: var(--color-light);
-    color:var(--color-light);
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px var(--color-purple) inset;
-  }
-    `}
-  ${(props) =>
-    props.secondary &&
-    ` 
-    border-color: var(--color-dark);
-    color:var(--color-dark);
+      border-color: var(--color-dark);
+      color:var(--color-dark);
 
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px var(--color-yellow) inset;
-   `}
-   
-   ${(props) =>
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px var(--color-yellow) inset;
+        color:var(--color-dark);
+      }
+   `};
+
+  ${(props) =>
+    props.theme === "primary" &&
+    ` 
+      border-color: var(--color-light);
+      color:var(--color-light);
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px var(--color-purple) inset;
+        -webkit-text-fill-color: var(--color-light);
+      }
+    `};
+
+  ${(props) =>
     props.errors &&
-    ` 
-    border-color: var(--color-negative);
-    color:var(--color-negative);
-   `}
+    "border-color: var(--color-negative);color:var(--color-negative);"}
 `;
 
 export const Error = styled.span`
   color: var(--color-negative);
   margin: 0.2rem 0;
+  opacity: 0;
+  transform: scale(0);
+  animation: fadeIn 0.2s ease forwards;
+
+  @keyframes fadeIn {
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 `;
 
 export const Box = styled.div`
@@ -94,28 +131,32 @@ export const Box = styled.div`
 
 export const Icon = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
   width: 50px;
-  height: 100%;
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 1rem;
 
   svg {
-    width: 100px;
-    height: 50%;
+    width: 100%;
+    height: 25px;
   }
 
   ${(props) =>
     props.theme === "primary" &&
     ` 
     color:var(--color-light);
+    background:var(--color-purple);
   }
     `}
   ${(props) =>
     props.theme === "secondary" &&
     ` 
     color:var(--color-dark);
+    background:var(--color-yellow);
    `}
 `;
