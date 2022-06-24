@@ -63,34 +63,30 @@ export const BoxRegister = styled.div`
 
 export const BoxLink = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.2rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
   color: var(--color-light);
-  font-family: 'Poppins';
- 
+  font-family: var(--fml-Poppins);
+  font-size: 0.875rem;
+  flex-wrap: wrap;
 
   div {
     display: flex;
-    p{
-      font-family: 'Poppins';
+    p {
+      font-family: "Poppins";
     }
-    
   }
 
   a {
-    font-size: 1rem;
     font-weight: 700;
     padding-left: 3px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     ${(props) =>
       props.primary
         ? "color: var(--color-yellow);"
         : "color: var(--color-yellow);"}
   }
-
-
 `;
