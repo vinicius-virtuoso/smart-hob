@@ -2,6 +2,7 @@ import { forwardRef, useState } from "react";
 import { Box, Error, FormControl, Icon, Input, LabelName } from "./styles";
 import { MdVisibilityOff, MdVisibility } from "react-icons/md";
 
+
 const InputForm = ({ name, label, type, errors, register, ...rest }, ref) => {
   const [visibility, setVisibility] = useState(false);
   const id = name.toLowerCase();
