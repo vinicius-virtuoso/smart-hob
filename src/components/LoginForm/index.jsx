@@ -7,27 +7,31 @@ import Form from "../Form";
 // import { toast } from "react-toastify";
 
 const LoginForm = () => {
-  const listInputs = [
+
+  const listInputs = 
+  [
     {
       name: "username",
       label: "Username",
       type: "text",
-      theme: "secondary",
+      theme: "primary",
     },
     {
       name: "password",
       label: "Senha",
       type: "password",
-      theme: "secondary",
+      theme: "primary",
     },
-  ];
+  ]
+  
   const schema = yup.object().shape({
-    email: yup.string().required("Campo obrigatório!"),
+    username: yup.string().required("Campo obrigatório!"),
     password: yup
       .string()
       .min(8, "Mínimo 8 dígitos")
       .required("Campo obrigatório!"),
-  });
+
+  })
 
   const {
     register,
@@ -35,20 +39,18 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-  });
+  })
 
   const onSubmitFunction = (data) => {
-    console.log(data);
-  };
+    console.log(data)
+  }
 
   return (
-    <Form
-      title="Login"
-      theme="secondary"
-      onSubmit={handleSubmit(onSubmitFunction)}
-    >
+    
+    <Form title="Login" theme="primary" onSubmit={handleSubmit(onSubmitFunction)}>
+
       {listInputs.map((input) => (
-        <InputForm
+      <InputForm
           key={input.name}
           label={input.label}
           name={input.name}
