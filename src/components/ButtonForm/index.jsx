@@ -1,13 +1,31 @@
 import React from "react";
 import { ButtonForm as ButtonFormCont } from "./styles";
 
-const ButtonForm = () => {
+export const ButtonForm = ({
+  primary,
+  secondary,
+  tertiary,
+  type,
+  children,
+}) => {
   return (
-    <div>
-      <ButtonFormCont primary></ButtonFormCont>
-      <ButtonFormCont secondary></ButtonFormCont>
-      <ButtonFormCont tertiary></ButtonFormCont>
-    </div>
+    <>
+      {primary && (
+        <ButtonFormCont type={type} primary>
+          {children}
+        </ButtonFormCont>
+      )}
+      {secondary && (
+        <ButtonFormCont type={type} secondary>
+          {children}
+        </ButtonFormCont>
+      )}
+      {tertiary && (
+        <ButtonFormCont type={type} tertiary>
+          {children}
+        </ButtonFormCont>
+      )}
+    </>
   );
 };
 

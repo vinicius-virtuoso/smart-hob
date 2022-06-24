@@ -1,5 +1,6 @@
 import * as yup from "yup";
 import InputGroupTask from "../InputGroupTask";
+import ButtonForm from "../ButtonForm";
 import SelectForm from "../SelectForm";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -19,19 +20,15 @@ const FormNewGroup = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  // const { newGroup } = useNewGroup();
+  const { newGroup } = useNewGroup();
 
   const onNewGroup = (data) => {
     console.log(data);
-    // newGroup(data);
+    newGroup(data);
   };
 
   return (
     <div>
-      <HeaderForm>
-        <h3>Novo grupo</h3>
-      </HeaderForm>
-
       <ContainerForm>
         <BoxForm>
           <form onSubmit={handleSubmit(onNewGroup)}>
@@ -73,9 +70,9 @@ const FormNewGroup = () => {
               ]}
             />
 
-            {/* <ButtonForm primary text="Entrar" /> */}
-
-            <button type="submit">Salvar</button>
+            <ButtonForm type="submit" primary>
+              Salvar
+            </ButtonForm>
           </form>
         </BoxForm>
       </ContainerForm>
