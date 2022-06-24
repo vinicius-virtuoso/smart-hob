@@ -9,7 +9,10 @@ export const ContainerInput = styled.div`
   border-radius: 1rem;
   max-width: 400px;
   width: 400px;
-  border: 1px solid var(--color-gray);
+  border: ${(props) =>
+    props.erro === true
+      ? "1px solid var(--color-negative)"
+      : "1px solid var(--color-gray)"};
   padding: 0.5rem 1rem;
   margin: 10px 0;
   font-family: "Barlow Condensed", sans-serif;
@@ -20,7 +23,8 @@ export const LabelInput = styled.label`
   top: -15px;
   padding: 0 20px;
   background-color: var(--color-light);
-  color: var(--color-gray);
+  color: ${(props) =>
+    props.erro === true ? "var(--color-negative)" : "var(--color-gray)"};
   font-family: "Barlow Condensed", sans-serif;
 `;
 
@@ -32,6 +36,12 @@ export const AreaInput = styled.input`
   border: none;
   padding: 10px;
   border-radius: 10px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1rem;
+`;
+
+export const MessageErro = styled.p`
+  color: var(--color-negative);
   font-family: "Barlow Condensed", sans-serif;
   font-size: 1rem;
 `;

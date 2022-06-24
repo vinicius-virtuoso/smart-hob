@@ -13,16 +13,16 @@ export const ButtonForm = styled.button`
   line-height: 30px;
   border: none;
   cursor: pointer;
-  transition:all .2s ease;
+  transition: all 0.2s ease;
 
-    ${(props) =>
+  ${(props) =>
     props.primary &&
     `
     background-color: var(--color-light);
     color: var(--color-dark);
     `}
 
-    ${(props) =>
+  ${(props) =>
     props.secondary &&
     `
     background-color: var(--color-dark);
@@ -38,27 +38,26 @@ export const ButtonForm = styled.button`
 
   &:hover {
     ${(props) =>
-    props.primary &&
-    `
+      props.primary &&
+      `
     background-color: var(--color-dark);
     color: var(--color-light);
     `}
 
     ${(props) =>
-    props.secondary &&
-    `
+      props.secondary &&
+      `
     background-color: var(--color-light);
     color: var(--color-dark);
     border: solid 2px var(--color-dark)
     `}
 
     ${(props) =>
-    props.tertiary &&
-    `
+      props.tertiary &&
+      `
     background-color: white;
     color: var(--color-yellow);
     border: solid 2px var(--color-yellow)
     `}
-
   }
 `;

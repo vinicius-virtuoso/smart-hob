@@ -1,12 +1,14 @@
 import React from "react";
 import { ButtonForm as ButtonFormCont } from "./styles";
 
-export const ButtonForm = () => {
+const ButtonForm = () => {
   return (
     <div>
-      <ButtonFormCont primary>Cadastre-se</ButtonFormCont>
-      <ButtonFormCont secondary>Login</ButtonFormCont>
-      <ButtonFormCont tertiary>Entrar</ButtonFormCont>
+      <ButtonFormCont primary></ButtonFormCont>
+      <ButtonFormCont secondary></ButtonFormCont>
+      <ButtonFormCont tertiary></ButtonFormCont>
     </div>
   );
 };
+
+export default ButtonForm;
