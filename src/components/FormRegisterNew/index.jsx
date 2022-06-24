@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Container, BoxOne, BoxRegister, Form } from "./styles";
 import api from "../../services/api";
-import "react-toastify/dist/ReactToastify.min.css";
 import { toast } from "react-toastify";
 import InputForm from "../InputForm";
 import { useNavigate } from "react-router-dom";
@@ -104,10 +103,7 @@ const FormRegisterNew = () => {
       <BoxRegister>
         <p>
           Já tem um cadastro?
-          <button onClick={() => navigate("/login")}>
-            Faça seu
-            <span> Login</span>
-          </button>
+          <button onClick={() => navigate("/login")}>Faça seu Login</button>
         </p>
       </BoxRegister>
     </Container>
