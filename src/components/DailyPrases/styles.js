@@ -31,17 +31,35 @@ export const BoxPhrases = styled.div`
     color: var(--color-gray);
   }
 
-  button{
+  button {
     top: 10px;
     right: 10px;
     display: flex;
     font-size: 30px;
-    background-color: none;
+    background-color: transparent;
     border: none;
     color: var(--color-gray);
     position: absolute;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
+  }
+
+  ${(props) =>
+    props.isOpen
+      ? "display: flex;"
+      : "animation: close .3s ease forwards; display:none;"}
+
+  @keyframes close {
+    0% {
+      opacity: 1;
+      height: 100%;
+    }
+
+    100% {
+      opacity: 0;
+      height: 100%;
+      overflow: hidden;
+    }
   }
 `;
