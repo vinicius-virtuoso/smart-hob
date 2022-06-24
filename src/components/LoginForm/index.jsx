@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const LoginForm = () => {
- 
   const navigate = useNavigate();
 
   const listInputs = [
@@ -51,7 +50,7 @@ const LoginForm = () => {
       })
       .catch((err) => {
         toast.error("Usuário ou senha está incorreto.", {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.TOP_LEFT,
         });
       });
   };
@@ -76,6 +75,5 @@ const LoginForm = () => {
     </Form>
   );
 };
-
 
 export default LoginForm;
