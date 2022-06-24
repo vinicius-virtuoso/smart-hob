@@ -3,13 +3,15 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import InputForm from "../../components/InputForm";
 import Form from "../Form";
-// import ButtonForm from "../../components/InputForm";
-// import { toast } from "react-toastify";
+import { api_habits } from "../../services/api";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
+  // const { decode_token, user } = useContext(UserContext);
+  const navigate = useNavigate();
 
-  const listInputs = 
-  [
+  const listInputs = [
     {
       name: "username",
       label: "Username",
@@ -22,16 +24,15 @@ const LoginForm = () => {
       type: "password",
       theme: "primary",
     },
-  ]
-  
+  ];
+
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório!"),
     password: yup
       .string()
       .min(8, "Mínimo 8 dígitos")
       .required("Campo obrigatório!"),
-
-  })
+  });
 
   const {
     register,
@@ -39,18 +40,30 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-  })
+  });
 
   const onSubmitFunction = (data) => {
-    console.log(data)
-  }
+    api_habits
+      .post("/sessions/", data)
+      .then(({ data }) => {
+        window.localStorage.setItem("@Smart-hob/token", data.access);
+        navigate("/dashboard");
+      })
+      .catch((err) => {
+        toast.error("Usuário ou senha está incorreto.", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      });
+  };
 
   return (
-    
-    <Form title="Login" theme="primary" onSubmit={handleSubmit(onSubmitFunction)}>
-
+    <Form
+      title="Login"
+      theme="primary"
+      onSubmit={handleSubmit(onSubmitFunction)}
+    >
       {listInputs.map((input) => (
-      <InputForm
+        <InputForm
           key={input.name}
           label={input.label}
           name={input.name}

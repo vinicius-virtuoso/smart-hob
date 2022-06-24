@@ -2,7 +2,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Container, BoxOne, BoxRegister, Form } from "./styles";
-import api from "../../services/api";
+import { api_habits } from "../../services/api";
 import { toast } from "react-toastify";
 import InputForm from "../InputForm";
 import { useNavigate } from "react-router-dom";
@@ -45,13 +45,14 @@ const FormRegisterNew = () => {
   });
   const formSubmit = ({ username, email, password }) => {
     const user = { username, email, password };
-    api
+    api_habits
       .post(`users/`, user)
-      .then((res) => {
+      .then((_) => {
+        toast.success("Cadastro realizado co sucesso!");
         navigate("/login");
       })
-      .catch((err) => {
-        toast.error("Usuário já existente", {
+      .catch((_) => {
+        toast.error("Nome de usuário já existente", {
           position: toast.POSITION.TOP_RIGHT,
         });
       });

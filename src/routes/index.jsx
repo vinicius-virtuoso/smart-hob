@@ -1,18 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { AuthContext } from "../auth";
+import { isAuthenticated } from "../auth";
 import Context from "../Context";
+import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 
 const PrivateRoute = ({ children, redirectTo }) => {
-  const { isAuthenticated } = useContext(AuthContext);
-  return isAuthenticated ? children : <Navigate to={redirectTo} />;
+  return isAuthenticated() ? children : <Navigate to={redirectTo} />;
 };
 
 const PublicRoute = ({ children, redirectTo }) => {
-  const { isAuthenticated } = useContext(AuthContext);
-  return !isAuthenticated ? children : <Navigate to={redirectTo} />;
+  return !isAuthenticated() ? children : <Navigate to={redirectTo} />;
 };
 
 export default function Rotas() {
@@ -24,7 +23,7 @@ export default function Rotas() {
             path="/dashboard"
             element={
               <PrivateRoute redirectTo="/login">
-                <h1>dashboard</h1>
+                <Dashboard />
               </PrivateRoute>
             }
           />
