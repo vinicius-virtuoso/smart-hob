@@ -1,4 +1,5 @@
 import React from "react";
+import { DailyPhrases } from "./components/DailyPrases";
 import Rotas from "./routes";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+    <DailyPhrases/>
       <Rotas />
     </>
   );

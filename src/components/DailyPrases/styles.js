@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const BoxPhrases = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -28,5 +29,19 @@ export const BoxPhrases = styled.div`
     line-height: 36px;
     text-align: center;
     color: var(--color-gray);
+  }
+
+  button{
+    top: 10px;
+    right: 10px;
+    display: flex;
+    font-size: 30px;
+    background-color: none;
+    border: none;
+    color: var(--color-gray);
+    position: absolute;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
   }
 `;
