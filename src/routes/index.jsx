@@ -2,8 +2,10 @@ import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { isAuthenticated } from "../auth";
 import Context from "../Context";
-import Dashboard from "../pages/Dashboard";
+
+
 import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
 import Register from "../pages/Register";
 
 const PrivateRoute = ({ children, redirectTo }) => {
@@ -31,7 +33,7 @@ export default function Rotas() {
             path="/"
             element={
               <PublicRoute redirectTo="/dashboard">
-                <h1>Home</h1>
+                <Index/>
               </PublicRoute>
             }
           />
