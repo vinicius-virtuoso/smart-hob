@@ -3,10 +3,16 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import InputForm from "../../components/InputForm";
 import Form from "../Form";
-// import ButtonForm from "../../components/InputForm";
-// import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.min.css'
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import api from '../../services/api'
+
+
 
 const LoginForm = () => {
+
+  const navigate = useNavigate()
 
   const listInputs = 
   [
@@ -35,6 +41,7 @@ const LoginForm = () => {
 
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -42,7 +49,17 @@ const LoginForm = () => {
   })
 
   const onSubmitFunction = (data) => {
-    console.log(data)
+    api.post('/sessions/', data)
+    .then((data) => {
+      const access = data.data.access
+      localStorage.setItem("@Smart-hob/token", JSON.stringify(access))
+      return navigate("/home")
+    }).catch((err) => {
+      toast.error("Email ou senha inválido", {
+        position: toast.POSITION.TOP_LEFT
+      })
+    })
+    reset()
   }
 
   return (
