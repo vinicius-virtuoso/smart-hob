@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const LoginForm = () => {
-  // const { decode_token, user } = useContext(UserContext);
+ 
   const navigate = useNavigate();
 
   const listInputs = [
@@ -76,5 +76,6 @@ const LoginForm = () => {
     </Form>
   );
 };
+
 
 export default LoginForm;
