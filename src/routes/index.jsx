@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "../auth";
 import Context from "../Context";
+import Index from "../pages/Index";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 
@@ -32,7 +33,7 @@ export default function Rotas() {
             path="/"
             element={
               <PublicRoute redirectTo="/dashboard">
-                <h1>Home</h1>
+                <Index/>
               </PublicRoute>
             }
           />
