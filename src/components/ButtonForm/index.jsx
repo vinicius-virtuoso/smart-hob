@@ -7,21 +7,22 @@ export const ButtonForm = ({
   tertiary,
   type,
   children,
+  onClick,
 }) => {
   return (
     <>
       {primary && (
-        <ButtonFormCont type={type} primary>
+        <ButtonFormCont type={type} primary onClick={onClick}>
           {children}
         </ButtonFormCont>
       )}
       {secondary && (
-        <ButtonFormCont type={type} secondary>
+        <ButtonFormCont type={type} secondary onClick={onClick}>
           {children}
         </ButtonFormCont>
       )}
       {tertiary && (
-        <ButtonFormCont type={type} tertiary>
+        <ButtonFormCont type={type} tertiary onClick={onClick}>
           {children}
         </ButtonFormCont>
       )}

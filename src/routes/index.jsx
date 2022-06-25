@@ -1,19 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { AuthContext } from "../auth";
+import { isAuthenticated } from "../auth";
 import Context from "../Context";
 import Login from "../pages/Login";
 import PageNewGroup from "../pages/NewGroup";
 import Register from "../pages/Register";
+import Dashboard from "../pages/Dashboard";
+import Index from "../pages/Index";
 
 const PrivateRoute = ({ children, redirectTo }) => {
-  const { isAuthenticated } = useContext(AuthContext);
-  return isAuthenticated ? children : <Navigate to={redirectTo} />;
+  return isAuthenticated() ? children : <Navigate to={redirectTo} />;
 };
 
 const PublicRoute = ({ children, redirectTo }) => {
-  const { isAuthenticated } = useContext(AuthContext);
-  return !isAuthenticated ? children : <Navigate to={redirectTo} />;
+  return !isAuthenticated() ? children : <Navigate to={redirectTo} />;
 };
 
 export default function Rotas() {
@@ -25,7 +25,7 @@ export default function Rotas() {
             path="/dashboard"
             element={
               <PrivateRoute redirectTo="/login">
-                <h1>dashboard</h1>
+                <Dashboard />
               </PrivateRoute>
             }
           />
@@ -33,7 +33,7 @@ export default function Rotas() {
             path="/"
             element={
               <PublicRoute redirectTo="/dashboard">
-                <h1>Home</h1>
+                <Index />
               </PublicRoute>
             }
           />
@@ -53,6 +53,8 @@ export default function Rotas() {
               </PublicRoute>
             }
           />
+          {/* Mudar para privada */}
+          <Route path="/new-groups" element={<PageNewGroup />} />
           <Route
             path="*"
             element={
@@ -69,7 +71,6 @@ export default function Rotas() {
               </PrivateRoute>
             }
           />
-          <Route path="/new-groups" element={<PageNewGroup />} />
         </Routes>
       </BrowserRouter>
     </Context>

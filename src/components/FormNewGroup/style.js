@@ -19,5 +19,12 @@ export const BoxForm = styled.div`
   background-color: var(--color-light);
   display: flex;
   justify-content: center;
+  align-items: center;
   border-radius: 10px;
+`;
+
+export const FormNG = styled.form`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

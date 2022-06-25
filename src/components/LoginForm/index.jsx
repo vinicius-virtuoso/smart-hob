@@ -3,10 +3,14 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import InputForm from "../../components/InputForm";
 import Form from "../Form";
-// import ButtonForm from "../../components/InputForm";
-// import { toast } from "react-toastify";
+import { api_habits } from "../../services/api";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
+  // const { decode_token, user } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const listInputs = [
     {
       name: "username",
@@ -40,6 +44,17 @@ const LoginForm = () => {
 
   const onSubmitFunction = (data) => {
     console.log(data);
+    api_habits
+      .post("/sessions/", data)
+      .then(({ data }) => {
+        window.localStorage.setItem("@Smart-hob/token", data.access);
+        navigate("/dashboard");
+      })
+      .catch((err) => {
+        toast.error("Usuário ou senha está incorreto.", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      });
   };
 
   return (

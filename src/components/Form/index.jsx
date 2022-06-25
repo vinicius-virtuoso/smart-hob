@@ -30,7 +30,7 @@ const Form = ({ title, theme, children, onSubmit }) => {
           </BoxLink>
         ) : (
           <BoxLink primary>
-            Ainda não tem o Cadastro?
+            Não possui uma conta?
             <div>
               <p>Então</p>
               <Link to={"/register"}>Cadastre-se.</Link>

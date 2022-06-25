@@ -4,7 +4,7 @@ import ButtonForm from "../ButtonForm";
 import SelectForm from "../SelectForm";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { BoxForm, ContainerForm, HeaderForm } from "./style";
+import { BoxForm, ContainerForm } from "./style";
 import { useNewGroup } from "../../Context/NewGroup";
 
 const FormNewGroup = () => {
@@ -23,7 +23,6 @@ const FormNewGroup = () => {
   const { newGroup } = useNewGroup();
 
   const onNewGroup = (data) => {
-    console.log(data);
     newGroup(data);
   };
 

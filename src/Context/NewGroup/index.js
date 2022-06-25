@@ -1,13 +1,24 @@
-import { createContext, useContext } from "react";
-import api from "../../services/api";
+import { createContext, useContext, useState } from "react";
+import { api_habits } from "../../services/api";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export const NewGroupContext = createContext();
 
 export const NewGroupProvider = ({ children }) => {
+  const [token] = useState(localStorage.getItem("@Smart-hob/token") || "");
+
   const newGroup = (data) => {
-    api
-      .post("groups/", data)
-      .then((res) => console.log(res))
+    api_habits
+      .post("groups/", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        toast.success("Novo grupo adicionado");
+        // redirecionar para dashboard
+      })
       .catch((err) => console.log(err));
   };
 

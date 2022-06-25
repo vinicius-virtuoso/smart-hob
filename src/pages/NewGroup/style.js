@@ -25,12 +25,12 @@ export const HeaderForm = styled.div`
   align-items: center;
 
   img {
-    width: 30%;
-    height: 50vh;
+    width: 20%;
+    height: 30vh;
   }
 
   h3 {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(1.5rem, 5vw, 2rem);
     color: var(--color-dark);
   }
 `;
