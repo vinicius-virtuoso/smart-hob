@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import SelectForm from "../../components/SelectForm";
 
 function Dashboard() {
   const navigate = useNavigate();
   return (
     <div>
-      <h1>Dashboard</h1>
       <button
         onClick={() => {
           localStorage.clear();
