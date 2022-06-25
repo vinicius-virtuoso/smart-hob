@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
     if (token) {
       let { user_id } = jwt_decode(token);
       api_habits.get(`/users/${user_id}/`).then(({ data }) => {
-        setUser({ ...data });
+        setUser({ token, ...data });
       });
     }
   }, [token]);
