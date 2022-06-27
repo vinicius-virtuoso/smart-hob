@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { DailyPhrases } from "../../components/DailyPrases";
+import { WelcomeLayout } from "../../components/WelcomeUserDisplay";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -14,6 +16,8 @@ function Dashboard() {
       >
         Sair
       </button>
+      <WelcomeLayout/>
+      <DailyPhrases/>
     </div>
   );
 }
