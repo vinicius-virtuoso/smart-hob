@@ -7,9 +7,9 @@ const CardGroups = () => {
 
     <Container>
       <TextDiv>
-        <h4>Group Name</h4>
-        <h5>Group Type</h5>
-        <h6>Group Description</h6>
+        <h3>Group Name</h3>
+        <span>Group Type</span>
+        <p>Group Description</p>
       </TextDiv>
       <ButtomDiv>
         <ButtonForm primary>Seguir</ButtonForm>

@@ -23,17 +23,17 @@ export const TextDiv = styled.div`
   flex-direction: column;
   justify-content: space-around;
 
-  h4 {
+  h3 {
     font-family: 'Barlow';
     font-size: clamp(0.5rem, 20vw, 0.9rem);
   }
 
-  h5 {
+  span {
     font-family: 'Barlow';
     font-size: clamp(0.5rem, 20vw, 0.7rem);
   }
 
-  h6 {
+  p {
     font-family: 'Barlow';
     font-size: clamp(0.5rem, 20vw, 0.5rem);
   }
