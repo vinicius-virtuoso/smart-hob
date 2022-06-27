@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-yellow: #F9CE69;
         --color-light: #E8E8E8;
         --color-gray: #7B7171;
+        --color-gray-50: #CACACA;
         --color-negative: #E42B2B;
         --color-lightblue: #E8E8E8;
         --bg-gradient: linear-gradient(81.53deg, #4944A8 0%, #8798DC 37.8%, #ACCAFB 93.14%);
