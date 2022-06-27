@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { isAuthenticated } from "../auth";
 import Context from "../Context";
 
-
+import Index from "../pages/Index";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Register from "../pages/Register";
+import MenuHamb from "../components/MenuHamb";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -17,6 +18,13 @@ const PublicRoute = ({ children, redirectTo }) => {
 };
 
 export default function Rotas() {
+  // const arr = [
+  //   {text: "cadastro", link:"/register"},
+  //   {text: "index", link:"/"},
+  //   {text: "login", link:"/login"}
+    
+  // ]; 
+
   return (
     <Context>
       <BrowserRouter>
@@ -32,7 +40,7 @@ export default function Rotas() {
           <Route
             path="/"
             element={
-              <PublicRoute redirectTo="/dashboard">
+              <PublicRoute redirectTo="/dashboard">                
                 <Index/>
               </PublicRoute>
             }
