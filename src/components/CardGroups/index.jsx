@@ -2,9 +2,7 @@ import { ButtonForm } from "../ButtonForm";
 import { Container, TextDiv, ButtomDiv } from "./styles";
 
 const CardGroups = () => {
-
   return (
-
     <Container>
       <TextDiv>
         <h3>Group Name</h3>
@@ -15,9 +13,7 @@ const CardGroups = () => {
         <ButtonForm primary>Seguir</ButtonForm>
       </ButtomDiv>
     </Container>
-
   );
-
 };
 
 export default CardGroups;
