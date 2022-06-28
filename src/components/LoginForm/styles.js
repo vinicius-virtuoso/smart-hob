@@ -7,6 +7,7 @@ export const FormContainer = styled.form`
   h3 {
     font-size: clamp(1.5rem, 8vw, 2.5rem);
   }
+
 `;
 
 

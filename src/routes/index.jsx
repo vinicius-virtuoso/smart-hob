@@ -9,7 +9,6 @@ import Dashboard from "../pages/Dashboard";
 import Register from "../pages/Register";
 import Index from "../pages/Index";
 
-
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
 };
