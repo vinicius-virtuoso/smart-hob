@@ -10,8 +10,7 @@ export const Container = styled.div`
   background-color: var(--color-card-groups-background);
   border-radius: 5px;
   padding: 10px 20px 10px 40px;
-
-
+ 
 
 `
 
@@ -57,6 +56,12 @@ export const ButtomDiv = styled.div`
     height: 35px;
     min-height: 0;
     font-weight: bold;
+    transition: none;
+    :hover {
+      
+      background-color: var(--color-dark);
+      color: var(--color-light);
+    }
   }
 
 
