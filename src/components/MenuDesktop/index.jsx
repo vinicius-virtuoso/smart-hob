@@ -21,7 +21,7 @@ const MenuDesktop = ({ arr }) => {
           return (
             <li key={index}>
               <Button onClick={navigate(link)}>
-                {<p>{icon}</p>}
+                {icon && <p>{icon}</p>}
                 <p>{text}</p>
               </Button>
             </li>
