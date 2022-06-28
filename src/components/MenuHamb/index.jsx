@@ -1,5 +1,5 @@
-import { Nav, Div , Section, Li } from "./styles"
-import {NavLink } from "react-router-dom"
+import { Nav, Div, Section, Li } from "./styles"
+import { NavLink } from "react-router-dom"
 
 const MenuHamb = ({ text }) => {
     return (
@@ -15,9 +15,9 @@ const MenuHamb = ({ text }) => {
                             <Li>
                                 <NavLink to={el.link}>{el.text}</NavLink>
                             </Li>
-                        </ul>) 
+                        </ul>)
                 })}
-            </Nav> 
+            </Nav>
         </Section>
     )
 }
