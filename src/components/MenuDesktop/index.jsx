@@ -1,34 +1,53 @@
-import { useNavigate } from "react-router-dom";
-import { Button, Div, Ul } from "./styles";
 
-const MenuDesktop = ({ arr }) => {
-  const navigate = useNavigate();
+import { useState } from "react";
+import { ModalUser } from "../ModalUser";
+import { Nav, Ul, Link } from "./styles";
+import { AiOutlineLogout } from "react-icons/ai";
 
-  // const arr = [
-  //     { text: "login", link: "", icon: <AiOutlineLogin /> },
-  //     { text: "index", link: "/" },
-  //     { text: "register", link: "/register" },
-  //     { text: "index", link: "/" },
-  //     { text: "register", link: "/register" },
+const MenuDesktop = ({ arr, logout }) => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
 
-  // ]
+  let word = "Configurações";
+  const settingsUser = (text) => {
+    if (text === word) handleOpen();
+  };
 
   return (
-    <Div>
-      <Ul>
-        {arr.map((el, index) => {
-          const { text, link, icon } = el;
-          return (
-            <li key={index}>
-              <Button onClick={navigate(link)}>
-                {icon && <p>{icon}</p>}
-                <p>{text}</p>
-              </Button>
-            </li>
-          );
-        })}
-      </Ul>
-    </Div>
+    <>
+      <Nav>
+        <Ul>
+          {arr.map(({ text, link, icon }, index) => {
+            return (
+              <li key={index}>
+                <Link
+                  to={link}
+                  className={({ isActive }) => isActive && "active"}
+                  title={text}
+                  onClick={(e) => {
+                    if (text === word) e.preventDefault();
+                    settingsUser(text);
+                  }}
+                >
+                  {icon && icon}
+                </Link>
+              </li>
+            );
+          })}
+          <Link
+            to=""
+            onClick={(e) => {
+              e.preventDefault();
+              logout();
+            }}
+          >
+            <AiOutlineLogout />
+          </Link>
+        </Ul>
+      </Nav>
+      <ModalUser open={open} setOpen={setOpen} handleOpen={handleOpen} />
+    </>
+
   );
 };
 export default MenuDesktop;
