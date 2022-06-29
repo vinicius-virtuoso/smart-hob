@@ -7,6 +7,7 @@ export const FormControl = styled.div`
   border-radius: 1rem;
   max-width: 400px;
   position: relative;
+  width: 100%;
 
   @keyframes shake {
     25% {
