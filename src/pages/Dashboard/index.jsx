@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
+import HeaderContainer from "../../components/HeaderContainer";
 
 function Dashboard() {
   const navigate = useNavigate();
   return (
     <div>
-      <Header />
+      <HeaderContainer />
       <h1>Dashboard</h1>
 
       <button
