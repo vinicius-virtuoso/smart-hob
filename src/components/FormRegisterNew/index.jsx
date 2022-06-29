@@ -15,7 +15,7 @@ const FormRegisterNew = () => {
     const navigate = useNavigate()
 
     const formSchema = yup.object().shape({
-        username: yup.string().required('Nome obrigatório').min(6, "Mínimo 6 caracteres."),
+        username: yup.string().required('Nome obrigatório').min(6, "Mínimo 6 caracteres.").max(15),
         email: yup.string().email('E-mail invalido').required("E-mail obrigatório").min(10),
         password: yup.string().required("").matches("^(?=.*[A-Z])", "Necessária 1 letra maiúscula.").matches("^(?=.*[a-z])", "Necessária 1 letra minúscula.")
             .matches("^(?=.*[0-9])", "Necessária ter 1 numero").matches("^(?=.*[!#@$%&])", "Necessária 1 caractere especial").min(8, "Necessária no mínimo 8 caracteres."),
