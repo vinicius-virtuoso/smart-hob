@@ -1,11 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 function Dashboard() {
   const navigate = useNavigate();
   return (
     <div>
       <h1>Dashboard</h1>
+      <Footer/>
       <button
         onClick={() => {
           localStorage.clear();
