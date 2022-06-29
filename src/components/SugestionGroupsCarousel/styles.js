@@ -16,19 +16,27 @@ export const Contain = styled.div`
   
   display: flex;
   max-width: 75vw;
+  align-items: center;
 
   button {
 
+    display: contents;
     background-color: transparent;
     border: none;
-    cursor: pointer;
-    margin: 0 30px 0 30px;
+    margin: 0 30px 0 30px;  
+    height: 30px;
+    width: 15px;
+
 
     svg {
-
-      height: 60px;
-      width: 60px;
+       
+      height: 40px;
+      width: 100px;
       color: rgba(63, 61, 86, 0.3);
+
+      path {
+        cursor: pointer;
+      }
 
     }
 
