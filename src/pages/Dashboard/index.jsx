@@ -1,13 +1,16 @@
-import React from "react";
+
 import { useNavigate } from "react-router-dom";
-import { DailyPhrases } from "../../components/DailyPrases";
-import { WelcomeLayout } from "../../components/WelcomeUserDisplay";
+
+import HeaderContainer from "../../components/HeaderContainer";
+
 
 function Dashboard() {
   const navigate = useNavigate();
   return (
     <div>
+      <HeaderContainer />
       <h1>Dashboard</h1>
+
       <button
         onClick={() => {
           localStorage.clear();
