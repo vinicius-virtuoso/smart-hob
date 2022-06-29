@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ModalUser } from "../ModalUser";
 import { Nav, Ul, Link } from "./styles";
@@ -46,6 +47,7 @@ const MenuDesktop = ({ arr, logout }) => {
       </Nav>
       <ModalUser open={open} setOpen={setOpen} handleOpen={handleOpen} />
     </>
+
   );
 };
 export default MenuDesktop;

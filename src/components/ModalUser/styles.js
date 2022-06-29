@@ -3,7 +3,7 @@ export const stylesContainer = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: "100%",
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 0,
@@ -12,6 +12,7 @@ export const stylesContainer = {
   borderRadius: ".5rem",
   overflow: "hidden",
   gap: 4,
+  maxWidth: { xs: "95%", sm: "90%", md: 400, lg: 450, xl: 500 },
 };
 
 export const stylesHeaderModal = {
