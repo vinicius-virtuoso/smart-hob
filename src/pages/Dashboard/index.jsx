@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ModalUser } from "../../components/ModalUser";
 
 function Dashboard() {
   const navigate = useNavigate();
