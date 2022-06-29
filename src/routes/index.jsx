@@ -30,6 +30,31 @@ export default function Rotas() {
             }
           />
           <Route
+            path="/dashboard/procurar-grupos"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <h1>procurar-grupos</h1>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/dashboard/criar-grupos"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <h1>criar-grupos</h1>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/criar-atividade"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <h1>criar-atividade</h1>
+              </PrivateRoute>
+            }
+          />
+          <Route
             path="/"
             element={
               <PublicRoute redirectTo="/dashboard">
