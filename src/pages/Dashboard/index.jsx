@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import CounterGroup from "../../components/CounterGroup";
+
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ function Dashboard() {
       >
         Sair
       </button>
-    </div>
+    </div>    
   );
 }
 
