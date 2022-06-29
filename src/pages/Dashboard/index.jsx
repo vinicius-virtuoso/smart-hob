@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import CardSugestoes from "../../components/CardSugestoes";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -14,6 +15,9 @@ function Dashboard() {
       >
         Sair
       </button>
+
+      {/* Card - Sugestões */}
+      <CardSugestoes />
     </div>
   );
 }
