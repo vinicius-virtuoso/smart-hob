@@ -18,7 +18,7 @@ align-items: center;
 justify-content: center;
 font-family: var(--fml-Barlow-Condensed);
 color: var(--color-dark) ;
-font-size: clamp(1.5rem, 8vw, 2.5rem);
+font-size: clamp(2rem, 8vw, 2.5rem);
 
 `
 export const BoxRegister = styled.div`
@@ -56,7 +56,7 @@ p{
 
 export const Form = styled.form`
 height: 350px;
-width: 95%;
+width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
