@@ -2,7 +2,6 @@ import { BoxPhrases } from "./styles";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { api_phrases } from "../../services/api";
-import axios from "axios";
 
 export const DailyPhrases = () => {
   const [frase, setFrase] = useState("");
