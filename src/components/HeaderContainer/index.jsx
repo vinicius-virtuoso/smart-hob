@@ -12,6 +12,7 @@ import { WelcomeLayout } from "../WelcomeUserDisplay";
 import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
 import CounterGroup from "../CounterGroup";
+// import MenuHamb from "../MenuHamb";
 
 const arr = [
   {
@@ -53,6 +54,7 @@ function HeaderContainer() {
         <Box>
           <WelcomeLayout name={user?.user?.username} />
           <MenuDesktop arr={arr} logout={logout} onClick={logout} />
+          {/* <MenuHamb arr={arr} /> */}
         </Box>
         <CounterGroup user={user} />
       </Container>

@@ -18,18 +18,10 @@ export const BoxWelcome = styled.div`
     width: 100%;
     height: 100%;
 
-    img {
-      border-radius: 100%;
-      width: 70px;
-      height: 70px;
-      object-fit: cover;
-      align-self: center;
-    }
-
     h4 {
       font-family: var(--fml-Fascinate);
       font-style: normal;
-      font-size: 1.3rem;
+      font-size: 1rem;
       letter-spacing: 1px;
       text-align: center;
       align-self: center;
@@ -46,6 +38,14 @@ export const BoxWelcome = styled.div`
       }
       100% {
         transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      gap: 0.5rem;
+
+      h4 {
+        font-size: 0.775rem;
       }
     }
   }

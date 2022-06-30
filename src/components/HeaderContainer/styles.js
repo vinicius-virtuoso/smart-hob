@@ -6,6 +6,10 @@ export const Header = styled.header`
   flex-direction: column;
   justify-content: center;
   background: #8798dc;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export const Container = styled.div`

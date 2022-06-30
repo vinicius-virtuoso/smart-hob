@@ -4,6 +4,10 @@ export const Grid = styled.div`
   display: grid;
   grid-template-rows: minmax(140px, 150px) 1fr 40px;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    grid-template-rows: minmax(100px, 100px) 1fr 40px;
+  }
 `;
 
 export const Content = styled.section`

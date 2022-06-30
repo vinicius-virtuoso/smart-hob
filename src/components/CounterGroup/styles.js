@@ -27,4 +27,8 @@ export const Li = styled(Link)`
   &:hover {
     color: var(--color-dark);
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
 `;
