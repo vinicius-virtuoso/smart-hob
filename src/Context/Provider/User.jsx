@@ -45,7 +45,7 @@ export const UserProvider = ({ children }) => {
         setUser({ ...user, hobbies });
       });
   };
-  
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}
