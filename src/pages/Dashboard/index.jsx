@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import CardHobbies from "../../components/CardHobbies";
 
 import HeaderContainer from "../../components/HeaderContainer";
 
