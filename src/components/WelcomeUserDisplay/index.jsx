@@ -6,7 +6,7 @@ export const WelcomeLayout = ({ name }) => {
     <>
       <BoxWelcome>
         <div>
-          <Logo />
+          <Logo size={70} />
           <h4>Olá{name && `, ${name}`}!</h4>
         </div>
       </BoxWelcome>

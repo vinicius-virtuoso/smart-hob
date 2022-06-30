@@ -1,5 +1,5 @@
 import MenuDesktop from "../MenuDesktop";
-import { Header, Container } from "./styles";
+import { Header, Container, Box } from "./styles";
 import {
   AiOutlineSearch,
   AiOutlineUser,
@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { WelcomeLayout } from "../WelcomeUserDisplay";
 import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
+import CounterGroup from "../CounterGroup";
 
 const arr = [
   {
@@ -44,11 +45,16 @@ function HeaderContainer() {
     navigate("/login");
   };
 
+  console.log(user);
+
   return (
     <Header>
       <Container>
-        <WelcomeLayout name={user?.user?.username} />
-        <MenuDesktop arr={arr} logout={logout} onClick={logout} />
+        <Box>
+          <WelcomeLayout name={user?.user?.username} />
+          <MenuDesktop arr={arr} logout={logout} onClick={logout} />
+        </Box>
+        <CounterGroup user={user} />
       </Container>
     </Header>
   );

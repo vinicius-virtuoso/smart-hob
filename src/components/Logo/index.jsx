@@ -1,9 +1,9 @@
-function Logo(props) {
+function Logo({ size }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={props.w && props.w | "260"}
-      height={props.h && props.h | "260"}
+      width={size ? size : "260"}
+      height={size ? size : "260"}
       fill="none"
       viewBox="0 0 260 260"
     >

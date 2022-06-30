@@ -8,7 +8,7 @@ export const BoxWelcome = styled.div`
   width: 100%;
   height: 100%;
   background-color: var(--color-purple-light);
-  color: var(--color-light);
+  color: var(--color-dark);
 
   div {
     display: flex;
@@ -29,7 +29,7 @@ export const BoxWelcome = styled.div`
     h4 {
       font-family: var(--fml-Fascinate);
       font-style: normal;
-      font-size: 2rem;
+      font-size: 1.3rem;
       letter-spacing: 1px;
       text-align: center;
       align-self: center;
