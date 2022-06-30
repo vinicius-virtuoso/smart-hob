@@ -6,10 +6,15 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 600px;
   height: 100%;
-  background-color: var(--color-card-groups-background);
+
   border-radius: 5px;
   padding: 1rem 2rem;
   align-items: center;
+
+  ${(props) =>
+    props.inGroup === true
+      ? `background-color: var(--color-dark); color:var(--color-light)`
+      : `background-color: var(--color-card-groups-background); color: var(--color-dark);`}
 `;
 
 export const TextDiv = styled.div`
@@ -20,7 +25,7 @@ export const TextDiv = styled.div`
   justify-content: space-around;
   font-family: var(--fml-Barlow-Condensed);
   letter-spacing: 1px;
-  color: var(--color-dark);
+
   gap: 0.3rem;
 
   h3 {
@@ -39,18 +44,15 @@ export const TextDiv = styled.div`
 
 export const ButtonDiv = styled.div`
   height: 100%;
-  width: 25%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
 
   button {
-    font-family: "Poppins";
-    font-size: clamp(0.5rem, 20vw, 0.7rem);
-    width: 80px;
-    height: 35px;
-    min-height: 0;
-    font-weight: bold;
+    max-width: 150px;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
   }
 `;
