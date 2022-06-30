@@ -1,37 +1,15 @@
-import { useNavigate } from "react-router-dom";
 import HeaderContainer from "../../components/HeaderContainer";
+import { Container, Content, Grid } from "./styles";
 
 function Dashboard() {
-  const navigate = useNavigate();
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <Grid>
       <HeaderContainer />
-
-      <div
-        style={{
-          backgroundColor: "var(--color-white)",
-          display: "flex",
-          flex: "1",
-        }}
-      >
-        <h1>Dashboard</h1>
-      </div>
-
-      <button
-        onClick={() => {
-          localStorage.clear();
-          navigate("/");
-        }}
-      >
-        Sair
-      </button>
-    </div>
+      <Content>
+        <Container>dashboard</Container>
+      </Content>
+      {/* <footer>sdsad</footer> */}
+    </Grid>
   );
 }
 
