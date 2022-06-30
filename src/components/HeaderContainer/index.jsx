@@ -9,10 +9,10 @@ import {
 import { RiTaskLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { WelcomeLayout } from "../WelcomeUserDisplay";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../Context/Provider/User";
 import CounterGroup from "../CounterGroup";
-// import MenuHamb from "../MenuHamb";
+import MenuHamb from "../MenuHamb";
 
 const arr = [
   {
@@ -38,23 +38,33 @@ const arr = [
 ];
 
 function HeaderContainer() {
+  const [mobile, setMobile] = useState(false);
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
+
+  window.addEventListener("resize", () => {
+    if (window.screen.width <= 768) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+  });
 
   const logout = () => {
     localStorage.clear();
     navigate("/login");
   };
 
-  console.log(user);
-
   return (
     <Header>
       <Container>
         <Box>
           <WelcomeLayout name={user?.user?.username} />
-          <MenuDesktop arr={arr} logout={logout} onClick={logout} />
-          {/* <MenuHamb arr={arr} /> */}
+          {mobile ? (
+            <MenuHamb arr={arr} />
+          ) : (
+            <MenuDesktop arr={arr} logout={logout} onClick={logout} />
+          )}
         </Box>
         <CounterGroup user={user} />
       </Container>

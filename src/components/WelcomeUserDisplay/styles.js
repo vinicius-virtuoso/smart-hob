@@ -21,7 +21,7 @@ export const BoxWelcome = styled.div`
     h4 {
       font-family: var(--fml-Fascinate);
       font-style: normal;
-      font-size: 1rem;
+      font-size: 1.5rem;
       letter-spacing: 1px;
       text-align: center;
       align-self: center;
