@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import {
   Box,
   Button,
@@ -20,9 +20,7 @@ import { api_habits } from "../../services/api";
 import { UserContext } from "../../Context/Provider/User";
 import { toast } from "react-toastify";
 
-export function ModalUser() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+export function ModalUser({ open, setOpen }) {
   const handleClose = () => {
     reset();
     setOpen(false);
@@ -65,7 +63,6 @@ export function ModalUser() {
 
   return (
     <>
-      <Button onClick={handleOpen}>Editar perfil</Button>
       <Modal
         open={open}
         onClose={handleClose}

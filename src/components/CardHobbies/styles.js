@@ -5,6 +5,7 @@ export const Container = styled.div`
   border-radius: 5px;
   width: 150px;
   height: 100px;
+  margin: 12.5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
   :hover {
@@ -23,16 +24,24 @@ export const ColoredDiv = styled.div`
 `;
 
 export const CardNameDiv = styled.div`
-
+  
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   height: 25%;
   font-weight: bold;
-  text-align: center;
   font-size: clamp(0.5rem, 20vw, 0.8rem);
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  border-left: 1px solid black;
+  border-right: 1px solid var(--bor-grey);
+  border-bottom: 1px solid var(--bor-grey);
+  border-left: 1px solid var(--bor-grey);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: white;
+  background: white;
+
+  p {
+    display: flex;
+    text-align: center;
+  }
+
 
 `;
