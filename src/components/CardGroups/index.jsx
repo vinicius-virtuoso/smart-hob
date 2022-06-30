@@ -1,17 +1,30 @@
+import { useContext, useEffect } from "react";
+import { UserContext } from "../../Context/Provider/User";
 import { ButtonForm } from "../ButtonForm";
-import { Container, TextDiv, ButtomDiv } from "./styles";
+import { Container, TextDiv, ButtonDiv } from "./styles";
 
-const CardGroups = () => {
+const CardGroups = ({ group }) => {
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    if (group && user.groups) {
+      let isValid = user.groups
+        .map((groupMap) => groupMap.id)
+        .find((groupFind) => groupFind === group.id);
+      console.log(isValid);
+    }
+  });
+
   return (
     <Container>
       <TextDiv>
-        <h4>Group Name</h4>
-        <h5>Group Type</h5>
-        <h6>Group Description</h6>
+        <h3>Group Name</h3>
+        <span>Group Type</span>
+        <p>Group Description</p>
       </TextDiv>
-      <ButtomDiv>
+      <ButtonDiv>
         <ButtonForm primary>Seguir</ButtonForm>
-      </ButtomDiv>
+      </ButtonDiv>
     </Container>
   );
 };
