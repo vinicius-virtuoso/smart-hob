@@ -38,7 +38,7 @@ const arr = [
 ];
 
 function HeaderContainer() {
-  const [mobile, setMobile] = useState(false);
+  const [mobile, setMobile] = useState(window.screen.width <= 768);
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
 

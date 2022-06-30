@@ -3,7 +3,7 @@ import Logo from "../Logo";
 import { BoxWelcome } from "./styles";
 
 export const WelcomeLayout = ({ name }) => {
-  const [mobile, setMobile] = useState(false);
+  const [mobile, setMobile] = useState(window.screen.width <= 768);
 
   window.addEventListener("resize", () => {
     if (window.screen.width <= 768) {
