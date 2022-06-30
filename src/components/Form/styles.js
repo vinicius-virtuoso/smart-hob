@@ -24,6 +24,7 @@ export const ContainerInputs = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  align-items: center;
 `;
 export const TitleForm = styled.h3`
   font-family: var(--fml-Barlow-Condensed);

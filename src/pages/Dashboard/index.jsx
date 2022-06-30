@@ -1,13 +1,30 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardHobbies from "../../components/CardHobbies";
+
+import HeaderContainer from "../../components/HeaderContainer";
 
 function Dashboard() {
   const navigate = useNavigate();
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <CardHobbies></CardHobbies>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <HeaderContainer />
+
+      <div
+        style={{
+          backgroundColor: "var(--color-white)",
+          display: "flex",
+          flex: "1",
+        }}
+      >
+        <h1>Dashboard</h1>
+      </div>
+
       <button
         onClick={() => {
           localStorage.clear();
