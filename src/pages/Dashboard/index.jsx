@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import CardHobbies from "../../components/CardHobbies";
-
 import HeaderContainer from "../../components/HeaderContainer";
+
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -24,6 +23,7 @@ function Dashboard() {
       >
         <h1>Dashboard</h1>
       </div>
+
 
       <button
         onClick={() => {
