@@ -1,5 +1,5 @@
 import MenuDesktop from "../MenuDesktop";
-import { Header, Container, Box, Logo, Text } from "./styles";
+import { Header, Container } from "./styles";
 import {
   AiOutlineSearch,
   AiOutlineUsergroupAdd,
@@ -7,6 +7,9 @@ import {
 } from "react-icons/ai";
 import { RiTaskLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import { WelcomeLayout } from "../WelcomeUserDisplay";
+import { useContext } from "react";
+import { UserContext } from "../../Context/Provider/User";
 
 const arr = [
   {
@@ -33,6 +36,7 @@ const arr = [
 
 function HeaderContainer() {
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
 
   const logout = () => {
     localStorage.clear();
@@ -42,10 +46,7 @@ function HeaderContainer() {
   return (
     <Header>
       <Container>
-        <Box>
-          <Logo />
-          <Text>Vinícius</Text>
-        </Box>
+        <WelcomeLayout name={user?.user?.username} />
         <MenuDesktop arr={arr} logout={logout} />
       </Container>
     </Header>

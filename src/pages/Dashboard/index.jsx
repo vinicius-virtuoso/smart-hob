@@ -1,8 +1,6 @@
-
 import { useNavigate } from "react-router-dom";
 
 import HeaderContainer from "../../components/HeaderContainer";
-
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -19,8 +17,6 @@ function Dashboard() {
       >
         Sair
       </button>
-      <WelcomeLayout/>
-      <DailyPhrases/>
     </div>
   );
 }
