@@ -1,15 +1,11 @@
 import { Container } from "./styles";
 
 const Footer = () => {
-
   return (
-
     <Container>
-      <p>©️ Copyright - Grupos Smart Hábitos</p>
+      <p>©️ Copyright - Grupos SmartHobs</p>
     </Container>
-
   );
-
 };
 
 export default Footer;
