@@ -11,7 +11,7 @@ const CardGroups = ({ group }) => {
       let isValid = user.groups
         .map((groupMap) => groupMap.id)
         .find((groupFind) => groupFind === group.id);
-      console.log(isValid);
+      console.log();
     }
   });
 
