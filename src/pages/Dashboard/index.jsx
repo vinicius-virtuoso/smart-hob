@@ -1,22 +1,21 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+
+import HeaderContainer from "../../components/HeaderContainer";
 import Footer from "../../components/Footer";
+import { Container, Content, Grid } from "./styles";
+
 
 function Dashboard() {
-  const navigate = useNavigate();
   return (
-    <div>
-      <h1>Dashboard</h1>
+
+
+    <Grid>
+      <HeaderContainer />
+      <Content>
+        <Container>dashboard</Container>
+      </Content>
       <Footer/>
-      <button
-        onClick={() => {
-          localStorage.clear();
-          navigate("/");
-        }}
-      >
-        Sair
-      </button>
-    </div>
+    </Grid>
+
   );
 }
 
