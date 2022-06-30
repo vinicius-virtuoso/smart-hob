@@ -18,9 +18,13 @@ export const Li = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   gap: 0.5rem;
   color: #fff;
   font-family: var(--fml-Poppins);
   font-size: 1.2rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-dark);
+  }
 `;
