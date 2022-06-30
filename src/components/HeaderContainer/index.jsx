@@ -2,9 +2,10 @@ import MenuDesktop from "../MenuDesktop";
 import { Header, Container } from "./styles";
 import {
   AiOutlineSearch,
+  AiOutlineUser,
   AiOutlineUsergroupAdd,
-  AiOutlineSetting,
 } from "react-icons/ai";
+
 import { RiTaskLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { WelcomeLayout } from "../WelcomeUserDisplay";
@@ -28,9 +29,9 @@ const arr = [
     icon: <RiTaskLine />,
   },
   {
-    text: "Configurações",
+    text: "Editar perfil",
     link: "",
-    icon: <AiOutlineSetting />,
+    icon: <AiOutlineUser />,
   },
 ];
 
@@ -47,7 +48,7 @@ function HeaderContainer() {
     <Header>
       <Container>
         <WelcomeLayout name={user?.user?.username} />
-        <MenuDesktop arr={arr} logout={logout} />
+        <MenuDesktop arr={arr} logout={logout} onClick={logout} />
       </Container>
     </Header>
   );

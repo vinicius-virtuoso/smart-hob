@@ -1,14 +1,13 @@
-
 import { useState } from "react";
 import { ModalUser } from "../ModalUser";
-import { Nav, Ul, Link } from "./styles";
+import { Nav, Ul, Link, ButtonOut } from "./styles";
 import { AiOutlineLogout } from "react-icons/ai";
 
 const MenuDesktop = ({ arr, logout }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
 
-  let word = "Configurações";
+  let word = "Editar perfil";
   const settingsUser = (text) => {
     if (text === word) handleOpen();
   };
@@ -22,32 +21,28 @@ const MenuDesktop = ({ arr, logout }) => {
               <li key={index}>
                 <Link
                   to={link}
-                  className={({ isActive }) => isActive && "active"}
                   title={text}
                   onClick={(e) => {
                     if (text === word) e.preventDefault();
                     settingsUser(text);
                   }}
                 >
-                  {icon && icon}
+                  {icon && <span className="icon">{icon}</span>}
+                  <span className="text">{text}</span>
                 </Link>
               </li>
             );
           })}
-          <Link
-            to=""
-            onClick={(e) => {
-              e.preventDefault();
-              logout();
-            }}
-          >
-            <AiOutlineLogout />
-          </Link>
+          <ButtonOut onClick={() => logout()}>
+            <span className="icon">
+              <AiOutlineLogout />
+            </span>
+            <span className="text">Sair</span>
+          </ButtonOut>
         </Ul>
       </Nav>
       <ModalUser open={open} setOpen={setOpen} handleOpen={handleOpen} />
     </>
-
   );
 };
 export default MenuDesktop;

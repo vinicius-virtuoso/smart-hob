@@ -8,7 +8,7 @@ export const BoxWelcome = styled.div`
   width: 100%;
   height: 100%;
   background-color: var(--color-purple-light);
-  color: var(--color-dark);
+  color: var(--color-light);
 
   div {
     display: flex;
@@ -32,7 +32,7 @@ export const BoxWelcome = styled.div`
       font-size: 2rem;
       letter-spacing: 1px;
       text-align: center;
-      align-self: flex-end;
+      align-self: center;
     }
     svg {
       animation: rote 20s infinite;
