@@ -10,6 +10,7 @@ export const BoxPhrases = styled.div`
   height: 200px;
   background-color: #fdecc6;
   color: var(--color-purple);
+  margin: 0.3rem 0;
 
   h5 {
     font-family: var(--fml-Barlow-Condensed);
