@@ -87,10 +87,12 @@ const CardSugestoes = () => {
 
   useEffect(() => {
     listGroup();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     subscriptionsGroups();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subscriptionsGroups()]);
 
   return (
@@ -102,7 +104,7 @@ const CardSugestoes = () => {
 
         {subscriptions.find((sub) => list.id === sub.id) ? (
           <ButtonForm
-            secondary
+            tertiary
             onClick={() => {
               unsubscribeGroup();
             }}
@@ -111,7 +113,7 @@ const CardSugestoes = () => {
           </ButtonForm>
         ) : (
           <ButtonForm
-            primary
+            secondary
             onClick={() => {
               subscribeGroup();
             }}

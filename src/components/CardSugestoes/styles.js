@@ -39,11 +39,12 @@ export const FigcaptionCardSujests = styled.div`
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  border: 2px solid var(--color-gray);
+  border-top: 2px solid var(--color-gray);
   border-radius: 0px 0px 10px 10px;
 
   button {
-    width: 8rem;
+    width: auto;
     font-size: 14px;
+    padding: 0.5rem;
   }
 `;
