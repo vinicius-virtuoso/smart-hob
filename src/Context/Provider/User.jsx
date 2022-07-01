@@ -12,10 +12,41 @@ export const UserProvider = ({ children }) => {
     if (token) {
       let { user_id } = jwt_decode(token);
       api_habits.get(`/users/${user_id}/`).then(({ data }) => {
-        setUser({ ...data });
+        let user = data;
+        get_groups(user);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
+
+  const get_groups = (user) => {
+    api_habits
+      .get(`/groups/subscriptions/`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then(({ data }) => {
+        let groups = data;
+        let objUser = { user, groups };
+        searchHobbies(objUser);
+      });
+  };
+
+  const searchHobbies = (user) => {
+    api_habits
+      .get("/habits/personal/", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then(({ data }) => {
+        let hobbies = data;
+        setUser({ ...user, hobbies });
+      });
+  };
+
+  console.log(user);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

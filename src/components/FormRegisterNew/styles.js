@@ -55,6 +55,7 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
+  align-items: center;
 
   button {
     align-self: center;
