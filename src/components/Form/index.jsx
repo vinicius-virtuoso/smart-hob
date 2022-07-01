@@ -7,6 +7,7 @@ import {
   TitleForm,
 } from "./styles";
 import { Link } from "react-router-dom";
+import { ButtonForm } from "../ButtonForm";
 
 const Form = ({ title, theme, children, onSubmit }) => {
   return (
@@ -16,9 +17,12 @@ const Form = ({ title, theme, children, onSubmit }) => {
           <TitleForm theme={theme || "primary"}>{title}</TitleForm>
         </Box>
         <ContainerInputs>{children}</ContainerInputs>
-        <button type="submit">
-          <p>Entrar</p>
-        </button>
+        {title.toLowerCase() === "cadastre-se" ? (
+          <ButtonForm tertiary>Criar</ButtonForm>
+        ) : (
+          <ButtonForm primary>Entrar</ButtonForm>
+        )}
+
         {title.toLowerCase() === "cadastre-se" ? (
           <BoxLink secondary>
             Já tem um Cadastro?
@@ -26,8 +30,11 @@ const Form = ({ title, theme, children, onSubmit }) => {
           </BoxLink>
         ) : (
           <BoxLink primary>
-            Ainda não tem o Cadastro?
-            <Link to={"/register"}>Então Cadastre-se.</Link>
+            Não possui uma conta?
+            <div>
+              <p>Então</p>
+              <Link to={"/register"}>Cadastre-se.</Link>
+            </div>
           </BoxLink>
         )}
       </ContainerForm>

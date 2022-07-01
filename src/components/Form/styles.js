@@ -24,6 +24,7 @@ export const ContainerInputs = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  align-items: center;
 `;
 export const TitleForm = styled.h3`
   font-family: var(--fml-Barlow-Condensed);
@@ -33,7 +34,7 @@ export const TitleForm = styled.h3`
 
   ${(props) =>
     props.theme === "primary"
-      ? "color: var(--color-light);"
+      ? "color: var(--color-yellow);"
       : "color: var(--color-dark);"}
 `;
 
@@ -42,6 +43,7 @@ export const ContainerForm = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  align-items: center;
 `;
 
 export const Box = styled.div`
@@ -66,13 +68,26 @@ export const BoxLink = styled.div`
   align-items: center;
   gap: 0.2rem;
   font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-light);
+  font-family: var(--fml-Poppins);
+  font-size: 0.875rem;
+  flex-wrap: wrap;
+
+  div {
+    display: flex;
+    p {
+      font-family: "Poppins";
+    }
+  }
 
   a {
-    font-size: 0.875rem;
     font-weight: 700;
+    padding-left: 3px;
+    font-family: "Poppins";
     ${(props) =>
       props.primary
-        ? "color: var(--color-purple);"
+        ? "color: var(--color-yellow);"
         : "color: var(--color-yellow);"}
   }
 `;
