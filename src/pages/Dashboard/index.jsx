@@ -19,6 +19,13 @@ function Dashboard() {
       </button>
       {/* <WelcomeLayout/>
       <DailyPhrases/> */}
+      <button
+        onClick={() => {
+          navigate("/new-groups");
+        }}
+      >
+        Novos Grupos
+      </button>
     </div>
   );
 }

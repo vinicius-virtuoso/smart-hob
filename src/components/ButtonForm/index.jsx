@@ -29,3 +29,5 @@ export const ButtonForm = ({
     </>
   );
 };
+
+export default ButtonForm;

@@ -4,9 +4,11 @@ import { isAuthenticated } from "../auth";
 import Context from "../Context";
 
 import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
+import PageNewGroup from "../pages/NewGroup";
 import Register from "../pages/Register";
+import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
+import PageNewTask from "../pages/NewTask/index,";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -78,6 +80,9 @@ export default function Rotas() {
               </PublicRoute>
             }
           />
+          {/* Mudar para privada */}
+          <Route path="/new-groups" element={<PageNewGroup />} />
+          <Route path="/new-tasks" element={<PageNewTask />} />
           <Route
             path="*"
             element={
