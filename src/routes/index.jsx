@@ -8,7 +8,7 @@ import PageNewGroup from "../pages/NewGroup";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
-import PageNewTask from "../pages/NewTask/index,";
+import PageNewHabit from "../pages/NewHabit/index,";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -82,7 +82,7 @@ export default function Rotas() {
           />
           {/* Mudar para privada */}
           <Route path="/new-groups" element={<PageNewGroup />} />
-          <Route path="/new-tasks" element={<PageNewTask />} />
+          <Route path="/new-tasks" element={<PageNewHabit />} />
           <Route
             path="*"
             element={

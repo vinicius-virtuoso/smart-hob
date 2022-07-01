@@ -16,6 +16,7 @@ const FormNewTask = () => {
   const [token] = useState(localStorage.getItem("@Smart-hob/token") || "");
 
   const decoder = jwt_decode(token);
+  const how_much_ach = 0;
 
   const schema = yup.object().shape({
     title: yup.string().required("Campo necessário: Nome da atividade"),
@@ -27,8 +28,8 @@ const FormNewTask = () => {
       .string()
       .required("Campo necessário: Frequencia da atividade"),
     achieved: yup.boolean(),
-    how_much_achieved: yup.number(),
-    // user: yup.number(),
+    how_much_achieved: yup.number().default(() => how_much_ach),
+    user: yup.number().default(() => decoder.user_id),
   });
 
   const {
@@ -45,12 +46,12 @@ const FormNewTask = () => {
 
   const handleChange = (event) => setChecked(event.target.checked);
 
-  let user_id = { ...register("user", decoder.user_id) };
+  // let user_id = { ...register("user", decoder.user_id) };
 
-  useEffect(() => {
-    // eslint-disable-next-line no-unused-expressions
-    user_id;
-  }, []);
+  // useEffect(() => {
+  //   // eslint-disable-next-line no-unused-expressions
+  //   user_id;
+  // }, []);
 
   return (
     <div>
@@ -116,6 +117,8 @@ const FormNewTask = () => {
                 name="how_much_achieved"
                 label="Quanto foi feito"
                 register={register}
+                disabled="disabled"
+                value={0}
               />
 
               <FormControlLabel
