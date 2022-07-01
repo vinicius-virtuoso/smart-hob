@@ -5,5 +5,5 @@ export const api_habits = axios.create({
 });
 
 export const api_phrases = axios.create({
-  baseURL: "https://positive-vibes-api.herokuapp.com/",
+  baseURL: "https://allugofrases.herokuapp.com/",
 });

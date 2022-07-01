@@ -12,8 +12,11 @@ export const DailyPhrases = () => {
   useEffect(() => {
     if (isOpen) {
       api_phrases
-        .get("/quotes/random")
-        .then(({ data }) => setFrase(data.data))
+        .get("/frases/random")
+        .then(({ data }) => {
+          console.log(data);
+          setFrase(data.frase);
+        })
         .catch((err) => console.log(err));
     }
   }, [isOpen]);
