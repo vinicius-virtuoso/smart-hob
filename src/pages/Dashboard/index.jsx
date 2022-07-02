@@ -2,7 +2,7 @@ import HeaderContainer from "../../components/HeaderContainer";
 import Footer from "../../components/Footer";
 import { Container, Content, Grid } from "./styles";
 import { DailyPhrases } from "../../components/DailyPrases";
-
+import CardTeste from "../../components/CardTeste";
 
 function Dashboard() {
   return (
@@ -10,7 +10,10 @@ function Dashboard() {
       <HeaderContainer />
       <Content>
         <DailyPhrases />
-        <Container></Container>
+        <Container>
+          <CardTeste hobbies />
+          <CardTeste groups />
+        </Container>
       </Content>
       <Footer />
     </Grid>

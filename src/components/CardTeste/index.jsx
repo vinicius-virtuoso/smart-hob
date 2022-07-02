@@ -1,35 +1,30 @@
-import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../../Context/Provider/User"
-import CardHobbies from "../CardHobbies"
-import Paginate from "../Paginate"
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../Context/Provider/User";
+import CardGroups from "../CardGroups";
+import CardHobbies from "../CardHobbies";
+import Paginate from "../Paginate";
 
-const CardTeste = () => {
-    const [card, setCard] = useState([]);
-    
-    const { user } = useContext(UserContext);
+const CardTeste = ({ hobbies, groups }) => {
+  const { user } = useContext(UserContext);
+  const [groupsUser, setGroupsUser] = useState([]);
+  const [hobbiesUser, setHobbiesUser] = useState([]);
 
-    const loadCard = () => {
-        setCard(user.groups);      
-
+  const loadCard = () => {
+    if (user.groups && user.hobbies) {
+      setGroupsUser(user?.groups);
+      setHobbiesUser(user?.hobbies);
     }
+  };
 
-    useEffect(() => {
-        loadCard()
-    }, [user])
+  useEffect(() => {
+    loadCard();
+  }, [user]);
 
-
-    return (
-        <>
-            {card !== undefined ?
-                <Paginate 
-                card={card}
-                
-                />
-                    
-                : null
-            }
-        </>
-
-    )
-}
-export default CardTeste
+  return (
+    <>
+      {hobbies && <Paginate card={hobbiesUser} hobbies2 />}
+      {groups && <Paginate card={groupsUser} groups2 />}
+    </>
+  );
+};
+export default CardTeste;

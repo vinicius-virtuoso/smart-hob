@@ -28,7 +28,7 @@ export const DailyPhrases = () => {
   }, [isOpen]);
 
   const clickPhrase = () => {
-    // localStorage.setItem("show-frases", true);
+    localStorage.setItem("show-frases", true);
   };
 
   return (
