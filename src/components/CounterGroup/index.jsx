@@ -1,7 +1,6 @@
 import { Div, Li, Ul } from "./styles";
 
 const CounterGroup = ({ user }) => {
-  console.log(user.user);
   return (
     <Div>
       <Ul>

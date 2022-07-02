@@ -1,25 +1,19 @@
-
 import HeaderContainer from "../../components/HeaderContainer";
 import Footer from "../../components/Footer";
 import { Container, Content, Grid } from "./styles";
-import CardTeste from "../../components/CardTeste";
-import CardTeste2 from "../../components/CardTeste2";
+import { DailyPhrases } from "../../components/DailyPrases";
 
 
 function Dashboard() {
   return (
-
     <Grid>
       <HeaderContainer />
       <Content>
-        <Container>
-          <CardTeste/>
-          {/* <CardTeste2/> */}
-        </Container>
+        <DailyPhrases />
+        <Container></Container>
       </Content>
       <Footer />
     </Grid>
-
   );
 }
 
