@@ -125,4 +125,5 @@ const CardSugestoes = () => {
     </ContainerCardSujests>
   );
 };
+
 export default CardSugestoes;
