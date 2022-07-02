@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import { Container, Content, Grid } from "./styles";
 import { DailyPhrases } from "../../components/DailyPrases";
 
+
 function Dashboard() {
   return (
     <Grid>

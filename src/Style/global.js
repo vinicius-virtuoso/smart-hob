@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
         --fml-Fascinate: 'Fascinate', cursive;
         --fml-Barlow-Condensed:'Barlow Condensed', sans-serif;
         --fml-Poppins:'Poppins', sans-serif;
+        --fml-Titillium-Web:'Titillium Web', sans-serif;
     }
 
     *{
