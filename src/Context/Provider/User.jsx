@@ -45,7 +45,6 @@ export const UserProvider = ({ children }) => {
         setUser({ ...user, hobbies });
       });
   };
-
   console.log(user);
 
   return (
