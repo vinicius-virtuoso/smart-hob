@@ -1,10 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/Provider/User";
-import CardGroups from "../CardGroups";
-import CardHobbies from "../CardHobbies";
 import Paginate from "../Paginate";
 
-const CardTeste = ({ hobbies, groups }) => {
+const DisplayCards = ({ hobbies, groups }) => {
   const { user } = useContext(UserContext);
   const [groupsUser, setGroupsUser] = useState([]);
   const [hobbiesUser, setHobbiesUser] = useState([]);
@@ -18,6 +16,7 @@ const CardTeste = ({ hobbies, groups }) => {
 
   useEffect(() => {
     loadCard();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
@@ -27,4 +26,4 @@ const CardTeste = ({ hobbies, groups }) => {
     </>
   );
 };
-export default CardTeste;
+export default DisplayCards;

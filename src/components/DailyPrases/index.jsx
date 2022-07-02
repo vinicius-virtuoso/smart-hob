@@ -19,7 +19,6 @@ export const DailyPhrases = () => {
       api_phrases
         .get("/frases/random")
         .then(({ data }) => {
-          console.log(data);
           setFrase(data.frase);
         })
         .catch((err) => console.log(err));

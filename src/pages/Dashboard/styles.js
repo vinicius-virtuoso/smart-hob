@@ -13,11 +13,17 @@ export const Grid = styled.div`
 export const Content = styled.section`
   width: 100%;
   height: 100%;
-  background: var(--color-light);
+  background: var(--color-white);
 `;
 
 export const Container = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+`;
+
+export const Box = styled.div`
+  width: 100%;
+  height: 100%;
+  background: var(--color-white);
 `;

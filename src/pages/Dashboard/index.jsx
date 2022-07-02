@@ -2,7 +2,8 @@ import HeaderContainer from "../../components/HeaderContainer";
 import Footer from "../../components/Footer";
 import { Container, Content, Grid } from "./styles";
 import { DailyPhrases } from "../../components/DailyPrases";
-import CardTeste from "../../components/CardTeste";
+import DisplayCards from "../../components/DisplayCards";
+import SugestionGroupsCarousel from "../../components/SugestionGroupsCarousel";
 
 function Dashboard() {
   return (
@@ -10,10 +11,11 @@ function Dashboard() {
       <HeaderContainer />
       <Content>
         <DailyPhrases />
+        <DisplayCards hobbies />
         <Container>
-          <CardTeste hobbies />
-          <CardTeste groups />
+          <DisplayCards groups />
         </Container>
+        <SugestionGroupsCarousel />
       </Content>
       <Footer />
     </Grid>

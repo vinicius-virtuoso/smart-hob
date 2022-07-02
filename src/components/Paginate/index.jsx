@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import CardGroups from "../CardGroups";
 import CardHobbies from "../CardHobbies";
+import CardUserGroups from "../CardUserGroups";
 import { Container, DivCard } from "./styles";
 
 const Paginate = ({ card, hobbies2, groups2 }) => {
-  const [cardPerPage, setCardPerPage] = useState(card);
+  const [cardPerPage, setCardPerPage] = useState([]);
   const [pagNumber, setPagNumber] = useState(0);
 
-  console.log(cardPerPage);
+  useEffect(() => {
+    if (card) {
+      setCardPerPage(card);
+    }
+  }, [card]);
 
   const productsPerPage = 6;
   const pagesVisited = pagNumber * productsPerPage;
@@ -18,8 +22,8 @@ const Paginate = ({ card, hobbies2, groups2 }) => {
     .map((el, index) => {
       return (
         <div key={index}>
-          {hobbies2 && <CardHobbies />}
-          {groups2 && <CardGroups />}
+          {hobbies2 && <CardHobbies el={el} />}
+          {groups2 && <CardUserGroups el={el} />}
         </div>
       );
     });

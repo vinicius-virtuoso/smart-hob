@@ -1,12 +1,11 @@
 import { Container, ColoredDiv, CardNameDiv } from "./styles";
 
-const CardHobbies = ({ id,name }) => {
-  console.log(name)
+const CardHobbies = (el) => {
   return (
-    <Container key={id}>
+    <Container id={el.el.id}>
       <ColoredDiv>{/* <img src="" alt="" /> */}</ColoredDiv>
       <CardNameDiv>
-        <p>{name}</p>
+        <p>{el.el.category}</p>
       </CardNameDiv>
     </Container>
   );
