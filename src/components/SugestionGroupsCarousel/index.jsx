@@ -20,6 +20,13 @@ const SugestionGroupsCarousel = () => {
 
   const handleRightClick = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
+    console.log(list)
+
+    if (list.length % 15 === 0) {
+      api_habits.get("/groups/").then(({ data }) => {
+        setList([...list, ...data.results]);
+      });
+    }
   };
 
   return (
