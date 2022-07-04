@@ -8,6 +8,12 @@ const SugestionGroupsCarousel = () => {
   const [list, setList] = useState([]);
   const carousel = useRef(null);
 
+  useEffect(() => {
+    api_habits.get("/groups/").then(({ data }) => {
+      setList(data.results);
+    });
+  }, []);
+
   const handleLeftClick = () => {
     carousel.current.scrollLeft -= carousel.current.offsetWidth;
   };
@@ -15,13 +21,6 @@ const SugestionGroupsCarousel = () => {
   const handleRightClick = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
   };
-
-  useEffect(() => {
-    api_habits.get("/groups/").then(({ data }) => {
-      setList(data.results);
-      console.log(data.results);
-    });
-  }, []);
 
   return (
     <Container>
@@ -32,7 +31,7 @@ const SugestionGroupsCarousel = () => {
           </button>
           <Carousel ref={carousel}>
             {list.map((card, index) => (
-              <CardSugestoes key={index} />
+              <CardSugestoes key={index} card={card} />
             ))}
           </Carousel>
           <button className="btn-arrow" onClick={handleRightClick}>

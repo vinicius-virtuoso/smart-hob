@@ -7,10 +7,11 @@ export const BoxPhrases = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 200px;
+  height: auto;
   background-color: #fdecc6;
   color: var(--color-purple);
   margin: 0.3rem 0;
+  padding: 1rem;
 
   h5 {
     font-family: var(--fml-Barlow-Condensed);

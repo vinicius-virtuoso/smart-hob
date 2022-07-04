@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { api_habits } from "../../services/api";
 import { ButtonForm } from "../ButtonForm";
 import { ContainerCardSujests, FigcaptionCardSujests } from "./styles";
@@ -18,16 +18,10 @@ import { RiMovie2Fill } from "react-icons/ri";
 import { MdCardTravel } from "react-icons/md";
 import { BsQuestionCircleFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
+import { UserContext } from "../../Context/Provider/User";
 
 function CardUserGroups({ el }) {
-  const token = localStorage.getItem("@Smart-hob/token");
-
-  console.log(token);
-
-  // eslint-disable-next-line no-unused-vars
-  const [list, setList] = useState([]);
-  // eslint-disable-next-line no-unused-vars
-  const [subscriptions, setSubscriptions] = useState([]);
+  const { userGroups, setUserGroups, token } = useContext(UserContext);
 
   const icons = {
     Meditação: <GiMeditation size={200} />,
@@ -55,17 +49,6 @@ function CardUserGroups({ el }) {
       .catch((err) => console.log(err));
   };
 
-  //   const subscriptionsGroups = (id) => {
-  //     api_habits
-  //       .get(`groups/subscriptions/`, {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       })
-  //       .then((res) => setSubscriptions(res.data))
-  //       .catch((err) => console.log(err));
-  //   };
-
   const unsubscribeGroup = (id) => {
     api_habits
       .delete(`/groups/${id}/unsubscribe/`, {
@@ -73,28 +56,21 @@ function CardUserGroups({ el }) {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        let remove_group = userGroups.filter((group) => group.id !== id);
+        setUserGroups(remove_group);
+      })
       .catch((err) => console.log(err));
   };
 
-  //   useEffect(() => {
-  //     listGroup();
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   }, []);
-
-  //   useEffect(() => {
-  //     subscriptionsGroups();
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   }, [subscriptionsGroups()]);
-
   return (
     <ContainerCardSujests>
-      {icons[list.category] || <BsQuestionCircleFill size={200} />}
+      {icons[el.category] || <BsQuestionCircleFill size={200} />}
 
       <FigcaptionCardSujests>
         <h4>{el.name}</h4>
 
-        {subscriptions.find((sub) => list.id === sub.id) ? (
+        {userGroups.find((sub) => el.id === sub.id) ? (
           <ButtonForm
             tertiary
             onClick={() => {

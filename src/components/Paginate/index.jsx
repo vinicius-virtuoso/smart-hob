@@ -14,7 +14,7 @@ const Paginate = ({ card, hobbies2, groups2 }) => {
     }
   }, [card]);
 
-  const productsPerPage = 6;
+  const productsPerPage = 12;
   const pagesVisited = pagNumber * productsPerPage;
 
   const displayCard = cardPerPage
@@ -36,7 +36,9 @@ const Paginate = ({ card, hobbies2, groups2 }) => {
 
   return (
     <Container>
-      <DivCard>{displayCard}</DivCard>
+      {hobbies2 && <h3>Seus Hobbies</h3>}
+      {groups2 && <h3>Seus Grupos</h3>}
+      <DivCard groups={card[0]?.name ? true : false}>{displayCard}</DivCard>
       <ReactPaginate
         previousLabel={"<"}
         nextLabel={" >"}

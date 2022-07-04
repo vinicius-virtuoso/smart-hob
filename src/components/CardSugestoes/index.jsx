@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api_habits } from "../../services/api";
 import { ButtonForm } from "../ButtonForm";
 import { ContainerCardSujests, FigcaptionCardSujests } from "./styles";
@@ -18,9 +18,10 @@ import { RiMovie2Fill } from "react-icons/ri";
 import { MdCardTravel } from "react-icons/md";
 import { BsQuestionCircleFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
+import { UserContext } from "../../Context/Provider/User";
 
 const CardSugestoes = () => {
-  const [token] = useState(localStorage.getItem("@Smart-hob/token") || "");
+  const { token } = useContext(UserContext);
   const [list, setList] = useState([]);
   const [subscriptions, setSubscriptions] = useState([]);
   const icons = {
@@ -93,7 +94,7 @@ const CardSugestoes = () => {
   useEffect(() => {
     subscriptionsGroups();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [subscriptionsGroups()]);
+  }, []);
 
   return (
     <ContainerCardSujests>

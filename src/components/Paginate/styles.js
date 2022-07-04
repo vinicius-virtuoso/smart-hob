@@ -1,6 +1,14 @@
 import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  text-align: center;
+
+  h3 {
+    font-size: 2rem;
+    color: var(--color-dark);
+  }
 
   .paginationBttns {
     user-select: none;
@@ -9,8 +17,8 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 0px 0 10px 0;
-    font-family: var(--fml-Titillium-Web);
+    margin: 0px;
+    font-family: var(--fml-Poppins);
 
     li {
       margin: 2px;
@@ -43,9 +51,12 @@ export const Container = styled.div`
 `;
 export const DivCard = styled.div`
   width: 100%;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
   justify-content: center;
+  justify-items: center;
+  max-width: 1220px;
+  margin: 0 auto;
 
   @media (max-width: 768px) {
     flex-wrap: wrap;

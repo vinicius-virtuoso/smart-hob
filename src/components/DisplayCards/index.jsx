@@ -3,21 +3,16 @@ import { UserContext } from "../../Context/Provider/User";
 import Paginate from "../Paginate";
 
 const DisplayCards = ({ hobbies, groups }) => {
-  const { user } = useContext(UserContext);
+  const { userGroups, userHobbies } = useContext(UserContext);
   const [groupsUser, setGroupsUser] = useState([]);
   const [hobbiesUser, setHobbiesUser] = useState([]);
 
-  const loadCard = () => {
-    if (user.groups && user.hobbies) {
-      setGroupsUser(user?.groups);
-      setHobbiesUser(user?.hobbies);
-    }
-  };
-
   useEffect(() => {
-    loadCard();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+    if (userGroups && userHobbies) {
+      setGroupsUser(userGroups);
+      setHobbiesUser(userHobbies);
+    }
+  }, [userGroups, userHobbies]);
 
   return (
     <>

@@ -59,9 +59,7 @@ export const UserProvider = ({ children }) => {
       value={{
         user,
         userHobbies,
-        setUserHobbies,
         userGroups,
-        setUserGroups,
         token,
         showPhrase,
         setShowPhrase,
