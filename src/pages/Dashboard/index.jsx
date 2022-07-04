@@ -6,6 +6,7 @@ import DisplayCards from "../../components/DisplayCards";
 import SugestionGroupsCarousel from "../../components/SugestionGroupsCarousel";
 import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
+import Alternative from "../../components/Alternative";
 
 function Dashboard() {
   const { userHobbies, userGroups } = useContext(UserContext);
@@ -14,7 +15,7 @@ function Dashboard() {
     <Grid>
       <HeaderContainer />
       <Content>
-        <DailyPhrases />
+        <Alternative />
         <Box>
           {userHobbies.length > 0 ? (
             <DisplayCards hobbies />
