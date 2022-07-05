@@ -30,6 +30,7 @@ export const AreaSelect = styled.select`
   color: var(--color-gray);
   font-size: clamp(1rem, 2vw, 1rem);
   font-family: "Barlow Condensed", sans-serif;
+  outline: none;
 `;
 
 export const OptionSelect = styled.option`

@@ -1,3 +1,4 @@
+
 import HeaderContainer from "../../components/HeaderContainer";
 import Footer from "../../components/Footer";
 import { Box, Container, Content, Grid, NoContent } from "./styles";
@@ -7,6 +8,7 @@ import SugestionGroupsCarousel from "../../components/SugestionGroupsCarousel";
 import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
 import DisplayAdcGroups from "../../components/DisplayAdcGroups";
+
 
 function Dashboard() {
   const { userHobbies, userGroups } = useContext(UserContext);
@@ -39,7 +41,6 @@ function Dashboard() {
       </Content>
       <Footer />
     </Grid>
-
   );
 }
 

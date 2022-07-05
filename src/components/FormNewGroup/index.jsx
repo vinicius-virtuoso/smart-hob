@@ -5,9 +5,17 @@ import SelectForm from "../SelectForm";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BoxForm, ContainerForm } from "./style";
-import { useNewGroup } from "../../Context/NewGroup";
+
+import { api_habits } from "../../services/api";
+import { toast } from "react-toastify";
+import { useContext } from "react";
+import { UserContext } from "../../Context/Provider/User";
+import { useNavigate } from "react-router-dom";
 
 const FormNewGroup = () => {
+  const { token, userGroups, setUserGroups } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     name: yup.string().required("Campo necessário: Nome do grupo"),
     description: yup.string().required("Campo necessário: Descrição do grupo"),
@@ -20,10 +28,19 @@ const FormNewGroup = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const { newGroup } = useNewGroup();
-
   const onNewGroup = (data) => {
-    newGroup(data);
+    api_habits
+      .post("groups/", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(({ data }) => {
+        setUserGroups([...userGroups, data]);
+        toast.success("Novo grupo adicionado");
+        navigate("/dashboard");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -69,7 +86,7 @@ const FormNewGroup = () => {
               ]}
             />
 
-            <ButtonForm type="submit" primary>
+            <ButtonForm type="submit" secondary>
               Salvar
             </ButtonForm>
           </form>

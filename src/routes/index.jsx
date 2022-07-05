@@ -7,6 +7,7 @@ import PageNewGroup from "../pages/PageNewGroup";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
+import PageNewHabit from "../pages/NewHabit/index,";
 import SearchGroups from "../pages/SearchGroups";
 
 const PrivateRoute = ({ children, redirectTo }) => {
@@ -52,7 +53,7 @@ export default function Rotas() {
             path="/dashboard/criar-atividade"
             element={
               <PrivateRoute redirectTo="/login">
-                <h1>criar-atividade</h1>
+                <PageNewHabit />
               </PrivateRoute>
             }
           />
@@ -80,8 +81,6 @@ export default function Rotas() {
               </PublicRoute>
             }
           />
-          {/* Mudar para privada */}
-          <Route path="/new-groups" element={<PageNewGroup />} />
           <Route
             path="*"
             element={
