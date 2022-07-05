@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 100%;
 
   border-radius: 5px;

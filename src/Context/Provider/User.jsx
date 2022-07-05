@@ -26,7 +26,7 @@ export const UserProvider = ({ children }) => {
     }
   }, [token]);
 
-  useEffect(() => {
+  const get_user_groups = () => {
     if (token) {
       api_habits
         .get(`/groups/subscriptions/`, {
@@ -38,6 +38,11 @@ export const UserProvider = ({ children }) => {
           setUserGroups(data);
         });
     }
+  };
+
+  useEffect(() => {
+    get_user_groups();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   useEffect(() => {
@@ -67,6 +72,7 @@ export const UserProvider = ({ children }) => {
         setShowPhrase,
         setUser,
         setToken,
+        get_user_groups,
       }}
     >
       {children}
