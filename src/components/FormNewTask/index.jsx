@@ -46,13 +46,6 @@ const FormNewTask = () => {
 
   const handleChange = (event) => setChecked(event.target.checked);
 
-  // let user_id = { ...register("user", decoder.user_id) };
-
-  // useEffect(() => {
-  //   // eslint-disable-next-line no-unused-expressions
-  //   user_id;
-  // }, []);
-
   return (
     <div>
       <ContainerForm>
@@ -113,14 +106,6 @@ const FormNewTask = () => {
             />
 
             <SwitchQuantity>
-              <InputGroupTask
-                name="how_much_achieved"
-                label="Quanto foi feito"
-                register={register}
-                disabled="disabled"
-                value={0}
-              />
-
               <FormControlLabel
                 control={
                   <Switch

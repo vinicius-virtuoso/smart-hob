@@ -5,7 +5,7 @@ const CardHobbies = (el) => {
     <Container id={el.el.id}>
       <ColoredDiv>{/* <img src="" alt="" /> */}</ColoredDiv>
       <CardNameDiv>
-        <p>{el.el.category}</p>
+        <p>{el.el.title}</p>
       </CardNameDiv>
     </Container>
   );

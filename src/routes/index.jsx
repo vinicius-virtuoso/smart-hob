@@ -53,8 +53,8 @@ export default function Rotas() {
           <Route
             path="/dashboard/criar-atividade"
             element={
-              <PrivateRoute redirectTo="/login">
-                <h1>criar-atividade</h1>
+              <PrivateRoute redirectTo="/new-tasks">
+                <PageNewHabit />
               </PrivateRoute>
             }
           />
