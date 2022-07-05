@@ -7,6 +7,7 @@ import DisplayCards from "../../components/DisplayCards";
 import SugestionGroupsCarousel from "../../components/SugestionGroupsCarousel";
 import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
+import DisplayCarouselHobbies from "../../components/DisplayCarouselHobbies";
 import DisplayAdcGroups from "../../components/DisplayAdcGroups";
 
 
@@ -21,7 +22,7 @@ function Dashboard() {
         <DailyPhrases />
         {/* <Box>
           {userHobbies.length > 0 ? (
-            <DisplayCards hobbies />
+            <DisplayCarouselHobbies/>
           ) : (
             <NoContent>Sem grupos para mostrar</NoContent>
           )}
