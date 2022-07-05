@@ -31,11 +31,13 @@ export const LabelInput = styled.label`
 export const AreaInput = styled.input`
   width: 100%;
   max-width: 100%;
-  height: ${(props) => (props.height ? props.height : "2.5rem")};
+
+  height: ${(props) => (props.height ? props.height : "1.5rem")};
   background-color: transparent;
   border: none;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 5px;
+  border-radius: 5px;
+
   font-family: "Barlow Condensed", sans-serif;
   font-size: 1rem;
 `;
