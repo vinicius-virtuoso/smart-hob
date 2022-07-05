@@ -1,14 +1,11 @@
 import styled from "styled-components";
 export const Container = styled.div`
-  width: 100%;
-  max-width: 1220px;
+  width: 100%;    
   margin: 0 auto;
   text-align: center;
-
-  h3 {
-    font-size: 2rem;
-    color: var(--color-dark);
-  }
+  display: flex;
+  flex-direction: column; 
+    
 
   .paginationBttns {
     user-select: none;
@@ -49,16 +46,11 @@ export const Container = styled.div`
     }
   }
 `;
-export const DivCard = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
-  justify-content: center;
-  justify-items: center;
-  max-width: 1220px;
-  margin: 0 auto;
+export const ContainerCard = styled.div`
 
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-  }
-`;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+
+
+`
