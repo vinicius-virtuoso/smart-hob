@@ -21,7 +21,7 @@ import { IoLibrarySharp } from "react-icons/io5";
 import { UserContext } from "../../Context/Provider/User";
 
 const CardSugestoes = () => {
-  const { token } = useContext(UserContext);
+  const { token, get_user_groups } = useContext(UserContext);
   const [list, setList] = useState([]);
   const [subscriptions, setSubscriptions] = useState([]);
   const icons = {
@@ -39,6 +39,7 @@ const CardSugestoes = () => {
     "Passeios e/ou Viagens": <MdCardTravel size={200} />,
   };
   const listGroup = () => {
+    //esse fica para aletório
     api_habits
       .get("groups/", {
         headers: {
@@ -53,18 +54,8 @@ const CardSugestoes = () => {
       .catch((err) => console.log(err));
   };
 
-  const subscribeGroup = (data) => {
-    api_habits
-      .post(`groups/${list.id}/subscribe/`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
-
   const subscriptionsGroups = () => {
+    //esses são os que ele está inscrito
     api_habits
       .get(`groups/subscriptions/`, {
         headers: {
@@ -72,6 +63,21 @@ const CardSugestoes = () => {
         },
       })
       .then((res) => setSubscriptions(res.data))
+      .catch((err) => console.log(err));
+  };
+
+  const subscribeGroup = (data) => {
+    // esse se inscreve
+    api_habits
+      .post(`groups/${list.id}/subscribe/`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        get_user_groups();
+        subscriptionsGroups();
+      })
       .catch((err) => console.log(err));
   };
 
