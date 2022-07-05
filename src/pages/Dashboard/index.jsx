@@ -1,13 +1,14 @@
 import HeaderContainer from "../../components/HeaderContainer";
 import Footer from "../../components/Footer";
 import { Box, Container, Content, Grid, NoContent } from "./styles";
-import { DailyPhrases } from "../../components/DailyPrases";
+import  ModalPhrase  from "../../components/ModalPhrase";
 import DisplayCards from "../../components/DisplayCards";
 import SugestionGroupsCarousel from "../../components/SugestionGroupsCarousel";
 import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
 import DisplayCarouselHobbies from "../../components/DisplayCarouselHobbies";
 import DisplayAdcGroups from "../../components/DisplayAdcGroups";
+
 
 function Dashboard() {
   const { userHobbies, userGroups } = useContext(UserContext);
@@ -16,7 +17,7 @@ function Dashboard() {
     <Grid>
       <HeaderContainer />
       <Content>
-        <DailyPhrases />
+        <ModalPhrase />
         <Box>
           {userHobbies.length > 0 ? (
             <DisplayCarouselHobbies />

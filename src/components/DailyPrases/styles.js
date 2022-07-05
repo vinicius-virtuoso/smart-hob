@@ -31,6 +31,7 @@ export const BoxPhrases = styled.div`
     line-height: 36px;
     text-align: center;
     color: var(--color-gray);
+    
   }
 
   button {

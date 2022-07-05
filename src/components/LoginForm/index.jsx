@@ -12,7 +12,7 @@ import { useContext } from "react";
 const LoginForm = () => {
   const navigate = useNavigate();
   const { setToken, token } = useContext(UserContext);
-  console.log(token);
+  
 
   const listInputs = [
     {
@@ -53,6 +53,7 @@ const LoginForm = () => {
         setToken(data.access);
         window.localStorage.setItem("@Smart-hob/token", data.access);
         navigate("/dashboard");
+        localStorage.setItem("show-frases", true)
       })
       .catch((err) => {
         toast.error("Usuário ou senha está incorreto.", {
