@@ -12,6 +12,7 @@ function Dashboard() {
   const { userHobbies, userGroups } = useContext(UserContext);
 
   return (
+
     <Grid>
       <HeaderContainer />
       <Content>
@@ -38,6 +39,7 @@ function Dashboard() {
       </Content>
       <Footer />
     </Grid>
+
   );
 }
 
