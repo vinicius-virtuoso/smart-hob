@@ -1,12 +1,18 @@
 import MenuDesktop from "../MenuDesktop";
-import { Header, Container, Box, Logo, Text } from "./styles";
+import { Header, Container, Box } from "./styles";
 import {
   AiOutlineSearch,
+  AiOutlineUser,
   AiOutlineUsergroupAdd,
-  AiOutlineSetting,
 } from "react-icons/ai";
+
 import { RiTaskLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import { WelcomeLayout } from "../WelcomeUserDisplay";
+import { useContext, useState } from "react";
+import { UserContext } from "../../Context/Provider/User";
+import CounterGroup from "../CounterGroup";
+import MenuHamb from "../MenuHamb";
 
 const arr = [
   {
@@ -15,7 +21,7 @@ const arr = [
     icon: <AiOutlineSearch />,
   },
   {
-    text: "Novo Grupo",
+    text: "Criar Grupo",
     link: "/dashboard/novo-grupo",
     icon: <AiOutlineUsergroupAdd />,
   },
@@ -25,14 +31,24 @@ const arr = [
     icon: <RiTaskLine />,
   },
   {
-    text: "Configurações",
+    text: "Editar perfil",
     link: "",
-    icon: <AiOutlineSetting />,
+    icon: <AiOutlineUser />,
   },
 ];
 
 function HeaderContainer() {
+  const [mobile, setMobile] = useState(window.screen.width <= 768);
   const navigate = useNavigate();
+  const { user, userGroups, userHobbies } = useContext(UserContext);
+
+  window.addEventListener("resize", () => {
+    if (window.screen.width <= 768) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+  });
 
   const logout = () => {
     localStorage.clear();
@@ -43,10 +59,14 @@ function HeaderContainer() {
     <Header>
       <Container>
         <Box>
-          <Logo />
-          <Text>Vinícius</Text>
+          <WelcomeLayout name={user?.username} />
+          {mobile ? (
+            <MenuHamb arr={arr} />
+          ) : (
+            <MenuDesktop arr={arr} logout={logout} onClick={logout} />
+          )}
         </Box>
-        <MenuDesktop arr={arr} logout={logout} />
+        <CounterGroup userGroups={userGroups} userHobbies={userHobbies} />
       </Container>
     </Header>
   );

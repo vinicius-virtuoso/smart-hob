@@ -6,34 +6,47 @@ export const BoxWelcome = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 200px;
-  background-color: #8798DC;
-  color: #FFFFFF;
-  margin-bottom: 20px;
+  height: 100%;
+  background-color: var(--color-purple-light);
+  color: var(--color-dark);
 
   div {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    gap: 1rem;
     justify-content: flex-start;
-    width: 90%;
+    width: 100%;
     height: 100%;
-
-    img {
-      border-radius: 100%;
-      width: 150px ;
-      height: 150px;
-      object-fit: cover;
-    }
 
     h4 {
       font-family: var(--fml-Fascinate);
       font-style: normal;
-      font-weight: 900;
-      font-size: 35px;
-      letter-spacing: 5px;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
       text-align: center;
-      margin-left: 20px;
+      align-self: center;
+    }
+    svg {
+      animation: rote 20s infinite;
+      transform-origin: center;
+      transition-property: center;
+    }
+
+    @keyframes rote {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      gap: 0.5rem;
+
+      h4 {
+        font-size: 0.775rem;
+      }
     }
   }
 `;

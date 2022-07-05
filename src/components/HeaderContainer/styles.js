@@ -2,10 +2,14 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
-  min-height: 80px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background: #8798dc;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -13,14 +17,17 @@ export const Container = styled.div`
   max-width: 1220px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 1rem 0;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 1rem;
 `;
 
 export const Box = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: 100%;
 `;
 
 export const Logo = styled.div`

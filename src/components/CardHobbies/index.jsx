@@ -1,20 +1,14 @@
 import { Container, ColoredDiv, CardNameDiv } from "./styles";
 
-const CardHobbies = () => {
-
+const CardHobbies = (el) => {
   return (
-
-    <Container>
-      <ColoredDiv>
-        {/* <img src="" alt="" /> */}
-      </ColoredDiv>
+    <Container id={el.el.id}>
+      <ColoredDiv>{/* <img src="" alt="" /> */}</ColoredDiv>
       <CardNameDiv>
-        <p>Leitura</p>
+        <p>{el.el.category}</p>
       </CardNameDiv>
     </Container>
-
   );
-
 };
 
 export default CardHobbies;

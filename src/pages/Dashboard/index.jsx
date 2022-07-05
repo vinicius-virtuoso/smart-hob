@@ -1,32 +1,46 @@
-import { useNavigate } from "react-router-dom";
 
 import HeaderContainer from "../../components/HeaderContainer";
+import Footer from "../../components/Footer";
+import { Box, Container, Content, Grid, NoContent } from "./styles";
+import { DailyPhrases } from "../../components/DailyPrases";
+import DisplayCards from "../../components/DisplayCards";
+import SugestionGroupsCarousel from "../../components/SugestionGroupsCarousel";
+import { useContext } from "react";
+import { UserContext } from "../../Context/Provider/User";
+import DisplayAdcGroups from "../../components/DisplayAdcGroups";
+
 
 function Dashboard() {
-  const navigate = useNavigate();
-  return (
-    <div>
-      <HeaderContainer />
-      <h1>Dashboard</h1>
+  const { userHobbies, userGroups } = useContext(UserContext);
 
-      <button
-        onClick={() => {
-          localStorage.clear();
-          navigate("/");
-        }}
-      >
-        Sair
-      </button>
-      {/* <WelcomeLayout/>
-      <DailyPhrases/> */}
-      <button
-        onClick={() => {
-          navigate("/new-groups");
-        }}
-      >
-        Novos Grupos
-      </button>
-    </div>
+  return (
+
+    <Grid>
+      <HeaderContainer />
+      <Content>
+        <DailyPhrases />
+        <Box>
+          {userHobbies.length > 0 ? (
+            <DisplayCards hobbies />
+          ) : (
+            <NoContent>Sem grupos para mostrar</NoContent>
+          )}
+        </Box>
+
+        <Container>
+          <Box>
+            {userGroups.length > 0 ? (
+              <DisplayCards groups />
+            ) : (
+              <NoContent>Sem grupos para mostrar</NoContent>
+            )}
+          </Box>
+          <DisplayAdcGroups />
+        </Container>
+        <SugestionGroupsCarousel />
+      </Content>
+      <Footer />
+    </Grid>
   );
 }
 

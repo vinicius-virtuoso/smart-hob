@@ -18,7 +18,9 @@ const InputGroupTask = ({
           name={name}
           {...rest}
           height={size}
+
           {...register(`${name}`)}
+
         />
       </ContainerInput>
       <MessageErro>{erro && messageErro}</MessageErro>
