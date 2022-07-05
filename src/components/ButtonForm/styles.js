@@ -28,6 +28,7 @@ export const ButtonForm = styled.button`
     `
     background-color: var(--color-dark);
     color: var(--color-light);
+
     `}
 
     ${(props) =>
@@ -51,7 +52,8 @@ export const ButtonForm = styled.button`
     background-color: var(--color-light);
     color: var(--color-dark);
     border: solid 2px var(--color-dark)
-    `}
+    `
+    }
 
     ${(props) =>
       props.tertiary &&
@@ -60,5 +62,6 @@ export const ButtonForm = styled.button`
     color: var(--color-yellow);
     border: solid 2px var(--color-yellow)
     `}
+
   }
 `;

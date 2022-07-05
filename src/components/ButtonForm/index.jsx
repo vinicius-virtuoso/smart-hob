@@ -7,25 +7,27 @@ export const ButtonForm = ({
   tertiary,
   type,
   children,
-  onClick,
+  ...rest
 }) => {
   return (
     <>
       {primary && (
-        <ButtonFormCont type={type} primary onClick={onClick}>
+        <ButtonFormCont type={type} primary {...rest}>
           {children}
         </ButtonFormCont>
       )}
       {secondary && (
-        <ButtonFormCont type={type} secondary onClick={onClick}>
+        <ButtonFormCont type={type} secondary {...rest}>
           {children}
         </ButtonFormCont>
       )}
       {tertiary && (
-        <ButtonFormCont type={type} tertiary onClick={onClick}>
+        <ButtonFormCont type={type} tertiary {...rest}>
           {children}
         </ButtonFormCont>
       )}
     </>
   );
 };
+
+export default ButtonForm;

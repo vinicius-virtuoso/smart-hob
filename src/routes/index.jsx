@@ -2,13 +2,13 @@ import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { isAuthenticated } from "../auth";
 import Context from "../Context";
-
-
 import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
+import PageNewGroup from "../pages/PageNewGroup";
 import Register from "../pages/Register";
+import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
-
+import PageNewHabit from "../pages/NewHabit/index,";
+import SearchGroups from "../pages/SearchGroups";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -19,13 +19,6 @@ const PublicRoute = ({ children, redirectTo }) => {
 };
 
 export default function Rotas() {
-  // const arr = [
-  //   {text: "cadastro", link:"/register"},
-  //   {text: "index", link:"/"},
-  //   {text: "login", link:"/login"}
-    
-  // ]; 
-
   return (
     <Context>
       <BrowserRouter>
@@ -39,12 +32,36 @@ export default function Rotas() {
             }
           />
           <Route
+            path="/dashboard/procurar-grupos"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <SearchGroups />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/dashboard/criar-grupos"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <PageNewGroup />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/dashboard/criar-atividade"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <PageNewHabit />
+              </PrivateRoute>
+            }
+          />
+          <Route
             path="/"
             element={
-
               <PublicRoute redirectTo="/dashboard">
                 <Index />
-
               </PublicRoute>
             }
           />
