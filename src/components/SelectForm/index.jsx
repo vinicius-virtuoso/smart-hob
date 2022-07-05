@@ -17,6 +17,7 @@ const SelectForm = ({
   ...rest
 }) => {
   return (
+
     <>
       <ContainerSelect erro={erro}>
         <LabelSelect erro={erro}>{label}</LabelSelect>
@@ -28,14 +29,17 @@ const SelectForm = ({
         >
           <OptionSelect value="">Selecione</OptionSelect>
           {datasArray.map((data, index) => (
+
             <OptionSelect key={index} value={data}>
               {data}
             </OptionSelect>
           ))}
+
         </AreaSelect>
       </ContainerSelect>
       <MessageErro>{erro && messageErro}</MessageErro>
     </>
+
   );
 };
 

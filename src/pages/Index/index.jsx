@@ -1,7 +1,10 @@
-import Welcome from "../../components/Welcome"
+import Welcome from "../../components/Welcome";
 
-const Index= () =>{
-    return(
+
+const Index = () => {
+
+   
+    return (
         <Welcome/>
     )
 }

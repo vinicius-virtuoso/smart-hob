@@ -6,10 +6,13 @@ import Form from "../Form";
 import { api_habits } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { UserContext } from "../../Context/Provider/User";
+import { useContext } from "react";
 
 const LoginForm = () => {
-  // const { decode_token, user } = useContext(UserContext);
   const navigate = useNavigate();
+  const { setToken, token } = useContext(UserContext);
+  console.log(token);
 
   const listInputs = [
     {
@@ -47,12 +50,13 @@ const LoginForm = () => {
     api_habits
       .post("/sessions/", data)
       .then(({ data }) => {
+        setToken(data.access);
         window.localStorage.setItem("@Smart-hob/token", data.access);
         navigate("/dashboard");
       })
       .catch((err) => {
         toast.error("Usuário ou senha está incorreto.", {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.TOP_LEFT,
         });
       });
   };

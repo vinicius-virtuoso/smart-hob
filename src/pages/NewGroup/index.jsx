@@ -1,3 +1,4 @@
+
 import FormNewGroup from "../../components/FormNewGroup";
 import ImageCommunity from "../../Assets/Img/undraw_community_re_cyrm.svg";
 import { HeaderForm } from "./style";
@@ -15,3 +16,4 @@ const PageNewGroup = () => {
 };
 
 export default PageNewGroup;
+
