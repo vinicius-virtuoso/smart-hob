@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNewTask } from "../../Context/NewTask";
 import { yupResolver } from "@hookform/resolvers/yup";
