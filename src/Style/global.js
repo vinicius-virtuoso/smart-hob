@@ -38,6 +38,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: var(--fml-Barlow-Condensed);
         background:var(--color-purple);
         min-height:100vh;
+        
     }
    
 `;
