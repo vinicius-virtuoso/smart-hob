@@ -3,13 +3,11 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { isAuthenticated } from "../auth";
 import Context from "../Context";
 import Login from "../pages/Login";
-import PageNewGroup from "../pages/NewGroup";
+import PageNewGroup from "../pages/PageNewGroup";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
 import SearchGroups from "../pages/SearchGroups";
-import NewGroup from "../pages/NewGroup";
-
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -42,10 +40,10 @@ export default function Rotas() {
           />
 
           <Route
-            path="/dashboard/criar-grupo"
+            path="/dashboard/criar-grupos"
             element={
               <PrivateRoute redirectTo="/login">
-                <NewGroup />
+                <PageNewGroup />
               </PrivateRoute>
             }
           />
