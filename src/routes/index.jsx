@@ -4,9 +4,12 @@ import { isAuthenticated } from "../auth";
 import Context from "../Context";
 
 import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
+import PageNewGroup from "../pages/NewGroup";
 import Register from "../pages/Register";
+import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
+import PageNewHabit from "../pages/NewHabit/index,";
+import PageEditHabit from "../pages/EditHabit/index,";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -41,11 +44,14 @@ export default function Rotas() {
           <Route
             path="/dashboard/criar-grupos"
             element={
-              <PrivateRoute redirectTo="/login">
-                <h1>criar-grupos</h1>
+              <PrivateRoute redirectTo="/new-groups">
+                <PageNewGroup />
               </PrivateRoute>
             }
           />
+
+          <Route path="new-groups" element={<PageNewGroup />} />
+
           <Route
             path="/dashboard/my-groups"
             element={
@@ -65,10 +71,14 @@ export default function Rotas() {
           <Route
             path="/dashboard/criar-atividade"
             element={
-              <PrivateRoute redirectTo="/login">
-                <h1>criar-atividade</h1>
+              <PrivateRoute redirectTo="/new-tasks">
+                <PageNewHabit />
               </PrivateRoute>
             }
+          />
+          <Route
+            path="/dashboard/editar-atividade/:hobbie_id"
+            element={<PageEditHabit />}
           />
           <Route
             path="/"

@@ -22,7 +22,7 @@ import { IoLibrarySharp } from "react-icons/io5";
 function CardUserGroups({ el }) {
   const token = localStorage.getItem("@Smart-hob/token");
 
-  console.log(token);
+  // console.log(token);
 
   // eslint-disable-next-line no-unused-vars
   const [list, setList] = useState([]);

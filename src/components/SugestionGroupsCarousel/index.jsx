@@ -19,7 +19,7 @@ const SugestionGroupsCarousel = () => {
   useEffect(() => {
     api_habits.get("/groups/").then(({ data }) => {
       setList(data.results);
-      console.log(data.results);
+      // console.log(data.results);
     });
   }, []);
 
