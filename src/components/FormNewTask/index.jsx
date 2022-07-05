@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const FormNewTask = () => {
-  const { token, user, userHobbies, setUserHobbies } = useContext(UserContext);
+  const { token, user, get_user_hobbies } = useContext(UserContext);
   const navigate = useNavigate();
 
   // const decoder = jwt_decode(token);
@@ -47,8 +47,8 @@ const FormNewTask = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(({ data }) => {
-        setUserHobbies([...userHobbies, data]);
+      .then(() => {
+        get_user_hobbies();
         toast.success("Atividade criada com sucesso!");
         navigate("/dashboard");
       })

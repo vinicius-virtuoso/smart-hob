@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import {
   Box,
   Button,
@@ -6,6 +6,8 @@ import {
   Modal,
   TextField,
   FormControl,
+  FormControlLabel,
+  Switch,
 } from "@mui/material";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -19,36 +21,15 @@ import { ButtonForm } from "../ButtonForm";
 import { api_habits } from "../../services/api";
 import { UserContext } from "../../Context/Provider/User";
 import { toast } from "react-toastify";
+import { ShowPhraseContext } from "../../Context/Provider/ShowModal";
 
 export function ModalUser({ open, setOpen }) {
-  const [mostrarFrase, setMostrarFrase] = useState(true);
-  let check = localStorage.getItem("show-frases");
-
-  useEffect(() => {
-    // if (check) {
-    //   localStorage.setItem("show-frases", !mostrarFrase);
-    //   setMostrarFrase(true);
-    // } else {
-    //   localStorage.setItem("show-frases", false);
-    //   setMostrarFrase(false);
-    // }
-
-    changeCheck();
-  }, [check, mostrarFrase]);
-
-  const changeCheck = (value) => {
-    if (value) {
-      setMostrarFrase(true);
-    } else {
-      setMostrarFrase(false);
-    }
-  };
-
   const handleClose = () => {
     reset();
     setOpen(false);
   };
-  const { user } = useContext(UserContext);
+  const { user, token, get_user } = useContext(UserContext);
+  const { openPhrase, setOpenPhrase } = useContext(ShowPhraseContext);
 
   const formSchema = yup.object().shape({
     username: yup.string().required("Nome de usuário obrigatório!"),
@@ -68,14 +49,15 @@ export function ModalUser({ open, setOpen }) {
     api_habits
       .patch(`/users/${user.id}/`, data, {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${token}`,
         },
       })
-      .then(({ data }) => {
-        console.log(data);
+      .then((_) => {
         toast.success("Perfil atualizado!", {
           position: toast.POSITION.TOP_RIGHT,
         });
+        get_user();
+        handleClose();
       })
       .catch((_) => {
         toast.error("Nome de usuário já está em uso!", {
@@ -145,14 +127,24 @@ export function ModalUser({ open, setOpen }) {
                 defaultValue={user.email}
               />
             </FormControl>
-            <Box>
-              <div onClick={() => localStorage.setItem("show-frases", true)}>
-                mostrar frases
-              </div>
-            </Box>
+            <Box></Box>
             <ButtonForm tertiary type="submit">
               Atualizar
             </ButtonForm>
+            <FormControlLabel
+              control={
+                <Switch
+                  color="primary"
+                  checked={openPhrase}
+                  onChange={({ target }) => {
+                    setOpenPhrase(target.checked);
+                  }}
+                />
+              }
+              label={`Mostrar frases (${
+                openPhrase ? "Ativado" : "Desativado"
+              })`}
+            />
           </Box>
         </Box>
       </Modal>

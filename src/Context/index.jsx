@@ -1,8 +1,13 @@
 import React from "react";
+import { ShowPhraseProvider } from "./Provider/ShowModal";
 import { UserProvider } from "./Provider/User";
 
 function Context({ children }) {
-  return <UserProvider>{children}</UserProvider>;
+  return (
+    <UserProvider>
+      <ShowPhraseProvider>{children}</ShowPhraseProvider>
+    </UserProvider>
+  );
 }
 
 export default Context;
