@@ -7,6 +7,7 @@ export const Container = styled.div`
   width: 100%;
   height: auto;
   padding: 10px 0 10px 0;
+  background-color: var(--color-light);
 `;
 
 export const Contain = styled.div`
@@ -15,7 +16,7 @@ export const Contain = styled.div`
   max-width: 1220px;
   align-items: center;
 
-  button {
+  button.btn-arrow {
     display: contents;
     background-color: transparent;
     border: none;

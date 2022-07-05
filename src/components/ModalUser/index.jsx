@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -21,6 +21,29 @@ import { UserContext } from "../../Context/Provider/User";
 import { toast } from "react-toastify";
 
 export function ModalUser({ open, setOpen }) {
+  const [mostrarFrase, setMostrarFrase] = useState(true);
+  let check = localStorage.getItem("show-frases");
+
+  useEffect(() => {
+    // if (check) {
+    //   localStorage.setItem("show-frases", !mostrarFrase);
+    //   setMostrarFrase(true);
+    // } else {
+    //   localStorage.setItem("show-frases", false);
+    //   setMostrarFrase(false);
+    // }
+
+    changeCheck();
+  }, [check, mostrarFrase]);
+
+  const changeCheck = (value) => {
+    if (value) {
+      setMostrarFrase(true);
+    } else {
+      setMostrarFrase(false);
+    }
+  };
+
   const handleClose = () => {
     reset();
     setOpen(false);
@@ -122,6 +145,11 @@ export function ModalUser({ open, setOpen }) {
                 defaultValue={user.email}
               />
             </FormControl>
+            <Box>
+              <div onClick={() => localStorage.setItem("show-frases", true)}>
+                mostrar frases
+              </div>
+            </Box>
             <ButtonForm tertiary type="submit">
               Atualizar
             </ButtonForm>

@@ -21,7 +21,7 @@ const arr = [
     icon: <AiOutlineSearch />,
   },
   {
-    text: "Novo Grupo",
+    text: "Criar Grupo",
     link: "/dashboard/novo-grupo",
     icon: <AiOutlineUsergroupAdd />,
   },
@@ -40,7 +40,7 @@ const arr = [
 function HeaderContainer() {
   const [mobile, setMobile] = useState(window.screen.width <= 768);
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
+  const { user, userGroups, userHobbies } = useContext(UserContext);
 
   window.addEventListener("resize", () => {
     if (window.screen.width <= 768) {
@@ -59,14 +59,14 @@ function HeaderContainer() {
     <Header>
       <Container>
         <Box>
-          <WelcomeLayout name={user?.user?.username} />
+          <WelcomeLayout name={user?.username} />
           {mobile ? (
             <MenuHamb arr={arr} />
           ) : (
             <MenuDesktop arr={arr} logout={logout} onClick={logout} />
           )}
         </Box>
-        <CounterGroup user={user} />
+        <CounterGroup userGroups={userGroups} userHobbies={userHobbies} />
       </Container>
     </Header>
   );

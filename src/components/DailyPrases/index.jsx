@@ -9,24 +9,31 @@ export const DailyPhrases = () => {
     JSON.parse(localStorage.getItem("show-frases") || true)
   );
 
+  const closeFrase = () => {
+    setIsOpen(false);
+    localStorage.setItem("show-frases", false);
+  };
+
   useEffect(() => {
     if (isOpen) {
       api_phrases
-        .get("/quotes/random")
-        .then(({ data }) => setFrase(data.data))
+        .get("/frases/random")
+        .then(({ data }) => {
+          setFrase(data.frase);
+        })
         .catch((err) => console.log(err));
     }
+    clickPhrase();
   }, [isOpen]);
 
-  function close_frase() {
-    setIsOpen(false);
-    JSON.stringify(localStorage.setItem("show-frases", false));
-  }
+  const clickPhrase = () => {
+    localStorage.setItem("show-frases", true);
+  };
 
   return (
     <>
       <BoxPhrases isOpen={isOpen}>
-        <button onClick={close_frase}>
+        <button onClick={closeFrase}>
           <AiFillCloseCircle />
         </button>
         <h5>Frase do dia</h5>

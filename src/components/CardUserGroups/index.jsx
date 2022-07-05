@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { api_habits } from "../../services/api";
 import { ButtonForm } from "../ButtonForm";
 import { ContainerCardSujests, FigcaptionCardSujests } from "./styles";
@@ -20,10 +20,9 @@ import { BsQuestionCircleFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
 import { UserContext } from "../../Context/Provider/User";
 
-const CardSugestoes = () => {
-  const { token } = useContext(UserContext);
-  const [list, setList] = useState([]);
-  const [subscriptions, setSubscriptions] = useState([]);
+function CardUserGroups({ el }) {
+  const { userGroups, setUserGroups, token } = useContext(UserContext);
+
   const icons = {
     Meditação: <GiMeditation size={200} />,
     Pintura: <GiPaintBrush size={200} />,
@@ -38,76 +37,44 @@ const CardSugestoes = () => {
     "Jogos de Tabuleiro": <GiChessPawn size={200} />,
     "Passeios e/ou Viagens": <MdCardTravel size={200} />,
   };
-  const listGroup = () => {
+
+  const subscribeGroup = (id) => {
     api_habits
-      .get("groups/", {
+      .post(`/groups/${id}/subscribe/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  const unsubscribeGroup = (id) => {
+    api_habits
+      .delete(`/groups/${id}/unsubscribe/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
-        setList(
-          res.data.results[Math.floor(Math.random() * res.data.results.length)]
-        );
+        let remove_group = userGroups.filter((group) => group.id !== id);
+        setUserGroups(remove_group);
       })
       .catch((err) => console.log(err));
   };
-
-  const subscribeGroup = (data) => {
-    api_habits
-      .post(`groups/${list.id}/subscribe/`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
-
-  const subscriptionsGroups = () => {
-    api_habits
-      .get(`groups/subscriptions/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => setSubscriptions(res.data))
-      .catch((err) => console.log(err));
-  };
-
-  const unsubscribeGroup = () => {
-    api_habits
-      .delete(`groups/${list.id}/unsubscribe/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    listGroup();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    subscriptionsGroups();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <ContainerCardSujests>
-      {icons[list.category] || <BsQuestionCircleFill size={200} />}
+      {icons[el.category] || <BsQuestionCircleFill size={200} />}
 
       <FigcaptionCardSujests>
-        <h4>{list.name}</h4>
+        <h4>{el.name}</h4>
 
-        {subscriptions.find((sub) => list.id === sub.id) ? (
+        {userGroups.find((sub) => el.id === sub.id) ? (
           <ButtonForm
             tertiary
             onClick={() => {
-              unsubscribeGroup();
+              unsubscribeGroup(el.id);
             }}
           >
             Seguindo
@@ -116,7 +83,7 @@ const CardSugestoes = () => {
           <ButtonForm
             secondary
             onClick={() => {
-              subscribeGroup();
+              subscribeGroup(el.id);
             }}
           >
             Seguir
@@ -125,6 +92,6 @@ const CardSugestoes = () => {
       </FigcaptionCardSujests>
     </ContainerCardSujests>
   );
-};
+}
 
-export default CardSugestoes;
+export default CardUserGroups;
