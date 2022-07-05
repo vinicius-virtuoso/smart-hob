@@ -1,4 +1,5 @@
 
+
 import HeaderContainer from "../../components/HeaderContainer";
 import Footer from "../../components/Footer";
 import { Box, Container, Content, Grid, NoContent } from "./styles";
@@ -42,6 +43,7 @@ function Dashboard() {
       </Content>
       <Footer />
     </Grid>
+
   );
 }
 
