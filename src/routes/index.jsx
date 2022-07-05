@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Register from "../pages/Register";
 import Index from "../pages/Index";
+import SearchGroups from "../pages/SearchGroups";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -33,7 +34,7 @@ export default function Rotas() {
             path="/dashboard/procurar-grupos"
             element={
               <PrivateRoute redirectTo="/login">
-                <h1>procurar-grupos</h1>
+                <SearchGroups />
               </PrivateRoute>
             }
           />
