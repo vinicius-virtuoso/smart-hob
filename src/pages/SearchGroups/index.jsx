@@ -1,16 +1,20 @@
 import { useContext, useEffect, useState } from "react";
+import ButtonAdd from "../../components/ButtonAdd";
 import Footer from "../../components/Footer";
 import HeaderSearch from "../../components/HeaderSearch";
 import LisSearch from "../../components/ListSearch";
 import { UserContext } from "../../Context/Provider/User";
 import { api_habits } from "../../services/api";
 import { BoxPage, Container, ContentSearch, Grid, Next, Prev } from "./style";
+import { useNavigate } from "react-router-dom";
 
 function SearchGroups() {
   const [getGroups, setGetGroups] = useState([]);
   const { token } = useContext(UserContext);
   const [page, setPage] = useState(1);
   const [text, setText] = useState("");
+
+  const navigate = useNavigate();
 
   const get_groups = () => {
     api_habits
@@ -69,6 +73,13 @@ function SearchGroups() {
           </BoxPage>
         </Container>
       </ContentSearch>
+      <div className="add">
+        <ButtonAdd
+          size="small"
+          theme="primary"
+          onClick={() => navigate("/dashboard/criar-grupos")}
+        />
+      </div>
       <Footer />
     </Grid>
   );

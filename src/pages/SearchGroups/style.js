@@ -2,8 +2,21 @@ import styled from "styled-components";
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-rows: minmax(140px, 150px) 1fr 40px;
+  grid-template-rows: minmax(140px, 150px) auto 100px 40px;
   min-height: 100vh;
+  background-color: var(--color-white);
+
+  div.add {
+    width: 100%;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+
+    button {
+      max-width: 200px;
+    }
+  }
 
   @media (max-width: 768px) {
     grid-template-rows: minmax(100px, 100px) 1fr 40px;
