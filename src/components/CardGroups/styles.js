@@ -26,6 +26,7 @@ export const TextDiv = styled.div`
   justify-content: space-around;
   font-family: var(--fml-Barlow-Condensed);
   letter-spacing: 1px;
+  overflow: hidden;
 
   gap: 0.3rem;
 

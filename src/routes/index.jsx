@@ -2,11 +2,12 @@ import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { isAuthenticated } from "../auth";
 import Context from "../Context";
-
 import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
+import PageNewGroup from "../pages/PageNewGroup";
 import Register from "../pages/Register";
+import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
+import PageNewHabit from "../pages/NewHabit/index,";
 import SearchGroups from "../pages/SearchGroups";
 
 const PrivateRoute = ({ children, redirectTo }) => {
@@ -43,31 +44,16 @@ export default function Rotas() {
             path="/dashboard/criar-grupos"
             element={
               <PrivateRoute redirectTo="/login">
-                <h1>criar-grupos</h1>
+                <PageNewGroup />
               </PrivateRoute>
             }
           />
-          <Route
-            path="/dashboard/my-groups"
-            element={
-              <PrivateRoute redirectTo="/login">
-                <h1>pagina de grupos do usuário</h1>
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/my-hobbies"
-            element={
-              <PrivateRoute redirectTo="/login">
-                <h1>pagina de hobbies do usuário</h1>
-              </PrivateRoute>
-            }
-          />
+
           <Route
             path="/dashboard/criar-atividade"
             element={
               <PrivateRoute redirectTo="/login">
-                <h1>criar-atividade</h1>
+                <PageNewHabit />
               </PrivateRoute>
             }
           />

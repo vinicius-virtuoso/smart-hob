@@ -1,3 +1,4 @@
+
 import HeaderContainer from "../../components/HeaderContainer";
 import Footer from "../../components/Footer";
 import { Box, Container, Content, Grid, NoContent } from "./styles";
@@ -7,31 +8,35 @@ import SugestionGroupsCarousel from "../../components/SugestionGroupsCarousel";
 import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
 import DisplayCarouselHobbies from "../../components/DisplayCarouselHobbies";
+import DisplayAdcGroups from "../../components/DisplayAdcGroups";
+
 
 function Dashboard() {
   const { userHobbies, userGroups } = useContext(UserContext);
 
   return (
+
     <Grid>
       <HeaderContainer />
       <Content>
         <DailyPhrases />
-        <Box>
+        {/* <Box>
           {userHobbies.length > 0 ? (
             <DisplayCarouselHobbies/>
           ) : (
             <NoContent>Sem grupos para mostrar</NoContent>
           )}
-        </Box>
+        </Box> */}
 
         <Container>
           <Box>
             {userGroups.length > 0 ? (
-              <DisplayCards groups />
+              <DisplayCards />
             ) : (
               <NoContent>Sem grupos para mostrar</NoContent>
             )}
           </Box>
+          <DisplayAdcGroups />
         </Container>
         <SugestionGroupsCarousel />
       </Content>

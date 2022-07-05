@@ -1,5 +1,4 @@
 import React from "react";
-
 import { UserProvider } from "./Provider/User";
 
 function Context({ children }) {

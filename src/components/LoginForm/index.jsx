@@ -46,6 +46,7 @@ const LoginForm = () => {
   });
 
   const onSubmitFunction = (data) => {
+    console.log(data);
     api_habits
       .post("/sessions/", data)
       .then(({ data }) => {
