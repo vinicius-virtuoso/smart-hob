@@ -1,88 +1,136 @@
 import styled from "styled-components";
 
-export const Section = styled.section`
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: flex-end;
-position: relative;
-`
-
-export const Nav = styled.nav`
-  width: -350px;
-  background: white;
-  color: rgba(0, 0, 0, 0.87);
-  -webkit-clip-path: circle(28px at 30px 24px);
-  clip-path: circle(21px at 32px 24px);
-  -webkit-transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
-  transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
-  text-align: right;
-  
-  
-
-    &:hover {
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-  -webkit-transition-duration: 1s;
-  transition-duration: 0.75s;
-  -webkit-clip-path: circle(-390px at -225px 24px);
-  clip-path: circle(390px at 150px 24px);
-}
-`
-
 export const Div = styled.div`
-    padding: 23px 20px;
-  cursor: pointer;
-  -webkit-transform-origin: 32px 24px;
-  -ms-transform-origin: 32px 24px;
-  transform-origin: 32px 24px;
-  
-  div{
-    position: relative;
-    width: 12px;
-    height: 2px;
-    background: rgba(0, 0, 0, 0.87);
-    
-    &::before{
-      top: -7px;
-    }
-    &::after{
-      top: 7px;
-    }
-    
-&::before,
-&::after {
-  display: block;
-  content: "";
-  width: 20px;
-  height: 2px;
-  background: rgba(0, 0, 0, 0.87);
-  position: absolute;
+input{
+  display: none;
 }
 
-  }
+#active:checked ~ .wrapper{  
+  right:0;
+}
+.menu-btn{
+  position: absolute;
+  z-index: 2;
+  right: 20px;  
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;  
+  transition: all 0.3s ease-in-out;
+}
+.menu-btn span,
+.menu-btn:before,
+.menu-btn:after{
+	content: "";
+	position: absolute;
+	top: calc(50% - 1px);
+	left: 30%;
+	width: 40%;
+	border-bottom: 2px solid #000;
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.menu-btn:before{
+  transform: translateY(-8px);
+}
+.menu-btn:after{
+  transform: translateY(8px);
+}
 
+.close {
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	transition:  .6s;
+}
+
+#active:checked + .menu-btn span {
+	transform: scaleX(0);
+}
+#active:checked + .menu-btn:before {
+	transform: rotate(45deg);
+  border-color: #fff;
+}
+#active:checked + .menu-btn:after {
+	transform: rotate(-45deg);
+  border-color: var(--color-light);
+}
+
+#active:checked ~ .wrapper ul li button{
+  opacity: 1;
+}
+
+#active:checked ~ .wrapper ul li button{
+	transform: none;
+	transition-timing-function: ease, cubic-bezier(.1,1.3,.3,1);
+   transition-delay: .6s;
+  transform: translateX(-100px);
+  
+}
 
 `
-export const Li = styled.li`
-  text-align: left;
-  &:hover{
-    background: var(--color-yellow); 
-  }
-  
-  &:active { background: var(--color-lightblue)}
-  
-  a{
-    display: block;
-      line-height: 50px;
-      padding: 0 20px;
-      color: inherit;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    cursor: pointer;
-    color: var(--color-dark);
+export const Menu = styled.div`
+position: fixed;
+  top: 0;  
+  right: -100%;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  transition: all 0.6s ease-in-out;
+`
 
+export const Ul = styled.ul`
+position: absolute;
+  top: 60%;
+  left: 50%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+  li{
+  height: 10%;
+  margin: 15px 0;
+}
+`
+export const Button = styled.button`
+background: none;
+text-decoration: none;
+cursor: pointer;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px 30px;
+  color: #fff;
+  border-radius: 50px;
+  position: absolute;
+  line-height: 50px;
+  margin: 5px 30px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  &:hover:after{
+  transform: scaleY(1);
   }
+  &:hover{
+  color: var(--color-dark);
+}
+
+  &::after{
+  position: absolute;
+  content: "";
+  background: var(--color-light);  
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+  transform: scaleY(0);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+
 `

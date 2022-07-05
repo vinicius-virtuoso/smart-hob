@@ -1,24 +1,26 @@
-import { Nav, Div , Section, Li } from "./styles"
-import {NavLink } from "react-router-dom"
+import { Div, Button, Ul, Menu } from "./styles"
+import { NavLink } from "react-router-dom"
 
-const MenuHamb = ({ text }) => {
+const MenuHamb = ({ arr }) => {
     return (
-
-        <Section>
-            <Nav>
-                <Div>
-                    <div></div>
-                </Div>
-                {text.map((el, index) => {
-                    return (
-                        <ul key={index}>
-                            <Li>
-                                <NavLink to={el.link}>{el.text}</NavLink>
-                            </Li>
-                        </ul>) 
-                })}
-            </Nav> 
-        </Section>
+        <Div>
+            <input type="checkbox" id="active" />
+            <label htmlFor="active" className="menu-btn"><span></span></label>
+            <label htmlFor="active" className="close" ></label>
+            <Menu className="wrapper">
+                <Ul>
+                    {arr.map((el, index) => {
+                        return (
+                            <li key={index}>
+                                <Button onClick={el.click}>
+                                    <a href={el.link}>{el.text}</a>
+                                </Button>
+                            </li>
+                        )
+                    })}
+                </Ul>
+            </Menu>
+        </Div>
     )
 }
 export default MenuHamb
