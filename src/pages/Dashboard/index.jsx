@@ -17,18 +17,18 @@ function Dashboard() {
       <HeaderContainer />
       <Content>
         <DailyPhrases />
-        <Box>
+        {/* <Box>
           {userHobbies.length > 0 ? (
             <DisplayCards hobbies />
           ) : (
             <NoContent>Sem grupos para mostrar</NoContent>
           )}
-        </Box>
+        </Box> */}
 
         <Container>
           <Box>
             {userGroups.length > 0 ? (
-              <DisplayCards groups />
+              <DisplayCards />
             ) : (
               <NoContent>Sem grupos para mostrar</NoContent>
             )}

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import CardHobbies from "../CardHobbies";
-import CardUserGroups from "../CardUserGroups";
-import { Container, DivCard } from "./styles";
 
-const Paginate = ({ card, hobbies2, groups2 }) => {
+import CardUserGroups from "../CardUserGroups";
+import { Container, ContainerCard, DivCard } from "./styles";
+
+const Paginate = ({ card, number }) => {
   const [cardPerPage, setCardPerPage] = useState([]);
   const [pagNumber, setPagNumber] = useState(0);
 
@@ -14,7 +14,7 @@ const Paginate = ({ card, hobbies2, groups2 }) => {
     }
   }, [card]);
 
-  const productsPerPage = 12;
+  const productsPerPage = number;
   const pagesVisited = pagNumber * productsPerPage;
 
   const displayCard = cardPerPage
@@ -22,8 +22,7 @@ const Paginate = ({ card, hobbies2, groups2 }) => {
     .map((el, index) => {
       return (
         <div key={index}>
-          {hobbies2 && <CardHobbies el={el} />}
-          {groups2 && <CardUserGroups el={el} />}
+          {<CardUserGroups el={el} />}
         </div>
       );
     });
@@ -36,20 +35,24 @@ const Paginate = ({ card, hobbies2, groups2 }) => {
 
   return (
     <Container>
-      {hobbies2 && <h3>Seus Hobbies</h3>}
-      {groups2 && <h3>Seus Grupos</h3>}
-      <DivCard groups={card[0]?.name ? true : false}>{displayCard}</DivCard>
-      <ReactPaginate
-        previousLabel={"<"}
-        nextLabel={" >"}
-        pageCount={pageCounter}
-        onPageChange={changePage}
-        containerClassName={"paginationBttns"}
-        previousLinkClassName={"previousBttn"}
-        nextLinkClassName={"nextBttn"}
-        disabledClassName={"paginationDisabled"}
-        activeClassName={"paginationAticve"}
-      />
+      <ContainerCard>
+        {displayCard}
+      </ContainerCard>
+      {/* <DivCard groups={card[0]?.name ? true : false}>{displayCard}</DivCard> */}
+      {card.length > 10 ? (
+        <ReactPaginate
+          previousLabel={"<"}
+          nextLabel={" >"}
+          pageCount={pageCounter}
+          onPageChange={changePage}
+          containerClassName={"paginationBttns"}
+          previousLinkClassName={"previousBttn"}
+          nextLinkClassName={"nextBttn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationAticve"}
+        />
+
+      ): null}
     </Container>
   );
 };
