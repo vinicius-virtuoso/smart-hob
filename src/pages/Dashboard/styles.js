@@ -14,7 +14,6 @@ export const Content = styled.section`
   width: 100%;
   height: 100%;
   background: var(--color-white);
-  padding-bottom: 2rem;
 `;
 
 export const Container = styled.div`

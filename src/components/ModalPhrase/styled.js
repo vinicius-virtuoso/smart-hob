@@ -1,25 +1,12 @@
 import styled from "styled-components";
 
-export const Box = styled.div`
-  width: 100%;
-  overflow: hidden;
-  max-height: 200px;
-  background-color: var(--color-pink-light);
-  margin-top: 0.25rem;
-
-  transition: all 0.3s ease-in-out;
-
-  ${(props) => (props.openPhrase === true ? "height:100%" : "height:0%;")}
-`;
-
 export const Container = styled.div`
   width: 100%;
-
+  background-color: var(--color-pink-light);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  padding-bottom: 10px;
+  margin-top: 0.25rem;
 `;
 export const Div = styled.div`
   min-height: 150px;
