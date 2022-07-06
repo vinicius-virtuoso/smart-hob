@@ -37,11 +37,16 @@ const arr = [
   },
 ];
 
+
+
+
+
 function HeaderContainer() {
   const [mobile, setMobile] = useState(window.screen.width <= 768);
   const navigate = useNavigate();
   const { user, userGroups, userHobbies } = useContext(UserContext);
 
+  
   window.addEventListener("resize", () => {
     if (window.screen.width <= 768) {
       setMobile(true);
@@ -49,11 +54,19 @@ function HeaderContainer() {
       setMobile(false);
     }
   });
-
+  
   const logout = () => {
     localStorage.clear();
     navigate("/login");
   };
+  const arrMobile = [...arr];
+
+  arrMobile.push( {
+    text: "Sair",
+    link: "",
+    click: logout,
+  }
+)
 
   return (
     <Header>
@@ -61,7 +74,7 @@ function HeaderContainer() {
         <Box>
           <WelcomeLayout name={user?.username} />
           {mobile ? (
-            <MenuHamb arr={arr} />
+            <MenuHamb arr={arrMobile} />
           ) : (
             <MenuDesktop arr={arr} logout={logout} onClick={logout} />
           )}

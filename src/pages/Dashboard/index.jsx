@@ -11,6 +11,7 @@ import DisplayAdcGroups from "../../components/DisplayAdcGroups";
 
 function Dashboard() {
   const { userHobbies, userGroups } = useContext(UserContext);
+  
 
   return (
     <Grid>
@@ -35,7 +36,7 @@ function Dashboard() {
           </Box>
           <DisplayAdcGroups />
         </Container>
-        <SugestionGroupsCarousel />
+        {/* <SugestionGroupsCarousel /> */}
       </Content>
       <Footer />
     </Grid>

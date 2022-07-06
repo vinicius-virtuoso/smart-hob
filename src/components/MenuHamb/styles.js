@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
+
+
 export const Div = styled.div`
+z-index: 5;
 input{
   display: none;
 }
@@ -16,7 +19,7 @@ input{
   height: 50px;
   width: 50px;
   text-align: center;
-  line-height: 50px;
+  /* line-height: 50px; */
   border-radius: 50%;
   font-size: 20px;
   cursor: pointer;  
@@ -27,7 +30,7 @@ input{
 .menu-btn:after{
 	content: "";
 	position: absolute;
-	top: calc(50% - 1px);
+	top: calc(20% - 1px);
 	left: 30%;
 	width: 40%;
 	border-bottom: 2px solid #000;
@@ -41,7 +44,7 @@ input{
 }
 
 .close {
-	z-index: 1;
+	z-index: 999;
 	width: 100%;
 	height: 100%;
 	pointer-events: none;
@@ -85,29 +88,31 @@ position: fixed;
 
 export const Ul = styled.ul`
 position: absolute;
-  top: 60%;
-  left: 50%;
-  height: 90%;
+  top: 54%;
+  left: 53%;
+  height: 91%;
   transform: translate(-50%, -50%);
   list-style: none;
   text-align: center;
   li{
-  height: 10%;
-  margin: 15px 0;
+  height: 60px;  
+  
 }
 `
 export const Button = styled.button`
-background: none;
-text-decoration: none;
+font-family: var(--fml-Barlow-Condensed);
 cursor: pointer;
-  font-size: 30px;
+width: 180px;
+height: 50px;
+
+  font-size: 25px;
   font-weight: 500;
-  padding: 5px 30px;
+  /* padding: 5px 30px; */
   color: #fff;
-  border-radius: 50px;
+  /* border-radius: 5px; */
   position: absolute;
   line-height: 50px;
-  margin: 5px 30px;
+  /* margin: 5px 30px; */
   opacity: 0;
   transition: all 0.3s ease;
   transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
