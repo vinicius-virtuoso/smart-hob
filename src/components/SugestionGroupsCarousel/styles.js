@@ -46,6 +46,9 @@ export const Carousel = styled.div`
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px 0 10px 0;
+  gap: 0.5rem;
+  width: 98vw;
+
 
   ::-webkit-scrollbar {
     display: none;
