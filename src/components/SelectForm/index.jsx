@@ -17,17 +17,12 @@ const SelectForm = ({
   ...rest
 }) => {
   return (
-    // <ContainerSelect>
-    //   <LabelSelect htmlFor="selectForm">{label}</LabelSelect>
-    //   <AreaSelect name="selectForm" id="selectForm" {...rest}>
-    //     <OptionSelect defaultValue={"Selecione"} value={null}>
-    //       Selecione
-    //     </OptionSelect>
-    //     {datasArray &&
-    //       datasArray.map((data, index) => (
+
     <>
       <ContainerSelect erro={erro}>
-        <LabelSelect erro={erro}>{label}</LabelSelect>
+        <LabelSelect erro={erro} htmlFor="selectForm">
+          {label}
+        </LabelSelect>
         <AreaSelect
           name="selectForm"
           id="selectForm"

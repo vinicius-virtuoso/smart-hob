@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Div = styled.div`
@@ -14,7 +13,7 @@ export const Ul = styled.ul`
   width: 100%;
 `;
 
-export const Li = styled(Link)`
+export const Li = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,10 +22,6 @@ export const Li = styled(Link)`
   font-family: var(--fml-Poppins);
   font-size: 1.2rem;
   transition: color 0.2s ease;
-
-  &:hover {
-    color: var(--color-dark);
-  }
 
   @media (max-width: 768px) {
     font-size: 0.875rem;

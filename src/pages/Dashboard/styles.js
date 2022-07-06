@@ -24,6 +24,17 @@ export const Container = styled.div`
 
 export const Box = styled.div`
   width: 100%;
-  height: 100%;
   background: var(--color-white);
+  margin: 80px 0;
+`;
+
+export const NoContent = styled.div`
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-dark);
+  font-size: 3rem;
+  opacity: 0.5;
 `;

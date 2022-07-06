@@ -1,6 +1,11 @@
 import styled from "styled-components";
 export const Container = styled.div`
-  width: 100%;
+  width: 100%;    
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column; 
+    
 
   .paginationBttns {
     user-select: none;
@@ -9,8 +14,8 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 0px 0 10px 0;
-    font-family: var(--fml-Titillium-Web);
+    margin: 0px;
+    font-family: var(--fml-Poppins);
 
     li {
       margin: 2px;
@@ -41,13 +46,11 @@ export const Container = styled.div`
     }
   }
 `;
-export const DivCard = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const ContainerCard = styled.div`
 
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-  }
-`;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+
+
+`

@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 100%;
 
   border-radius: 5px;
@@ -25,6 +26,7 @@ export const TextDiv = styled.div`
   justify-content: space-around;
   font-family: var(--fml-Barlow-Condensed);
   letter-spacing: 1px;
+  overflow: hidden;
 
   gap: 0.3rem;
 

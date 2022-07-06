@@ -1,15 +1,17 @@
-import React from "react";
-import { NewGroupProvider } from "./NewGroup";
-import { NewTaskProvider } from "./NewTask";
 
+
+import { CountPagesProvider } from "./Provider/CountPages";
+import { ShowPhraseProvider } from "./Provider/ShowModal";
 import { UserProvider } from "./Provider/User";
 
 function Context({ children }) {
   return (
     <UserProvider>
-      <NewGroupProvider>
-        <NewTaskProvider>{children}</NewTaskProvider>
-      </NewGroupProvider>
+
+      <ShowPhraseProvider>
+        <CountPagesProvider>{children}</CountPagesProvider>
+      </ShowPhraseProvider>
+
     </UserProvider>
   );
 }

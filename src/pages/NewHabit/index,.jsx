@@ -1,21 +1,19 @@
 import FormNewTask from "../../components/FormNewTask";
 import ImageNewTask from "../../Assets/Img/undraw_taking_notes_re_bnaf.svg";
-import { HeaderNewTask, ImageHeader } from "./style";
-import { Link } from "react-router-dom";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { BackLink, HeaderNewTask } from "./style";
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
 
 const PageNewHabit = () => {
   return (
     <>
       <HeaderNewTask>
-        <Link to="/dashboard">
-          <AiOutlineArrowLeft size={24} />
-        </Link>
-
-        <ImageHeader>
-          <img src={ImageNewTask} alt="Crie uma nova atividade" />
-          <h3>Novo Hábito</h3>
-        </ImageHeader>
+        <BackLink to="/dashboard">
+          <span>
+            <MdOutlineArrowBackIosNew /> Voltar
+          </span>
+        </BackLink>
+        <img src={ImageNewTask} alt="Crie uma nova atividade" />
+        <h3>Nova Hábito</h3>
       </HeaderNewTask>
       <FormNewTask />
     </>
