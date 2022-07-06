@@ -53,6 +53,10 @@ export const FigcaptionCardSujests = styled.div`
   border: 2px solid var(--color-gray);
   border-radius: 0px 0px 10px 10px;
 
+  h4 {
+    overflow: hidden;
+  }
+
   button {
     width: auto;
     font-size: 14px;

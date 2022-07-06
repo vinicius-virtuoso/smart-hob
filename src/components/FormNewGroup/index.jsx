@@ -13,7 +13,7 @@ import { UserContext } from "../../Context/Provider/User";
 import { useNavigate } from "react-router-dom";
 
 const FormNewGroup = () => {
-  const { token, userGroups, setUserGroups } = useContext(UserContext);
+  const { token, get_user_groups } = useContext(UserContext);
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
@@ -35,8 +35,8 @@ const FormNewGroup = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(({ data }) => {
-        setUserGroups([...userGroups, data]);
+      .then(() => {
+        get_user_groups();
         toast.success("Novo grupo adicionado");
         navigate("/dashboard");
       })

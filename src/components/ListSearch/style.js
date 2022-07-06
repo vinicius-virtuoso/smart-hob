@@ -33,6 +33,7 @@ export const Button = styled.button`
   width: 100%;
   background: transparent;
   font-family: var(--fml-Poppins);
+  border-radius: 5px;
   cursor: pointer;
 
   ${(props) =>

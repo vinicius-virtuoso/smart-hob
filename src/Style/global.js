@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     :root {
         
+        
         --color-dark:#06283D;
         --color-purple-light: #8798DC;
         --color-white: #FFFFFF;
@@ -14,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-gray-50: #CACACA;
         --color-negative: #E42B2B;
         --color-lightblue: #E8E8E8;
+        --color-pink-light:#fdecc6;
         --color-card-groups-background: #D0CDE1;
         --bg-gradient: linear-gradient(81.53deg, #4944A8 0%, #8798DC 37.8%, #ACCAFB 93.14%);
         --bg-gradient-login: linear-gradient(75.06deg, #ACCAFB 0%, #BDCBDB 24.17%, #F9CE69 96.7%);
