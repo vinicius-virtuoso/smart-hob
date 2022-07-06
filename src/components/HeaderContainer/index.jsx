@@ -22,7 +22,7 @@ const arr = [
   },
   {
     text: "Criar Grupo",
-    link: "/dashboard/novo-grupo",
+    link: "/dashboard/criar-grupos",
     icon: <AiOutlineUsergroupAdd />,
   },
   {

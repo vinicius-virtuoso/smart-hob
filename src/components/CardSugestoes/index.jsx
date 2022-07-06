@@ -20,10 +20,11 @@ import { BsQuestionCircleFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
 import { UserContext } from "../../Context/Provider/User";
 
-const CardSugestoes = ({card}) => {
 
+const CardSugestoes = ({card}) => {
   const { token } = useContext(UserContext);
   const [subscriptions, setSubscriptions] = useState([]);
+  
   const icons = {
     Meditação: <GiMeditation size={200} />,
     Pintura: <GiPaintBrush size={200} />,
@@ -39,26 +40,18 @@ const CardSugestoes = ({card}) => {
     "Passeios e/ou Viagens": <MdCardTravel size={200} />,
   };
 
+
   const subscribeGroup = (data) => {
-    
     api_habits
       .post(`groups/${card.id}/subscribe/`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
-
-  const subscriptionsGroups = () => {
-    api_habits
-      .get(`groups/subscriptions/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      .then((res) => {
+      get_user_groups();
+      setSubscriptions(res.data)
       })
-      .then((res) => setSubscriptions(res.data))
       .catch((err) => console.log(err));
   };
 
@@ -73,15 +66,6 @@ const CardSugestoes = ({card}) => {
       .catch((err) => console.log(err));
   };
 
-  // useEffect(() => {
-  //   listGroup();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
-  useEffect(() => {
-    subscriptionsGroups();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
 

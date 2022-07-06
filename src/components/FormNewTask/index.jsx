@@ -1,7 +1,6 @@
+import { useContext } from "react";
 import * as yup from "yup";
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNewTask } from "../../Context/NewTask";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BoxForm, ContainerForm, FormNT, SwitchQuantity } from "./style";
 import InputGroupTask from "../InputGroupTask";
@@ -9,13 +8,16 @@ import SelectForm from "../SelectForm";
 import ButtonForm from "../ButtonForm";
 import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import jwt_decode from "jwt-decode";
+import { api_habits } from "../../services/api";
+import { UserContext } from "../../Context/Provider/User";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const FormNewTask = () => {
-  const [checked, setChecked] = useState(false);
-  const [token] = useState(localStorage.getItem("@Smart-hob/token") || "");
+  const { token, user, get_user_hobbies } = useContext(UserContext);
+  const navigate = useNavigate();
 
-  const decoder = jwt_decode(token);
+  // const decoder = jwt_decode(token);
   const how_much_ach = 0;
 
   const schema = yup.object().shape({
@@ -29,7 +31,7 @@ const FormNewTask = () => {
       .required("Campo necessário: Frequencia da atividade"),
     achieved: yup.boolean(),
     how_much_achieved: yup.number().default(() => how_much_ach),
-    user: yup.number().default(() => decoder.user_id),
+    user: yup.number().default(() => user.id),
   });
 
   const {
@@ -38,20 +40,20 @@ const FormNewTask = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const { newTask } = useNewTask();
-
   const onNewTask = (data) => {
-    newTask(data);
+    api_habits
+      .post("habits/", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        get_user_hobbies();
+        toast.success("Atividade criada com sucesso!");
+        navigate("/dashboard");
+      })
+      .catch((err) => console.log(err));
   };
-
-  const handleChange = (event) => setChecked(event.target.checked);
-
-  // let user_id = { ...register("user", decoder.user_id) };
-
-  // useEffect(() => {
-  //   // eslint-disable-next-line no-unused-expressions
-  //   user_id;
-  // }, []);
 
   return (
     <div>
@@ -122,14 +124,7 @@ const FormNewTask = () => {
               />
 
               <FormControlLabel
-                control={
-                  <Switch
-                    checked={checked}
-                    onChange={handleChange}
-                    color="warning"
-                    {...register("achieved")}
-                  />
-                }
+                control={<Switch color="warning" {...register("achieved")} />}
                 label="Finalizado"
               />
             </SwitchQuantity>

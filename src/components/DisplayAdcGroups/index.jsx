@@ -11,7 +11,7 @@ const DisplayAdcGroups = () => {
         <ButtonAdd
           theme={"tertiary"}
           size={"medium"}
-          onClick={() => navigate("/dashboard/criar-grupo")}
+          onClick={() => navigate("/dashboard/criar-grupos")}
         />
       </Section>
     </Div>

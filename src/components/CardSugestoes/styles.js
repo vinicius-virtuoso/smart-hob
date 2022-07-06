@@ -20,6 +20,10 @@ export const ContainerCardSujests = styled.div`
   border-radius: 10px;
   margin: 10px;
 
+  h4 {
+    overflow: hidden;
+  }
+
   svg {
     color: var(--color-gray);
     width: 5rem;

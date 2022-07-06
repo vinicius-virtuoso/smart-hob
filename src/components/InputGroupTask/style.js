@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
+export const InputControl = styled.div`
+  width: 100%;
+  margin: 1rem 0;
+`;
+
 export const ContainerInput = styled.div`
+  position: relative;
   @media (max-width: 400px) {
     width: 250px;
   }
@@ -19,7 +25,7 @@ export const ContainerInput = styled.div`
 `;
 
 export const LabelInput = styled.label`
-  position: relative;
+  position: absolute;
   top: -15px;
   padding: 0 20px;
   background-color: var(--color-light);
@@ -31,6 +37,7 @@ export const LabelInput = styled.label`
 export const AreaInput = styled.input`
   width: 100%;
   max-width: 100%;
+  outline: none;
 
   height: ${(props) => (props.height ? props.height : "1.5rem")};
   background-color: transparent;
@@ -40,6 +47,7 @@ export const AreaInput = styled.input`
 
   font-family: "Barlow Condensed", sans-serif;
   font-size: 1rem;
+  min-height: 38px;
 `;
 
 export const MessageErro = styled.p`
