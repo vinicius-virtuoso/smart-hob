@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerInput = styled.div`
   @media (max-width: 400px) {
-    width: 250px;
+    width: 16em;
   }
   display: flexbox;
   flex-direction: column;
