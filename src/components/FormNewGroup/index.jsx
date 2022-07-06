@@ -4,7 +4,14 @@ import ButtonForm from "../ButtonForm";
 import SelectForm from "../SelectForm";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { BoxForm, ContainerForm } from "./style";
+import {
+  AreaTextArea,
+  BoxForm,
+  ContainerForm,
+  ContainerTextArea,
+  LabelTextArea,
+  MessageErro,
+} from "./style";
 import { useNewGroup } from "../../Context/NewGroup";
 
 const FormNewGroup = () => {
@@ -39,14 +46,20 @@ const FormNewGroup = () => {
               register={register}
             />
 
-            <InputGroupTask
-              label="Descrição"
-              name="description"
-              size="10rem"
-              register={register}
-              erro={!!errors?.description}
-              messageErro={errors.description?.message}
-            />
+            <ContainerTextArea erro={!!errors?.description}>
+              <LabelTextArea erro={!!errors?.description}>
+                Descrição
+              </LabelTextArea>
+              <AreaTextArea
+                name="description"
+                rows={5}
+                cols={35}
+                {...register("description")}
+              />
+            </ContainerTextArea>
+            <MessageErro>
+              {!!errors?.description && errors.description?.message}
+            </MessageErro>
 
             <SelectForm
               register={register}

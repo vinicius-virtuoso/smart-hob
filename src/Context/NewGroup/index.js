@@ -1,7 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { api_habits } from "../../services/api";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 export const NewGroupContext = createContext();
 
