@@ -58,6 +58,10 @@ export default function Rotas() {
             }
           />
           <Route
+            path="/dashboard/editar-atividade/:hobbie_id"
+            element={<PageEditHabit />}
+          />
+          <Route
             path="/"
             element={
               <PublicRoute redirectTo="/dashboard">
