@@ -38,7 +38,6 @@ const CardGroups = ({ group, get_groups, get_user_groups }) => {
         });
       })
       .catch((e) => {
-        console.log(e);
       });
   };
   const unSubscribeGroup = (id) => {
@@ -58,7 +57,6 @@ const CardGroups = ({ group, get_groups, get_user_groups }) => {
         });
       })
       .catch((e) => {
-        console.log(e);
       });
   };
 

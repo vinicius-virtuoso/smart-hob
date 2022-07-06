@@ -25,7 +25,6 @@ function SearchGroups() {
       })
       .then(({ data }) => {
         setGetGroups(data);
-        console.log(data);
       });
   };
 
@@ -43,7 +42,6 @@ function SearchGroups() {
       })
       .then(({ data }) => {
         setGetGroups(data);
-        console.log(data);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, text]);
