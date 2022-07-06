@@ -33,10 +33,10 @@ const DisplayCarouselHobbies = () => {
             {userHobbies.length > 6 ? (
 
                 <ContainerBtn>
-                    <button>
+                    <button onClick={handleLefClick}>
                         <p><BsFillArrowLeftSquareFill /></p>
                     </button>
-                    <button>
+                    <button onClick={handleRigthClick}>
                         <p> <BsFillArrowRightSquareFill /></p>
                     </button>
                 </ContainerBtn>

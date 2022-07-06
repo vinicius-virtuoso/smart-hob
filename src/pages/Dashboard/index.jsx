@@ -20,13 +20,13 @@ function Dashboard() {
       <HeaderContainer />
       <Content>
         <DailyPhrases />
-        {/* <Box>
+        <Box>
           {userHobbies.length > 0 ? (
             <DisplayCarouselHobbies/>
           ) : (
             <NoContent>Sem grupos para mostrar</NoContent>
           )}
-        </Box> */}
+        </Box>
 
         <Container>
           <Box>

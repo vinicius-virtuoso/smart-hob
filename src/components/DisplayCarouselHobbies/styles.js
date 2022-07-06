@@ -14,7 +14,7 @@ export const Carousel = styled.div`
     overflow-x: auto;
     scroll-behavior: smooth;
 
-    width: 95%;
+    width: 70vw;
 
     &::-webkit-scrollbar{
         display: none;

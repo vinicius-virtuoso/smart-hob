@@ -47,6 +47,7 @@ export const Carousel = styled.div`
   scroll-behavior: smooth;
   padding: 10px 0 10px 0;
   gap: 0.5rem;
+  width: 98vw;
 
   ::-webkit-scrollbar {
     display: none;
