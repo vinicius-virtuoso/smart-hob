@@ -36,7 +36,7 @@ function Dashboard() {
           </Box>
           <DisplayAdcGroups />
         </Container>
-        {/* <SugestionGroupsCarousel /> */}
+        <SugestionGroupsCarousel />
       </Content>
       <Footer />
     </Grid>

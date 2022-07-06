@@ -6,7 +6,7 @@ export const ButtonForm = ({
   secondary,
   tertiary,
   type,
-  children,
+  children,  
   ...rest
 }) => {
   return (
