@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import * as yup from "yup";
 import InputGroupTask from "../InputGroupTask";
 import ButtonForm from "../ButtonForm";
@@ -5,10 +6,8 @@ import SelectForm from "../SelectForm";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BoxForm, ContainerForm } from "./style";
-
 import { api_habits } from "../../services/api";
 import { toast } from "react-toastify";
-import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
 import { useNavigate } from "react-router-dom";
 
@@ -86,7 +85,9 @@ const FormNewGroup = () => {
               ]}
             />
 
+
             <ButtonForm type="submit" secondary>
+
               Salvar
             </ButtonForm>
           </form>
