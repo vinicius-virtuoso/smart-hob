@@ -20,11 +20,10 @@ import { BsQuestionCircleFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
 import { UserContext } from "../../Context/Provider/User";
 
+const CardSugestoes = ({ card }) => {
+  const { token, userGroups, get_user_groups } = useContext(UserContext);
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
-const CardSugestoes = ({card}) => {
-  const { token } = useContext(UserContext);
-  const [subscriptions, setSubscriptions] = useState([]);
-  
   const icons = {
     Meditação: <GiMeditation size={200} />,
     Pintura: <GiPaintBrush size={200} />,
@@ -40,6 +39,11 @@ const CardSugestoes = ({card}) => {
     "Passeios e/ou Viagens": <MdCardTravel size={200} />,
   };
 
+  useEffect(() => {
+    if (userGroups) {
+      setIsSubscribed(userGroups.find((subs) => subs.id === card.id));
+    }
+  }, [card.id, userGroups]);
 
   const subscribeGroup = (data) => {
     api_habits
@@ -48,9 +52,9 @@ const CardSugestoes = ({card}) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => {
-      get_user_groups();
-      setSubscriptions(res.data)
+      .then((_) => {
+        get_user_groups();
+        setIsSubscribed(true);
       })
       .catch((err) => console.log(err));
   };
@@ -62,20 +66,21 @@ const CardSugestoes = ({card}) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => console.log(res))
+      .then((_) => {
+        get_user_groups();
+        setIsSubscribed(false);
+      })
       .catch((err) => console.log(err));
   };
 
-
   return (
-
     <ContainerCardSujests>
       {icons[card.category] || <BsQuestionCircleFill size={200} />}
 
       <FigcaptionCardSujests>
         <h4>{card.name}</h4>
 
-        {subscriptions.find((sub) => card.id === sub.id) ? (
+        {isSubscribed ? (
           <ButtonForm
             tertiary
             onClick={() => {

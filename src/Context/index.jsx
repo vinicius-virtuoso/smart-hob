@@ -1,11 +1,14 @@
 import React from "react";
+import { CountPagesProvider } from "./Provider/CountPages";
 import { ShowPhraseProvider } from "./Provider/ShowModal";
 import { UserProvider } from "./Provider/User";
 
 function Context({ children }) {
   return (
     <UserProvider>
-      <ShowPhraseProvider>{children}</ShowPhraseProvider>
+      <ShowPhraseProvider>
+        <CountPagesProvider>{children}</CountPagesProvider>
+      </ShowPhraseProvider>
     </UserProvider>
   );
 }
