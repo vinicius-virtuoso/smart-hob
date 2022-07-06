@@ -20,9 +20,9 @@ import { BsQuestionCircleFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
 import { UserContext } from "../../Context/Provider/User";
 
-const CardSugestoes = () => {
+const CardSugestoes = ({card}) => {
+
   const { token } = useContext(UserContext);
-  const [list, setList] = useState([]);
   const [subscriptions, setSubscriptions] = useState([]);
   const icons = {
     Meditação: <GiMeditation size={200} />,
@@ -38,24 +38,11 @@ const CardSugestoes = () => {
     "Jogos de Tabuleiro": <GiChessPawn size={200} />,
     "Passeios e/ou Viagens": <MdCardTravel size={200} />,
   };
-  const listGroup = () => {
-    api_habits
-      .get("groups/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setList(
-          res.data.results[Math.floor(Math.random() * res.data.results.length)]
-        );
-      })
-      .catch((err) => console.log(err));
-  };
 
   const subscribeGroup = (data) => {
+    
     api_habits
-      .post(`groups/${list.id}/subscribe/`, data, {
+      .post(`groups/${card.id}/subscribe/`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -77,7 +64,7 @@ const CardSugestoes = () => {
 
   const unsubscribeGroup = () => {
     api_habits
-      .delete(`groups/${list.id}/unsubscribe/`, {
+      .delete(`groups/${card.id}/unsubscribe/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -86,10 +73,10 @@ const CardSugestoes = () => {
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    listGroup();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   listGroup();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   useEffect(() => {
     subscriptionsGroups();
@@ -97,13 +84,14 @@ const CardSugestoes = () => {
   }, []);
 
   return (
+
     <ContainerCardSujests>
-      {icons[list.category] || <BsQuestionCircleFill size={200} />}
+      {icons[card.category] || <BsQuestionCircleFill size={200} />}
 
       <FigcaptionCardSujests>
-        <h4>{list.name}</h4>
+        <h4>{card.name}</h4>
 
-        {subscriptions.find((sub) => list.id === sub.id) ? (
+        {subscriptions.find((sub) => card.id === sub.id) ? (
           <ButtonForm
             tertiary
             onClick={() => {

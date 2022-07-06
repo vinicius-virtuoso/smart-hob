@@ -3,7 +3,7 @@ import { Carousel, Container, Contain } from "./styles";
 import { useEffect, useRef, useState, useContext } from "react";
 import { api_habits } from "../../services/api";
 import CardSugestoes from "../CardSugestoes";
-import { UserContext } from "../../Context/Provider/User";
+// import { UserContext } from "../../Context/Provider/User";
 
 const SugestionGroupsCarousel = () => {
   const [list, setList] = useState([]);
@@ -37,14 +37,12 @@ const SugestionGroupsCarousel = () => {
   //     if(list[index] !== undefined) {
 
   //       newArr.push(list[index])
-        
+  //       setList(newArr)
   //       console.log(newArr)
 
   //     }
 
   //   }
-
-  //   setList(newArr)
 
   // }
 
@@ -52,13 +50,13 @@ const SugestionGroupsCarousel = () => {
  
     api_habits.get("/groups/").then(({ data }) => {
 
-      setList(data.results)
+      setList(data.results);
       
     });
 
   }, []);
 
-
+  // [Math.floor(Math.random() * data.results.length)]
 
   const handleLeftClick = () => {
     carousel.current.scrollLeft -= carousel.current.offsetWidth;
@@ -69,11 +67,11 @@ const SugestionGroupsCarousel = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
     
       if (list.length < 60) {
+
       api_habits.get("/groups/").then(({ data }) => {
         setList([...list, ...data.results]);
-  
-       
       });
+
     }
 
   };
