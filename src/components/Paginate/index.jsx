@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 
 import CardUserGroups from "../CardUserGroups";
-import { Container, ContainerCard, DivCard } from "./styles";
+import { Container, ContainerCard } from "./styles";
 
 const Paginate = ({ card, number }) => {
   const [cardPerPage, setCardPerPage] = useState([]);
@@ -20,11 +20,7 @@ const Paginate = ({ card, number }) => {
   const displayCard = cardPerPage
     .slice(pagesVisited, pagesVisited + productsPerPage)
     .map((el, index) => {
-      return (
-        <div key={index}>
-          {<CardUserGroups el={el} />}
-        </div>
-      );
+      return <div key={index}>{<CardUserGroups el={el} />}</div>;
     });
 
   const pageCounter = Math.ceil(card.length / productsPerPage);
@@ -35,9 +31,7 @@ const Paginate = ({ card, number }) => {
 
   return (
     <Container>
-      <ContainerCard>
-        {displayCard}
-      </ContainerCard>
+      <ContainerCard>{displayCard}</ContainerCard>
       {/* <DivCard groups={card[0]?.name ? true : false}>{displayCard}</DivCard> */}
       {card.length > 10 ? (
         <ReactPaginate
@@ -51,8 +45,7 @@ const Paginate = ({ card, number }) => {
           disabledClassName={"paginationDisabled"}
           activeClassName={"paginationAticve"}
         />
-
-      ): null}
+      ) : null}
     </Container>
   );
 };

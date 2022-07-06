@@ -3,13 +3,18 @@ import { Carousel, Container, Contain } from "./styles";
 import { useEffect, useRef, useState } from "react";
 import { api_habits } from "../../services/api";
 import CardSugestoes from "../CardSugestoes";
+// import { UserContext } from "../../Context/Provider/User";
+// import { CountPagesContext } from "../../Context/Provider/CountPages";
 
 const SugestionGroupsCarousel = () => {
+  // const { user, userGroups } = useContext(UserContext);
   const [list, setList] = useState([]);
+
   const carousel = useRef(null);
+  // const { randomPage, randomPageNumber } = useContext(CountPagesContext);
 
   useEffect(() => {
-    api_habits.get("/groups/").then(({ data }) => {
+    api_habits.get(`/groups/`).then(({ data }) => {
       setList(data.results);
     });
   }, []);
@@ -20,6 +25,12 @@ const SugestionGroupsCarousel = () => {
 
   const handleRightClick = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
+
+    if (list.length < 60) {
+      api_habits.get("/groups/").then(({ data }) => {
+        setList([...list, ...data.results]);
+      });
+    }
   };
 
   return (

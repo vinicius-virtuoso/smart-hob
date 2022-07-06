@@ -1,13 +1,15 @@
-import { useState, useRef, useContext } from 'react';
+import { useRef, useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
-import { BsFillArrowLeftSquareFill, BsFillArrowRightSquareFill } from "react-icons/bs";
-import CardHobbies from '../CardHobbies';
-import { Carousel, ContainerBtn, Section } from './styles';
+import {
+  BsFillArrowLeftSquareFill,
+  BsFillArrowRightSquareFill,
+} from "react-icons/bs";
+import CardHobbies from "../CardHobbies";
+import { Carousel, ContainerBtn, Section } from "./styles";
 
 const DisplayCarouselHobbies = () => {
-    const { userHobbies } = useContext(UserContext);
-    const carousel = useRef(null);
-
+  const { userHobbies } = useContext(UserContext);
+  const carousel = useRef(null);
 
     const handleLefClick = (e) => {
         e.preventDefault();
@@ -49,3 +51,4 @@ const DisplayCarouselHobbies = () => {
     )
 }
 export default DisplayCarouselHobbies
+

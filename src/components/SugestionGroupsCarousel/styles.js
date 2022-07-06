@@ -49,6 +49,7 @@ export const Carousel = styled.div`
   gap: 0.5rem;
   width: 98vw;
 
+
   ::-webkit-scrollbar {
     display: none;
   }
