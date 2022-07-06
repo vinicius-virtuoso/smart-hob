@@ -82,7 +82,7 @@ const FormNewGroup = () => {
               ]}
             />
 
-            <ButtonForm type="submit" primary>
+            <ButtonForm type="submit" secondary>
               Salvar
             </ButtonForm>
           </form>

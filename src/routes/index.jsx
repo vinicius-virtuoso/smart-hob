@@ -8,7 +8,6 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
 import SearchGroups from "../pages/SearchGroups";
-import NewGroup from "../pages/NewGroup";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -44,7 +43,7 @@ export default function Rotas() {
             path="/dashboard/criar-grupo"
             element={
               <PrivateRoute redirectTo="/new-groups">
-                <NewGroup />
+                <PageNewGroup />
               </PrivateRoute>
             }
           />
@@ -82,7 +81,7 @@ export default function Rotas() {
             }
           />
           {/* Mudar para privada */}
-          <Route path="/new-groups" element={<PageNewGroup />} />
+          {/* <Route path="/new-groups" element={<PageNewGroup />} /> */}
           <Route
             path="*"
             element={

@@ -8,6 +8,7 @@ export const HeaderForm = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     img {
       display: none;
@@ -16,6 +17,11 @@ export const HeaderForm = styled.div`
     h3 {
       font-size: 12px;
     }
+
+    button {
+      width: 2rem;
+      border: 2px solid var(--color-dark);
+    }
   }
   background-color: var(--color-yellow);
   padding: 2rem;
@@ -23,10 +29,11 @@ export const HeaderForm = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
   img {
-    width: 20%;
-    height: 30vh;
+    width: 60%;
+    height: 10rem;
   }
 
   h3 {

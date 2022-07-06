@@ -13,7 +13,7 @@ export const BoxForm = styled.div`
     width: 300px;
   }
 
-  max-width: 800px;
+  /* max-width: 800px; */
   width: 500px;
   padding: 1rem;
   background-color: var(--color-light);
