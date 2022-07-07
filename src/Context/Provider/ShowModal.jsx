@@ -7,14 +7,13 @@ export const ShowPhraseProvider = ({ children }) => {
   const [phrase, setPhrase] = useState([]);
   const [storage, setStorage] = useState([]);
   const [openPhrase, setOpenPhrase] = useState();
-  const guarding = JSON.parse(localStorage.getItem("show-frases")) || true;
+  const guarding = JSON.parse(localStorage.getItem("show-frases"));
 
   const loadPhrase = () => {
     api_phrases
       .get(`/frases/random`)
       .then((res) => {
         const { frase } = res.data;
-        setStorage(localStorage.setItem("show-frases", true));
         setPhrase(frase);
       })
       .catch((err) => console.log(err));
@@ -27,6 +26,7 @@ export const ShowPhraseProvider = ({ children }) => {
 
   const open_phrase = () => {
     loadPhrase();
+    setStorage(localStorage.setItem("show-frases", true));
     setOpenPhrase(true);
   };
 
@@ -35,7 +35,7 @@ export const ShowPhraseProvider = ({ children }) => {
       setOpenPhrase(true);
       loadPhrase();
     }
-  }, [guarding]);
+  }, []);
 
   return (
     <ShowPhraseContext.Provider

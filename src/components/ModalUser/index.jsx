@@ -29,7 +29,8 @@ export function ModalUser({ open, setOpen }) {
     setOpen(false);
   };
   const { user, token, get_user } = useContext(UserContext);
-  const { openPhrase, setOpenPhrase } = useContext(ShowPhraseContext);
+  const { close_phrase, open_phrase, openPhrase } =
+    useContext(ShowPhraseContext);
 
   const formSchema = yup.object().shape({
     username: yup.string().required("Nome de usuário obrigatório!"),
@@ -137,7 +138,11 @@ export function ModalUser({ open, setOpen }) {
                   color="primary"
                   checked={openPhrase}
                   onChange={({ target }) => {
-                    setOpenPhrase(target.checked);
+                    if (target.checked) {
+                      open_phrase();
+                    } else {
+                      close_phrase();
+                    }
                   }}
                 />
               }
