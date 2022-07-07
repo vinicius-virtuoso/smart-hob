@@ -17,9 +17,12 @@ const SelectForm = ({
   ...rest
 }) => {
   return (
+
     <>
       <ContainerSelect erro={erro}>
-        <LabelSelect erro={erro}>{label}</LabelSelect>
+        <LabelSelect erro={erro} htmlFor="selectForm">
+          {label}
+        </LabelSelect>
         <AreaSelect
           name="selectForm"
           id="selectForm"

@@ -2,13 +2,24 @@ import styled from "styled-components";
 
 export const HeaderForm = styled.div`
   @media (max-width: 400px) {
+    padding: 30px;
     background-color: var(--color-yellow);
-    padding: 1rem;
+  }
+  background-color: var(--color-yellow);
+  padding: 20px;
+
+  a {
+    color: var(--color-dark);
+  }
+`;
+
+export const ImageHeader = styled.div`
+  @media (max-width: 400px) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    padding: 30px;
+    justify-content: center;
     img {
       display: none;
     }
@@ -17,16 +28,15 @@ export const HeaderForm = styled.div`
       font-size: 12px;
     }
   }
-  background-color: var(--color-yellow);
-  padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   img {
-    width: 20%;
-    height: 30vh;
+    max-width: 1000px;
+    width: 400px;
+    height: 40vh;
   }
 
   h3 {
