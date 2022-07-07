@@ -23,7 +23,6 @@ export const HeaderNewTask = styled.div`
   justify-content: center;
   background-color: var(--color-purple-light);
 
-
   img {
     max-width: 1000px;
     width: 400px;
