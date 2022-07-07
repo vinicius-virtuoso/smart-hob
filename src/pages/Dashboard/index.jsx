@@ -10,12 +10,13 @@ import DisplayCarouselHobbies from "../../components/DisplayCarouselHobbies";
 import DisplayAdcGroups from "../../components/DisplayAdcGroups";
 import ButtonAdd from "../../components/ButtonAdd";
 import { useNavigate } from "react-router-dom";
+import ButtonScrollTop from "../../components/ButtonScrollTop";
 
 function Dashboard() {
   const { userHobbies, userGroups } = useContext(UserContext);
   const navigate = useNavigate()
 
-  
+
 
 
   return (
@@ -51,7 +52,10 @@ function Dashboard() {
         </Container>
         <SugestionGroupsCarousel />
       </Content>
-      <Footer />
+      <>
+        <ButtonScrollTop />
+        <Footer />
+      </>
     </Grid>
   );
 }
