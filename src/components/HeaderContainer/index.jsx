@@ -13,6 +13,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../Context/Provider/User";
 import CounterGroup from "../CounterGroup";
 import MenuHamb from "../MenuHamb";
+import { ModalUser } from "../ModalUser";
 
 const arr = [
   {
@@ -34,6 +35,7 @@ const arr = [
     text: "Editar perfil",
     link: "",
     icon: <AiOutlineUser />,
+    click: null
   },
 ];
 
@@ -41,6 +43,9 @@ function HeaderContainer() {
   const [mobile, setMobile] = useState(window.screen.width <= 768);
   const navigate = useNavigate();
   const { user, userGroups, userHobbies } = useContext(UserContext);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  
 
   window.addEventListener("resize", () => {
     if (window.screen.width <= 768) {
@@ -54,14 +59,19 @@ function HeaderContainer() {
     localStorage.clear();
     navigate("/login");
   };
-  const arrMobile = [...arr];
+  
+  
+  const arrMobile = JSON.parse(JSON.stringify(arr))
 
   arrMobile.push({
     text: "Sair",
     link: "",
     click: logout,
-  });
-
+  })
+  
+  arrMobile[3].link = null;
+  arrMobile[3].click = handleOpen
+  
   return (
     <Header>
       <Container>
@@ -74,6 +84,7 @@ function HeaderContainer() {
           )}
         </Box>
         <CounterGroup userGroups={userGroups} userHobbies={userHobbies} />
+        <ModalUser open={open} setOpen={setOpen} handleOpen={handleOpen} />
       </Container>
     </Header>
   );
