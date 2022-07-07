@@ -7,6 +7,7 @@ export const FormControl = styled.div`
   border-radius: 1rem;
   max-width: 400px;
   position: relative;
+  width: 100%;
 
   @keyframes shake {
     25% {
@@ -34,10 +35,12 @@ export const FormControl = styled.div`
 export const LabelName = styled.label`
   position: absolute;
   left: 1.5rem;
-  top: -10px;
+  top: -15px;
   background: transparent;
   padding: 0 1rem;
   z-index: 999;
+  font-family: var(--fml-Barlow-Condensed);
+  font-size: 1.5rem;
 
   ${(props) =>
     props.theme === "primary" &&
@@ -51,12 +54,12 @@ export const LabelName = styled.label`
     background:var(--color-yellow);
     color: var(--color-dark);
     `}
-  ${(props) =>
+    ${(props) =>
     props.errors &&
     ` 
     border-color:var(--color-negative);
     color:var(--color-negative);
-   `}
+   `};
 `;
 
 export const Input = styled.input`

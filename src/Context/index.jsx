@@ -1,13 +1,18 @@
-import React from "react";
-import { AuthProvider } from "../auth";
 
+
+import { CountPagesProvider } from "./Provider/CountPages";
+import { ShowPhraseProvider } from "./Provider/ShowModal";
 import { UserProvider } from "./Provider/User";
 
 function Context({ children }) {
   return (
-    <AuthProvider>
-      <UserProvider>{children}</UserProvider>
-    </AuthProvider>
+    <UserProvider>
+
+      <ShowPhraseProvider>
+        <CountPagesProvider>{children}</CountPagesProvider>
+      </ShowPhraseProvider>
+
+    </UserProvider>
   );
 }
 
