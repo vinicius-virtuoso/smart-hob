@@ -28,7 +28,7 @@ function Dashboard() {
               <ButtonAdd
                 size={"large"}
                 theme={"primary"}
-                onClick={() => navigate("/dashboard/criar-grupos")}
+                onClick={() => navigate("/dashboard/criar-atividade")}
               />
             </>
           ) : (
