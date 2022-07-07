@@ -21,7 +21,9 @@ import { IoLibrarySharp } from "react-icons/io5";
 import { UserContext } from "../../Context/Provider/User";
 
 function CardUserGroups({ el }) {
+
   const { userGroups, setUserGroups, token } = useContext(UserContext);
+
 
   const icons = {
     Meditação: <GiMeditation size={200} />,

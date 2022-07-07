@@ -3,12 +3,13 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { isAuthenticated } from "../auth";
 import Context from "../Context";
 import Login from "../pages/Login";
-import PageNewGroup from "../pages/PageNewGroup";
+import PageNewGroup from "../pages/NewGroup";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
-import PageNewHabit from "../pages/NewHabit/index,";
+import PageNewHabit from "../pages/PageNewHabit/index";
 import SearchGroups from "../pages/SearchGroups";
+import PageEditHabit from "../pages/EditHabit";
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -57,6 +58,15 @@ export default function Rotas() {
               </PrivateRoute>
             }
           />
+          <Route
+            path="/dashboard/editar-atividade/:id"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <PageEditHabit />
+              </PrivateRoute>
+            }
+          />
+
           <Route
             path="/"
             element={

@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const HeaderForm = styled.div`
+export const HeaderNewTask = styled.div`
   @media (max-width: 400px) {
-    background-color: var(--color-yellow);
-    padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    padding: 30px;
+    justify-content: center;
+    background-color: var(--color-purple-light);
     img {
       display: none;
     }
@@ -18,21 +17,22 @@ export const HeaderForm = styled.div`
       font-size: 12px;
     }
   }
-  background-color: var(--color-yellow);
-  padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: var(--color-purple-light);
+
 
   img {
-    width: 20%;
-    height: 30vh;
+    max-width: 1000px;
+    width: 400px;
+    height: 40vh;
   }
 
   h3 {
     font-size: clamp(1.5rem, 5vw, 2rem);
-    color: var(--color-dark);
+    color: var(--color-lightblue);
   }
 `;
 

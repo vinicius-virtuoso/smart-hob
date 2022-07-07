@@ -39,10 +39,6 @@ const arr = [
   },
 ];
 
-
-
-
-
 function HeaderContainer() {
   const [mobile, setMobile] = useState(window.screen.width <= 768);
   const navigate = useNavigate();
@@ -65,17 +61,14 @@ function HeaderContainer() {
   };
   
   
-
-  // const arrMobile = [...arr];
-  // const arrMobile = arr.map(el => el)
   const arrMobile = JSON.parse(JSON.stringify(arr))
 
   arrMobile.push({
     text: "Sair",
     link: "",
     click: logout,
-  }
-  )
+  })
+  
   arrMobile[3].link = null;
   arrMobile[3].click = handleOpen
   
