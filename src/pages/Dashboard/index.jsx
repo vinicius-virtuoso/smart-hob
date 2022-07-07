@@ -32,7 +32,7 @@ function Dashboard() {
               />
             </>
           ) : (
-            <NoContent>Sem grupos para mostrar</NoContent>
+            <NoContent>Sem hobbies para mostrar</NoContent>
           )}
         </Box>
 

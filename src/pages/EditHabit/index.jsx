@@ -16,7 +16,7 @@ const PageEditHabit = () => {
 
         <ImageHeader>
           <img src={ImageNewTask} alt="Crie uma nova atividade" />
-          <h3>Atualize seu hábito</h3>
+          <h3>Atualize seu hobbie</h3>
         </ImageHeader>
       </HeaderNewTask>
       <FormEditTask hobbieId={id} />

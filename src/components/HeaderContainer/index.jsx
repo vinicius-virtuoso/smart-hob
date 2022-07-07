@@ -27,7 +27,7 @@ const arr = [
     icon: <AiOutlineUsergroupAdd />,
   },
   {
-    text: "Criar Atividade",
+    text: "Criar Hobbie",
     link: "/dashboard/criar-atividade",
     icon: <RiTaskLine />,
   },
@@ -35,7 +35,7 @@ const arr = [
     text: "Editar perfil",
     link: "",
     icon: <AiOutlineUser />,
-    click: null
+    click: null,
   },
 ];
 
@@ -45,7 +45,6 @@ function HeaderContainer() {
   const { user, userGroups, userHobbies } = useContext(UserContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  
 
   window.addEventListener("resize", () => {
     if (window.screen.width <= 768) {
@@ -59,19 +58,18 @@ function HeaderContainer() {
     localStorage.clear();
     navigate("/login");
   };
-  
-  
-  const arrMobile = JSON.parse(JSON.stringify(arr))
+
+  const arrMobile = JSON.parse(JSON.stringify(arr));
 
   arrMobile.push({
     text: "Sair",
     link: "",
     click: logout,
-  })
-  
+  });
+
   arrMobile[3].link = null;
-  arrMobile[3].click = handleOpen
-  
+  arrMobile[3].click = handleOpen;
+
   return (
     <Header>
       <Container>

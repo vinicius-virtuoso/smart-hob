@@ -13,7 +13,7 @@ const PageNewHabit = () => {
           </span>
         </BackLink>
         <img src={ImageNewTask} alt="Crie uma nova atividade" />
-        <h3>Nova Hábito</h3>
+        <h3>Novo hobbie</h3>
       </HeaderNewTask>
       <FormNewTask />
     </>
