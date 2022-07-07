@@ -26,6 +26,22 @@ export const Box = styled.div`
   width: 100%;
   background: var(--color-white);
   margin: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+
+  h3{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 50vw, 2.2rem);
+    font-family: var(--fml-Poppins);
+    color: var(--color-dark);
+    font-weight: normal;
+
+  }
 `;
 
 export const NoContent = styled.div`
