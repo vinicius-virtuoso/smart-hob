@@ -14,7 +14,7 @@ export const Button = styled.button`
   border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
-
+ 
   ${(props) =>
     props.theme === "primary" &&
     "background:var(--color-gray); color:var(--color-light);"}

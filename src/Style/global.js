@@ -20,7 +20,6 @@ export const GlobalStyle = createGlobalStyle`
         --bg-gradient: linear-gradient(81.53deg, #4944A8 0%, #8798DC 37.8%, #ACCAFB 93.14%);
         --bg-gradient-login: linear-gradient(75.06deg, #ACCAFB 0%, #BDCBDB 24.17%, #F9CE69 96.7%);
         --bor-grey: rgba(123, 113, 113, 1);
-
         --fml-Fascinate: 'Fascinate', cursive;
         --fml-Barlow-Condensed:'Barlow Condensed', sans-serif;
         --fml-Poppins:'Poppins', sans-serif;

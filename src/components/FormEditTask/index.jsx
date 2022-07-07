@@ -1,5 +1,5 @@
-import { useContext } from "react";
 import * as yup from "yup";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BoxForm, ContainerForm, FormNT, SwitchQuantity } from "./style";
@@ -8,29 +8,21 @@ import SelectForm from "../SelectForm";
 import ButtonForm from "../ButtonForm";
 import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { api_habits } from "../../services/api";
 import { UserContext } from "../../Context/Provider/User";
+import { api_habits } from "../../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const FormNewTask = () => {
-  const { token, user, get_user_hobbies } = useContext(UserContext);
+const FormEditTask = ({ hobbieId }) => {
   const navigate = useNavigate();
-
-  const how_much_ach = 0;
+  const [checked, setChecked] = useState(false);
+  const [achivedTask, setAchivedTask] = useState(false);
+  const { userHobbies, token, get_user_hobbies } = useContext(UserContext);
+  const edit = userHobbies.filter((el) => el.id === Number(hobbieId));
 
   const schema = yup.object().shape({
-    title: yup.string().required("Campo necessário: Nome da atividade"),
-    category: yup.string().required("Campo necessário: Categoria da atividade"),
-    difficulty: yup
-      .string()
-      .required("Campo necessário: Dificuldade da atividade"),
-    frequency: yup
-      .string()
-      .required("Campo necessário: Frequencia da atividade"),
-    achieved: yup.boolean(),
-    how_much_achieved: yup.number().default(() => how_much_ach),
-    user: yup.number().default(() => user.id),
+    achieved: yup.boolean().default(() => achivedTask),
+    how_much_achieved: yup.number(),
   });
 
   const {
@@ -39,40 +31,55 @@ const FormNewTask = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onNewTask = (data) => {
+  const onEditTask = (data) => {
+    delete data.title;
+    delete data.category;
+    delete data.difficulty;
+    delete data.frequency;
+
+    console.log(data);
+
     api_habits
-      .post("habits/", data, {
+      .patch(`habits/${edit[0].id}/`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(() => {
+      .then((res) => {
+        toast.success("Hábito atualizado com sucesso");
         get_user_hobbies();
-        toast.success("Atividade criada com sucesso!");
         navigate("/dashboard");
       })
       .catch((err) => console.log(err));
   };
 
+  const handleChange = (event) => setChecked(event.target.checked);
+
+  useEffect(() => {
+    if (edit[0]?.achieved) {
+      setAchivedTask(edit[0].achieved);
+    }
+  }, [edit]);
+
   return (
     <div>
       <ContainerForm>
         <BoxForm>
-          <FormNT onSubmit={handleSubmit(onNewTask)}>
+          <FormNT onSubmit={handleSubmit(onEditTask)}>
             <InputGroupTask
               name="title"
               label="Título"
               register={register}
-              erro={!!errors?.title}
-              messageErro={errors.title?.message}
+              value={edit[0]?.title}
+              disabled="disabled"
             />
 
             <SelectForm
               register={register}
               nameSelect="category"
               label="Categoria"
-              erro={!!errors?.category}
-              messageErro={errors.category?.message}
+              value={edit[0]?.category}
+              disabled="disabled"
               datasArray={[
                 "Meditação",
                 "Pintura",
@@ -92,8 +99,8 @@ const FormNewTask = () => {
               register={register}
               nameSelect="difficulty"
               label="Dificuldade"
-              erro={!!errors?.difficulty}
-              messageErro={errors.difficulty?.message}
+              value={edit[0]?.difficulty}
+              disabled="disabled"
               datasArray={["Fácil", "Médio", "Difícil"]}
             />
 
@@ -101,8 +108,8 @@ const FormNewTask = () => {
               register={register}
               nameSelect="frequency"
               label="Frequência"
-              erro={!!errors?.frequency}
-              messageErro={errors.frequency?.message}
+              value={edit[0]?.frequency}
+              disabled="disabled"
               datasArray={[
                 "Diária",
                 "Semana",
@@ -118,12 +125,16 @@ const FormNewTask = () => {
                 name="how_much_achieved"
                 label="Quanto foi feito"
                 register={register}
-                disabled="disabled"
-                value={0}
               />
 
               <FormControlLabel
-                control={<Switch color="warning" {...register("achieved")} />}
+                control={
+                  <Switch
+                    onChange={handleChange}
+                    color="warning"
+                    {...register("achieved")}
+                  />
+                }
                 label="Finalizado"
               />
             </SwitchQuantity>
@@ -137,4 +148,4 @@ const FormNewTask = () => {
   );
 };
 
-export default FormNewTask;
+export default FormEditTask;

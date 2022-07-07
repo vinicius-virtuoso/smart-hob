@@ -15,12 +15,15 @@ export const ButtonForm = styled.button`
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  position: relative;  
+   
 
   ${(props) =>
     props.primary &&
     `
     background-color: var(--color-light);
     color: var(--color-dark);
+    
     `}
 
   ${(props) =>
@@ -28,6 +31,7 @@ export const ButtonForm = styled.button`
     `
     background-color: var(--color-dark);
     color: var(--color-light);
+    border: 2px solid transparent;
 
     `}
 
@@ -36,6 +40,7 @@ export const ButtonForm = styled.button`
     `
     background-color: var(--color-yellow);
     color: var(--color-dark);
+    border: 2px solid transparent;
     `}
 
   &:hover {
@@ -60,7 +65,26 @@ export const ButtonForm = styled.button`
       `
     background-color: white;
     color: var(--color-yellow);
-    border: solid 2px var(--color-yellow)
+    border: solid 2px var(--color-yellow);  
+    &::after{
+    content: "Deixar de Seguir";
+    width: 100px;
+    height: 25px;
+    font-size: 10px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    color:var(--color-white);
+    z-index: 10;
+    background: hsla(0, 77%, 53%, 0.9);
+    border-radius: 10px;
+    font-weight: bold; 
+    transform: translateX(-50%);
+
+  }
+
+    
+    
     `}
 
   }
