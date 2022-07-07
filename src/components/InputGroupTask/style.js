@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const InputControl = styled.div`
   width: 100%;
   margin: 1rem 0;
@@ -25,7 +26,9 @@ export const ContainerInput = styled.div`
 `;
 
 export const LabelInput = styled.label`
+
   position: absolute;
+
   top: -15px;
   padding: 0 20px;
   background-color: var(--color-light);
@@ -44,6 +47,7 @@ export const AreaInput = styled.input`
   border: none;
   padding: 5px;
   border-radius: 5px;
+
 
   font-family: "Barlow Condensed", sans-serif;
   font-size: 1rem;

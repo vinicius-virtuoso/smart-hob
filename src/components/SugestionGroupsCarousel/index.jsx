@@ -33,6 +33,7 @@ const SugestionGroupsCarousel = () => {
     }
   };
 
+
   return (
     <Container>
       {list.length > 0 && (

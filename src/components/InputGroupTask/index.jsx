@@ -1,3 +1,4 @@
+
 import {
   AreaInput,
   ContainerInput,
@@ -5,6 +6,7 @@ import {
   LabelInput,
   MessageErro,
 } from "./style";
+
 
 const InputGroupTask = ({
   label,
@@ -16,7 +18,9 @@ const InputGroupTask = ({
   ...rest
 }) => {
   return (
+
     <InputControl>
+
       <ContainerInput erro={erro}>
         <LabelInput erro={erro}> {label} </LabelInput>
         <AreaInput
@@ -28,7 +32,9 @@ const InputGroupTask = ({
         />
       </ContainerInput>
       <MessageErro>{erro && messageErro}</MessageErro>
+
     </InputControl>
+
   );
 };
 
