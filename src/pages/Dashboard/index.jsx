@@ -8,10 +8,15 @@ import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
 import DisplayCarouselHobbies from "../../components/DisplayCarouselHobbies";
 import DisplayAdcGroups from "../../components/DisplayAdcGroups";
+import ButtonAdd from "../../components/ButtonAdd";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const { userHobbies, userGroups } = useContext(UserContext);
+  const navigate = useNavigate()
+
   
+
 
   return (
     <Grid>
@@ -20,7 +25,10 @@ function Dashboard() {
         <ModalPhrase />
         <Box>
           {userHobbies.length > 0 ? (
-            <DisplayCarouselHobbies />
+            <>
+              <DisplayCarouselHobbies />
+              <ButtonAdd size={"large"} theme={"primary"} onClick={() => navigate("/dashboard/criar-grupos")} />
+            </>
           ) : (
             <NoContent>Sem grupos para mostrar</NoContent>
           )}
@@ -29,7 +37,12 @@ function Dashboard() {
         <Container>
           <Box>
             {userGroups.length > 0 ? (
-              <DisplayCards />
+              <>
+                <div>
+                  <h3>Seus Grupos</h3>
+                </div>
+                <DisplayCards />
+              </>
             ) : (
               <NoContent>Sem grupos para mostrar</NoContent>
             )}

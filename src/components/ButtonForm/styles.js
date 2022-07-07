@@ -76,7 +76,7 @@ export const ButtonForm = styled.button`
     left: 50%;
     color:var(--color-white);
     z-index: 10;
-    background: hsla(0, 77%, 53%, 0.8);
+    background: hsla(0, 77%, 53%, 0.9);
     border-radius: 10px;
     font-weight: bold; 
     transform: translateX(-50%);
