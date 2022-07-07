@@ -9,7 +9,10 @@ import Dashboard from "../pages/Dashboard";
 import Index from "../pages/Index";
 import PageNewHabit from "../pages/PageNewHabit/index";
 import SearchGroups from "../pages/SearchGroups";
+<<<<<<< HEAD
 import PageEditHabit from "../pages/EditHabit";
+=======
+>>>>>>> 6ad1c183247573dd147f3d2445ca6de8f92c9574
 
 const PrivateRoute = ({ children, redirectTo }) => {
   return isAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -44,7 +47,11 @@ export default function Rotas() {
           <Route
             path="/dashboard/criar-grupos"
             element={
+<<<<<<< HEAD
               <PrivateRoute redirectTo="/login">
+=======
+              <PrivateRoute redirectTo="/new-groups">
+>>>>>>> 6ad1c183247573dd147f3d2445ca6de8f92c9574
                 <PageNewGroup />
               </PrivateRoute>
             }
@@ -91,6 +98,11 @@ export default function Rotas() {
               </PublicRoute>
             }
           />
+<<<<<<< HEAD
+=======
+          {/* Mudar para privada */}
+          {/* <Route path="/new-groups" element={<PageNewGroup />} /> */}
+>>>>>>> 6ad1c183247573dd147f3d2445ca6de8f92c9574
           <Route
             path="*"
             element={

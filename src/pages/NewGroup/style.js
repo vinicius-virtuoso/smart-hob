@@ -18,8 +18,13 @@ export const ImageHeader = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+<<<<<<< HEAD
     padding: 30px;
     justify-content: center;
+=======
+    width: 100%;
+
+>>>>>>> 6ad1c183247573dd147f3d2445ca6de8f92c9574
     img {
       display: none;
     }
@@ -27,16 +32,29 @@ export const ImageHeader = styled.div`
     h3 {
       font-size: 12px;
     }
+
+    button {
+      width: 2rem;
+      border: 2px solid var(--color-dark);
+    }
   }
   display: flex;
   flex-direction: column;
   align-items: center;
+<<<<<<< HEAD
   justify-content: center;
 
   img {
     max-width: 1000px;
     width: 400px;
     height: 40vh;
+=======
+  width: 100%;
+
+  img {
+    width: 60%;
+    height: 10rem;
+>>>>>>> 6ad1c183247573dd147f3d2445ca6de8f92c9574
   }
 
   h3 {
