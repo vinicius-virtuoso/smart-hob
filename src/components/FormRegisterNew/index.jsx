@@ -15,7 +15,8 @@ const FormRegisterNew = () => {
     username: yup
       .string()
       .required("Nome de usuário necessária")
-      .min(6, "Mínimo 6 caracteres."),
+      .min(6, "Mínimo 6 caracteres.")
+      .max(15, "Máximo de 15 caracteres."),
     email: yup
       .string()
       .email("E-mail invalido")
