@@ -1,22 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../Context/Provider/User";
 import CardGroups from "../CardGroups";
 import { Button, Flex, List, ListContainer } from "./style";
 
-function LisSearch({ getGroups, get_groups }) {
-  const [allGroups, setAllGroups] = useState(true);
+function LisSearch({
+  getGroups,
+  get_groups,
+  activeGroups,
+  renderAllGroups,
+  renderUserGroups,
+  allGroups,
+}) {
   const { userGroups, get_user_groups } = useContext(UserContext);
-  const [activeGroups, setActiveGroups] = useState("all");
-
-  const renderAllGroups = () => {
-    setAllGroups(true);
-    setActiveGroups("all");
-  };
-
-  const renderUserGroups = () => {
-    setAllGroups(false);
-    setActiveGroups("user");
-  };
 
   return (
     <ListContainer>
