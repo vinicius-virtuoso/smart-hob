@@ -35,7 +35,7 @@ export const ShowPhraseProvider = ({ children }) => {
       setOpenPhrase(true);
       loadPhrase();
     }
-  }, []);
+  }, [guarding]);
 
   return (
     <ShowPhraseContext.Provider
