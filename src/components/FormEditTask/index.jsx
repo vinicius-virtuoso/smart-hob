@@ -138,7 +138,7 @@ const FormEditTask = ({ hobbieId }) => {
                 label="Finalizado"
               />
             </SwitchQuantity>
-            <ButtonForm type="submit" tertiary>
+            <ButtonForm type="submit" secondary>
               Salvar
             </ButtonForm>
           </FormNT>

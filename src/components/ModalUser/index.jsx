@@ -129,7 +129,7 @@ export function ModalUser({ open, setOpen }) {
               />
             </FormControl>
             <Box></Box>
-            <ButtonForm tertiary type="submit">
+            <ButtonForm secondary type="submit">
               Atualizar
             </ButtonForm>
             <FormControlLabel
