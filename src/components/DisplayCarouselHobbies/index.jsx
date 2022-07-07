@@ -20,6 +20,7 @@ const DisplayCarouselHobbies = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
   };
 
+
   return (
     <Section>
       <Carousel ref={carousel}>
