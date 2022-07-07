@@ -1,6 +1,6 @@
 import { Div, Button, Ul, Menu } from "./styles";
 import { useState } from "react";
-import ModalUser from "../ModalUser";
+// import {ModalUser} from "../ModalUser";
 
 const MenuHamb = ({ arr, open, setOpen, handleOpen }) => {
   const [closeMenu, setCloseMenu] = useState(true);
@@ -44,7 +44,7 @@ const MenuHamb = ({ arr, open, setOpen, handleOpen }) => {
           </Ul>
         </Menu>
       </Div>
-      <ModalUser open={open} setOpen={setOpen} handleOpen={handleOpen} />
+      {/* <ModalUser open={open} setOpen={setOpen} handleOpen={handleOpen} /> */}
     </>
   );
 };

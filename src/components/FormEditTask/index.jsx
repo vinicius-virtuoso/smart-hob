@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BoxForm, ContainerForm, FormNT, SwitchQuantity } from "./style";
@@ -16,13 +16,13 @@ import { useNavigate } from "react-router-dom";
 const FormEditTask = ({ hobbieId }) => {
   const navigate = useNavigate();
   const [checked, setChecked] = useState(false);
-  const { user } = useContext(UserContext);
-  const [token] = useState(localStorage.getItem("@Smart-hob/token") || "");
-  const edit = user.hobbies.filter((el) => el.id === Number(hobbieId));
+  const [achivedTask, setAchivedTask] = useState(false);
+  const { userHobbies, token, get_user_hobbies } = useContext(UserContext);
+  const edit = userHobbies.filter((el) => el.id === Number(hobbieId));
 
   const schema = yup.object().shape({
-    achieved: yup.boolean(),
-    how_much_achieved: yup.number().default(() => 0),
+    achieved: yup.boolean().default(() => achivedTask),
+    how_much_achieved: yup.number(),
   });
 
   const {
@@ -37,6 +37,8 @@ const FormEditTask = ({ hobbieId }) => {
     delete data.difficulty;
     delete data.frequency;
 
+    console.log(data);
+
     api_habits
       .patch(`habits/${edit[0].id}/`, data, {
         headers: {
@@ -45,12 +47,19 @@ const FormEditTask = ({ hobbieId }) => {
       })
       .then((res) => {
         toast.success("Hábito atualizado com sucesso");
-        return navigate("/dashboard");
+        get_user_hobbies();
+        navigate("/dashboard");
       })
       .catch((err) => console.log(err));
   };
 
   const handleChange = (event) => setChecked(event.target.checked);
+
+  useEffect(() => {
+    if (edit[0]?.achieved) {
+      setAchivedTask(edit[0].achieved);
+    }
+  }, [edit]);
 
   return (
     <div>
@@ -61,7 +70,7 @@ const FormEditTask = ({ hobbieId }) => {
               name="title"
               label="Título"
               register={register}
-              value={edit[0].title}
+              value={edit[0]?.title}
               disabled="disabled"
             />
 
@@ -69,7 +78,7 @@ const FormEditTask = ({ hobbieId }) => {
               register={register}
               nameSelect="category"
               label="Categoria"
-              value={edit[0].category}
+              value={edit[0]?.category}
               disabled="disabled"
               datasArray={[
                 "Meditação",
@@ -90,7 +99,7 @@ const FormEditTask = ({ hobbieId }) => {
               register={register}
               nameSelect="difficulty"
               label="Dificuldade"
-              value={edit[0].difficulty}
+              value={edit[0]?.difficulty}
               disabled="disabled"
               datasArray={["Fácil", "Médio", "Difícil"]}
             />
@@ -99,7 +108,7 @@ const FormEditTask = ({ hobbieId }) => {
               register={register}
               nameSelect="frequency"
               label="Frequência"
-              value={edit[0].frequency}
+              value={edit[0]?.frequency}
               disabled="disabled"
               datasArray={[
                 "Diária",

@@ -1,4 +1,4 @@
-import { forwardRef, useContext, useRef } from "react";
+import { useContext } from "react";
 import {
   Box,
   Button,
@@ -23,9 +23,7 @@ import { UserContext } from "../../Context/Provider/User";
 import { toast } from "react-toastify";
 import { ShowPhraseContext } from "../../Context/Provider/ShowModal";
 
-function ModalUser({ open, setOpen }, ref) {
-  const reff = useRef(ref);
-
+export function ModalUser({ open, setOpen }) {
   const handleClose = () => {
     reset();
     setOpen(false);
@@ -71,7 +69,6 @@ function ModalUser({ open, setOpen }, ref) {
   return (
     <>
       <Modal
-        ref={ref}
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -154,5 +151,3 @@ function ModalUser({ open, setOpen }, ref) {
     </>
   );
 }
-
-export default forwardRef(ModalUser);

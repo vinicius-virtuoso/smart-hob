@@ -5,7 +5,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import FormEditTask from "../../components/FormEditTask";
 
 const PageEditHabit = () => {
-  const { hobbie_id } = useParams();
+  const { id } = useParams();
 
   return (
     <>
@@ -19,7 +19,7 @@ const PageEditHabit = () => {
           <h3>Atualize seu hábito</h3>
         </ImageHeader>
       </HeaderNewTask>
-      <FormEditTask hobbieId={hobbie_id} />
+      <FormEditTask hobbieId={id} />
     </>
   );
 };
